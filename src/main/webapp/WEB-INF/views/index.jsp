@@ -18,83 +18,67 @@
 
     <%-- Linki do szablonów css trafią tutaj --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link href="public_html/styles/bulma.css" rel="stylesheet" type="text/css">
+    <link href="public_html/styles/helpers.css" rel="stylesheet" type="text/css">
+    <link href="public_html/styles/grid.css" rel="stylesheet" type="text/css">
 
     <%-- Linki do skryptów js trafią tutaj --%>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .hero {
+            background: url(public_html/images/tenis.jpeg) center / cover;
+        }
 
+        @media (max-width: 1024px) {.hero {background: url(public_html/images/tenis.jpeg) center / cover;}}
+    </style>
 </head>
-<body class="has-navbar-fixed-top">
-<header>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="/">
-                        Strona główna
-                    </a>
-                    <%-- Tutaj pozostałe linki, które chcemy mieć widoczne --%>
 
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            Więcej
-                        </a>
+<body>
+<!--. hero -->
+<section class="hero is-fullheight">
+    <!--.hero-head-->
+    <div class="hero-head">
+        <div class="columns is-mobile is-marginless heading has-text-weight-bold">
+            <div class="column left">
 
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                Link do niczego
-                            </a>
-                            <%-- Tutaj kolejne linki w menu dodatkowym --%>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="navbar=end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary" href="/register">
-                                <strong>Zarejestruj</strong>
-                            </a>
-                            <a class="button is-success" href="/login">
-                                <strong>Zaloguj</strong>
-                            </a>
-                            <sec:authorize access="isAuthenticated()">
-                                <a class="button is-primary" href="/user">
-                                    <strong>Twoje konto</strong>
-                                </a>
-                                <form method="post" action="/logout">
-                                    <button class="button is-link" type="submit">Wyloguj</button>
-                                </form>
-                            </sec:authorize>
-                        </div>
-                    </div>
-                </div>
+                <p class="navbar-item is-size-3 has-text-grey-light">WROCŁAWSKA LIGA TENISOWA</p>
+                <!-- ... -->
+            </div>
+            <div class="column center desktop">
+                <p class="navbar-item has-text-black is-size-5">O LIDZE</p>
+                <p class="navbar-item has-text-black is-size-5">WYNIKI</p>
+                <p class="navbar-item has-text-black is-size-5">ZASADY</p>
+                <!-- ... -->
+            </div>
+            <div class="column right">
+                <a class="navbar-item desktop has-text-black is-size-5" href="/register">REJESTRACJA</a>
+                <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
+                <!-- ... -->
             </div>
         </div>
-    </nav>
-</header>
-<section class="hero is-bold is-medium">
-    <div class="container">
-        <div class="hero-body">
-            <h1 class="title">
-                Spring Transitions
-            </h1>
-            <h2 class="subtitle">
-                Witaj w projekcie <strong>Spring Transitions</strong>.
-                <br/>Znajdziesz tutaj mnóstwo przykładów w jaki sposób mogą być wdrażane kolejne
-                rozwinięcia aplikacji opartej na
-                frameworku Spring i Spring Boot
-            </h2>
+    </div>
+    <!-- /. hero-head-->
+    <!-- .hero-body-->
+    <header class="hero-body">
+        <div class="is-overlay has-text-centered single-spaced" style="top: 250px;">
 
+            <h1 class="subtitle is-2 has-text-black has-text-weight-bold">NOWA AMATORSKA LIGA TENISOWA WE WROCŁAWIU</h1></br>
+            <h2 class="title is-4">DOŁĄCZ JUŻ DZIŚ! NOWA RUNDA STARTUJE OD KWIETNIA 2020!</h2>
         </div>
-    </div>
+        <div class="column center">
+            <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/register"
+               style="width: 10%; border: 0.15em solid white;">
+                Rejestracja
+            </a>
+            <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/login"
+               style="width: 10%; border: 0.15em solid white;">
+                Logowanie
+            </a>
+        </div>
+    </header>
 </section>
-<footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <p><strong>Spring Transitions</strong> by Michał Kupisiński &copy; Prawa licencyjne na
-                zasadzie praw ogólnych</p>
-        </div>
-    </div>
-</footer>
+<!--/.hero -->
+</body>
+
 </body>
 </html>
