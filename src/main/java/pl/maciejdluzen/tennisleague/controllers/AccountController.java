@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
+import pl.maciejdluzen.tennisleague.services.JoinRoundService;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -20,6 +21,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class AccountController {
+
+    private final JoinRoundService joinRoundService;
+
+    public AccountController(JoinRoundService joinRoundService) {
+        this.joinRoundService = joinRoundService;
+    }
 
     @ModelAttribute("ntrplevels")
     public List<Double> ntrpLevels() {
@@ -47,6 +54,7 @@ public class AccountController {
         if (result.hasErrors()) {
             return "/user/player-form";
         }
+        joinRoundService.joinRound(singlesPlayerSignUp);
         return "user/account";
     }
 

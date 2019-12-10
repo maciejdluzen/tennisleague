@@ -17,7 +17,7 @@ public class SinglesPlayerSignUpDTO {
     private String lastName;
     @NotBlank
     private String phoneNumber;
-    @NotBlank
+
     private Double ntrp;
 
 //    @NotBlank
