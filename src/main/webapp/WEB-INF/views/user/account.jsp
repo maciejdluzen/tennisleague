@@ -1,4 +1,3 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -57,14 +56,12 @@
                             <a class="button is-success" href="/login">
                                 <strong>Zaloguj</strong>
                             </a>
-                            <sec:authorize access="isAuthenticated()">
-                                <a class="button is-primary" href="/user">
-                                    <strong>Twoje konto</strong>
-                                </a>
-                                <form method="post" action="/logout">
-                                    <button class="button is-link" type="submit">Wyloguj</button>
-                                </form>
-                            </sec:authorize>
+                            <a class="button is-primary" href="/account">
+                                <strong>Twoje konto</strong>
+                            </a>
+                            <form method="post" action="/logout">
+                                <button class="button is-link" type="submit">Wyloguj</button>
+                            </form>
                         </div>
                     </div>
                 </div>
