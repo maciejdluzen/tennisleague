@@ -32,4 +32,12 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
 
+    // TODO Add the following items to: firstName, lastName, telephoneNumber
+
+//    private String firstName;
+//    private String lastName;
+//    private String telephoneNumber;
+//    private Double ntrp;
+
+
 }

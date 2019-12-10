@@ -30,7 +30,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistrationPage(@ModelAttribute("registrationData") // w nawiaskie mamy wartosc bo
+    public String processRegistrationPage(@ModelAttribute("registrationData") // w nawiaskie mamy wartosc bo ("registrationData", new RegistrationDataDTO()) w getRegistrationPage
       @Valid RegistrationDataDTO registrationData, BindingResult results) {
         if (results.hasErrors()) {
             return "register/form";

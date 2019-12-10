@@ -3,6 +3,8 @@ package pl.maciejdluzen.tennisleague.dtos;
 import lombok.Data;
 
 import javax.validation.constraints.*;
+import java.util.concurrent.Flow;
+
 
 @Data
 public class RegistrationDataDTO {
@@ -17,4 +19,12 @@ public class RegistrationDataDTO {
     private String rePassword;
     @NotNull @AssertTrue
     private Boolean termsAcceptance;
+
+    // Tutaj umiescimy rowniez listy z polami wyboru
+
+    // Dla klasy Book
+//    private Publisher publisher;
+//
+//    private Long publisherId; //nastapi automatyczna konwersja przez modelmappera
+
 }
