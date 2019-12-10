@@ -1,16 +1,36 @@
 package pl.maciejdluzen.tennisleague.domain.entities;
 
-import java.time.LocalDate;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@Getter @Setter
+@ToString
+@EqualsAndHashCode(of = "id")
+
+@Entity
+@Table(name = "rounds")
 public class Round {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
+    @Column(name = "end-date", nullable = false)
     private LocalDate endDate;
 
-    // TODO Prepare Round Entity
-    // OneToMany relationship with group (Many groups belong to one round)
-    // ManyToMany relationship with singles players (Many players belong to many groups)
+    @OneToMany(mappedBy = "round") // swap this mappedBy to sinlesPlayers
+    private List<SinglesPlayer> singlesPlayers = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "round")
+    private List<Group> groups = new ArrayList<>();
 }

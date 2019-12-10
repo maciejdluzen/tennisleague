@@ -39,10 +39,4 @@ public class RegistrationController {
         registrationService.register(registrationData);
         return "redirect:/";
     }
-
-
-
-
-
-
 }

@@ -40,7 +40,6 @@
     <div class="hero-head">
         <div class="columns is-mobile is-marginless heading has-text-weight-bold">
             <div class="column left">
-
                 <p class="navbar-item is-size-3 has-text-grey-light">WROCŁAWSKA LIGA TENISOWA</p>
                 <!-- ... -->
             </div>
@@ -51,8 +50,14 @@
                 <!-- ... -->
             </div>
             <div class="column right">
-                <a class="navbar-item desktop has-text-black is-size-5" href="/register">REJESTRACJA</a>
-                <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
+                <sec:authorize access="!isAuthenticated()">
+                    <a class="navbar-item desktop has-text-black is-size-5" href="/register">REJESTRACJA</a>
+                    <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <a class="navbar-item desktop has-text-black is-size-5" href="/">MOJE KONTO</a>
+                    <a class="navbar-item desktop has-text-black is-size-5" href="/">WYLOGUJ</a>
+                </sec:authorize>
                 <!-- ... -->
             </div>
         </div>
@@ -66,14 +71,16 @@
             <h2 class="title is-4">DOŁĄCZ JUŻ DZIŚ! NOWA RUNDA STARTUJE OD KWIETNIA 2020!</h2>
         </div>
         <div class="column center">
-            <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/register"
-               style="width: 10%; border: 0.15em solid white;">
-                Rejestracja
-            </a>
-            <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/login"
-               style="width: 10%; border: 0.15em solid white;">
-                Logowanie
-            </a>
+            <sec:authorize access="!isAuthenticated()">
+                <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/register"
+                   style="width: 10%; border: 0.15em solid white;">
+                    Rejestracja
+                </a>
+                <a class="button is-danger is-inverted is-rounded is-outlined has-text-weight-bold" href="/login"
+                   style="width: 10%; border: 0.15em solid white;">
+                    Logowanie
+                </a>
+            </sec:authorize>
         </div>
     </header>
 </section>
