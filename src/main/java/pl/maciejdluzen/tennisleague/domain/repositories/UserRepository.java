@@ -5,4 +5,5 @@ import pl.maciejdluzen.tennisleague.domain.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User getByUsername(String username);
 }

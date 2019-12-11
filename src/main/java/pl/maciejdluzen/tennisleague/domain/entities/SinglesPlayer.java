@@ -30,7 +30,7 @@ public class SinglesPlayer {
     @Column(nullable = false)
     private Double ntrp;
     @Column(name = "total_points")
-    private Integer totalPoints;
+    private Integer totalPoints = 0;
     @Column(name = "sets_won")
     private Integer totalSetsWon;
     @Column(name = "matches_won")
@@ -40,12 +40,6 @@ public class SinglesPlayer {
 
     @OneToOne
     private User user;
-
-    @ManyToOne
-    private Round round;
-
-    @ManyToMany(mappedBy = "singlesPlayers2")
-    private List<Match> matches = new ArrayList<>();
 
     @ManyToOne
     private Group group;

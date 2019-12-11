@@ -24,11 +24,11 @@ public class Group {
     private String name;
 
     @OneToMany(mappedBy = "group") // swap mapping to singlePlayers3 in SinglePlayer entity
-    private List<SinglesPlayer> singlePlayers3 = new ArrayList<>();
+    private List<SinglesPlayer> singlePlayers = new ArrayList<>();
 
     @ManyToOne
     private Round round;
 
-    @ManyToMany
-    private List<Match> matches2 = new ArrayList<>();
+    @OneToMany(mappedBy = "group")
+    private List<Match> matches = new ArrayList<>();
 }

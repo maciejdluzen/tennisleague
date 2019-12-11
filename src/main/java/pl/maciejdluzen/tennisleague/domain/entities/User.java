@@ -31,6 +31,9 @@ public class User {
     @ManyToMany
     private Set<Role> roles = new HashSet<>();
 
+    @OneToOne(mappedBy = "user")
+    private SinglesPlayer singlesPlayer;
+
 
     // TODO Add the following items to: firstName, lastName, telephoneNumber
 

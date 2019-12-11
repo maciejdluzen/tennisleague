@@ -22,14 +22,16 @@ public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, name = "winner_sets")
-    private Integer winnerSets;
-    @Column(nullable = false, name = "loser_sets")
-    private Integer loserSets;
+    @Column(nullable = false, name = "player_one_sets")
+    private Integer playerOneSets;
+    @Column(nullable = false, name = "player_two_sets")
+    private Integer playerTwoSets;
 
-    @ManyToMany
-    private List<SinglesPlayer> singlesPlayers2 = new ArrayList<>();
+    @ManyToOne
+    private SinglesPlayer playerOne;
+    @ManyToOne
+    private SinglesPlayer playerTwo;
 
-    @ManyToMany(mappedBy = "matches2")
-    private List<Group> groups2 = new ArrayList<>();
+    @ManyToOne
+    private Group group;
 }

@@ -23,12 +23,14 @@ public class Round {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
+    private String name;
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
     @Column(name = "end-date", nullable = false)
     private LocalDate endDate;
 
-    @OneToMany(mappedBy = "round") // swap this mappedBy to sinlesPlayers
+    @ManyToMany
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();
 
     @OneToMany(mappedBy = "round")
