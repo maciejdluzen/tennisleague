@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: maciej
-  Date: 10/12/2019
-  Time: 21:09
+  Date: 11/12/2019
+  Time: 10:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
@@ -17,9 +17,9 @@
 
     <%-- Linki do szablonów css trafią tutaj --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link href="public_html/styles/bulma.css" rel="stylesheet" type="text/css">
-    <link href="public_html/styles/helpers.css" rel="stylesheet" type="text/css">
-    <link href="public_html/styles/grid.css" rel="stylesheet" type="text/css">
+    <link href="../../../../../resources/static/public_html/styles/bulma.css" rel="stylesheet" type="text/css">
+    <link href="../../../../../resources/static/public_html/styles/helpers.css" rel="stylesheet" type="text/css">
+    <link href="../../../../../resources/static/public_html/styles/grid.css" rel="stylesheet" type="text/css">
 
     <%-- Linki do skryptów js trafią tutaj --%>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -31,15 +31,11 @@
     <div class="hero-head">
         <div class="columns is-mobile is-marginless heading has-text-weight-bold">
             <div class="column left">
-                <p class="navbar-item is-size-3 has-text-grey-light">WROCŁAWSKA LIGA TENISOWA</p>
+                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE RUNDAMI</p>
                 <!-- ... -->
             </div>
             <div class="column center desktop">
-                <a class="navbar-item has-text-black is-size-5" href="/admin/rounds">RUNDY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/groups">GRUPY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/matches">MECZE</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/singlesplayers">ZAWODNICY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/users">UŻYTKOWNICY</a>
+                <a class="navbar-item has-text-black is-size-5" href="/admin/rounds/add">DODAJ RUNDĘ</a>
                 <!-- ... -->
             </div>
             <div class="column right">

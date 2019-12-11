@@ -22,18 +22,7 @@ public class AdminController {
         return "admin/account";
     }
 
-    @GetMapping("/rounds/add")
-    public String prepareNewRoundForm(Model model) {
-        model.addAttribute("newRound", new NewRoundCreationDTO());
-        return "/admin/new-round-form";
-    }
 
-    @PostMapping("/rounds/add")
-    public String processNewRoundForm() {
-
-
-        return "";
-    }
 
 
 
