@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
@@ -30,6 +31,12 @@ public class AdminGroupsController {
     public List<Round> findAllRounds() {
         List<Round> allRounds = adminService.findAllRounds();
         return allRounds;
+    }
+
+    @ModelAttribute("allgroups")
+    public List<Group> findAllGroups() {
+        List<Group> allGroups = adminService.findAllGroups();
+        return allGroups;
     }
 
     @GetMapping

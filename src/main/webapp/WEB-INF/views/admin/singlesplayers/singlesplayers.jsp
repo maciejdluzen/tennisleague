@@ -1,17 +1,17 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
   Date: 11/12/2019
-  Time: 15:06
+  Time: 19:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Zarządzanie grupami</title>
+    <title>Zarządzanie zawodnikami singlowymi</title>
     <%-- Elementy dotyczące treści strony --%>
     <%-- Elementy dotyczące wyświetlania --%>
     <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1.0"/>
@@ -31,11 +31,11 @@
     <div class="hero-head">
         <div class="columns is-mobile is-marginless heading has-text-weight-bold">
             <div class="column left">
-                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE GRUPAMI</p>
+                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE ZAWODNIKAMI</p>
                 <!-- ... -->
             </div>
             <div class="column center desktop">
-                <a class="navbar-item has-text-black is-size-5" href="/admin/groups/add">DODAJ GRUPE</a>
+                <a class="navbar-item has-text-black is-size-5" href="/">JAKIŚ LINK</a>
                 <!-- ... -->
             </div>
             <div class="column right">
@@ -55,48 +55,47 @@
             <table class="table">
                 <tr>
                     <td>Lp.</td>
+                    <td>ID zawodnika</td>
+                    <td>Imię</td>
+                    <td>Nazwisko</td>
+                    <td>NTRP</td>
+                    <td>Numer telefonu</td>
+                    <td>Wygrane mecze</td>
+                    <td>Przegrane mecze</td>
+                    <td>Wygrane sety</td>
+                    <td>Liczba punktów</td>
                     <td>ID grupy</td>
-                    <td>Nazwa grupy</td>
-                    <td>ID rundy</td>
-                    <td>Nazwa rundy</td>
-                    <td>Akcje</td>
+                    <td>ID użytkownika</td>
                 </tr>
-                <c:forEach items="${allgroups}" var="group" varStatus="stat">
+                <c:forEach items="${allsinglesplayers}" var="player" varStatus="stat">
                     <tr>
                         <td>${stat.count}</td>
-                        <td>${group.id}</td>
-                        <td>${group.name}</td>
-                        <td>${group.round.id}</td>
-                        <td>${group.round.name}</td>
+                        <td>${player.id}</td>
+                        <td>${player.firstName}</td>
+                        <td>${player.lastName}</td>
+                        <td>${player.ntrp}</td>
+                        <td>${player.phoneNumber}</td>
+                        <td>${player.totalMatchesWon}</td>
+                        <td>${player.totalMatchesLost}</td>
+                        <td>${player.totalSetsWon}</td>
+                        <td>${player.totalPoints}</td>
+                        <td>${player.group.name}</td>
+                        <td>${player.user.id}</td>
                         <td>
                             <c:url value="/" var="deleteURL">
-                                <c:param name="id" value="${group.id}"/>
+                                <c:param name="id" value="${player.id}"/>
                             </c:url>
                             <c:url value="/" var="updateURL">
-                                <c:param name="id" value="${group.id}"/>
+                                <c:param name="id" value="${player.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>
-                            <a href="${updateURL}">Edytuj</a>
+                            <a href="${updateURL}">Edytuj/Dopisz do grupy</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
     </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
 </body>
 </html>

@@ -31,17 +31,17 @@
             Nazwa grupy: <form:input path="name"/>
             </div>
             <div class="field">
-            Id rundy: <form:select path="roundId" items="${allrounds}" itemLabel="name" itemValue="id"/>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <button class="button is-text" type="submit">Utwórz grupę</button>
+                Nazwa rundy: <form:select path="roundId" items="${allrounds}" itemLabel="name" itemValue="id"/>
                 </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-text" type="submit">Utwórz grupę</button>
+                    </div>
+                </div>
+                <form:errors/>
+            </form:form>
             </div>
-            <form:errors/>
-        </form:form>
         </div>
-    </div>
-</section>
-</body>
-</html>
+    </section>
+    </body>
+    </html>

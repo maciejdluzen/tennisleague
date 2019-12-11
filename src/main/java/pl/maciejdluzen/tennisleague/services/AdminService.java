@@ -1,6 +1,8 @@
 package pl.maciejdluzen.tennisleague.services;
 
+import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
 
@@ -13,5 +15,9 @@ public interface AdminService {
     void addNewGroup(NewGroupCreationDTO newGroup);
 
     List<Round> findAllRounds();
+
+    List<Group> findAllGroups();
+
+    List<SinglesPlayer> findAllSinglesPlayers();
 
 }
