@@ -5,9 +5,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
+import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
+import pl.maciejdluzen.tennisleague.domain.repositories.MatchRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
@@ -25,11 +27,13 @@ public class DefaultAdminService implements AdminService {
     private final RoundRepository roundRepository;
     private final GroupRepository groupRepository;
     private final SinglesPlayerRepository singlesPlayerRepository;
+    private final MatchRepository matchRepository;
 
-    public DefaultAdminService(RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository) {
+    public DefaultAdminService(RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository, MatchRepository matchRepository) {
         this.roundRepository = roundRepository;
         this.groupRepository = groupRepository;
         this.singlesPlayerRepository = singlesPlayerRepository;
+        this.matchRepository = matchRepository;
     }
 
     @Override
@@ -70,6 +74,11 @@ public class DefaultAdminService implements AdminService {
         SinglesPlayer singlesPlayer = result.get();
         EditSinglesPlayerDTO singlesPlayerDTO = mapper.map(singlesPlayer, EditSinglesPlayerDTO.class);
         return singlesPlayerDTO;
+    }
+
+    @Override
+    public List<Match> findAllMatches() {
+        return matchRepository.findAll();
     }
 
     @Override
