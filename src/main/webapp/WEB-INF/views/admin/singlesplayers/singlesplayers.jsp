@@ -85,7 +85,7 @@
                             <c:url value="/" var="deleteURL">
                                 <c:param name="id" value="${player.id}"/>
                             </c:url>
-                            <c:url value="/" var="updateURL">
+                            <c:url value="/admin/singlesplayers/edit" var="updateURL">
                                 <c:param name="id" value="${player.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>

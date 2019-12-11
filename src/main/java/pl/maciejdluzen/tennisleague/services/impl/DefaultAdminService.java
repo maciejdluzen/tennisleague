@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,11 +10,13 @@ import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
+import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -43,6 +46,8 @@ public class DefaultAdminService implements AdminService {
         groupRepository.save(group);
     }
 
+
+
     @Override
     public List<Round> findAllRounds() {
         return roundRepository.findAll();
@@ -58,5 +63,19 @@ public class DefaultAdminService implements AdminService {
         return singlesPlayerRepository.findAll();
     }
 
+    @Override
+    public EditSinglesPlayerDTO findById(Long id) {
+        ModelMapper mapper = new ModelMapper();
+        Optional<SinglesPlayer> result = singlesPlayerRepository.findById(id);
+        SinglesPlayer singlesPlayer = result.get();
+        EditSinglesPlayerDTO singlesPlayerDTO = mapper.map(singlesPlayer, EditSinglesPlayerDTO.class);
+        return singlesPlayerDTO;
+    }
 
+    @Override
+    public void editSinglesPlayer(EditSinglesPlayerDTO singlesPlayerDTO) {
+        ModelMapper mapper = new ModelMapper();
+        SinglesPlayer singlesPlayer = mapper.map(singlesPlayerDTO, SinglesPlayer.class);
+        singlesPlayerRepository.save(singlesPlayer);
+    }
 }
