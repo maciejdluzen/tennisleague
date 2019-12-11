@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin/rounds")
+@Slf4j
 public class AdminRoundsController {
 
     private final AdminService adminService;
@@ -37,6 +39,11 @@ public class AdminRoundsController {
     @PostMapping("/add")
     public String processNewRoundForm(@ModelAttribute("newRound") @Valid NewRoundCreationDTO newRound,
                                       BindingResult result) {
+        if (result.hasErrors()) {
+            log.info("Nieprawidłowe dane rundy: " + newRound);
+            return "admin/rounds/new-round-form";
+        }
+        log.info("Dane rundy do zapisu: " + newRound);
         adminService.addNewRound(newRound);
         return "redirect:/";
     }

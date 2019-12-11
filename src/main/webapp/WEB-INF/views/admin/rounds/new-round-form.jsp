@@ -15,8 +15,8 @@
 <body>
 <form:form method="post" modelAttribute="newRound">
     <p>Nazwa rundy: <form:input path="name"/><form:errors path="name"/></p>
-    <p>Data rozpoczęcia: <form:input path="startDate" type="date" dataType="dd/MM/rrrr"/><form:errors path="startDate"/></p>
-    <p>Data zakończenia <form:input path="endDate" type="date" dataType="dd/MM/rrrr"/><form:errors path="endDate"/></p>
+    <p>Data rozpoczęcia: <form:input path="startDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="startDate"/></p>
+    <p>Data zakończenia <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="endDate"/></p>
     <p><input type="submit" value="Utwórz rundę"></p>
 </form:form>
 </body>

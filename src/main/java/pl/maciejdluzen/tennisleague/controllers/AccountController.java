@@ -1,8 +1,5 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
-import org.springframework.security.config.annotation.web.configurers.SecurityContextConfigurer;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,11 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
 import pl.maciejdluzen.tennisleague.services.JoinRoundService;
+import pl.maciejdluzen.tennisleague.services.UserService;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,9 +24,17 @@ import java.util.List;
 public class AccountController {
 
     private final JoinRoundService joinRoundService;
+    private final UserService userService;
 
-    public AccountController(JoinRoundService joinRoundService) {
+    public AccountController(JoinRoundService joinRoundService, UserService userService) {
         this.joinRoundService = joinRoundService;
+        this.userService = userService;
+    }
+
+    @ModelAttribute("soonestround")
+    public Round soonestRound() {
+        LocalDate dayNow = LocalDate.now();
+        return userService.findFirstByStartDateAfter(dayNow);
     }
 
     @ModelAttribute("ntrplevels")

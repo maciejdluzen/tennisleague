@@ -26,9 +26,9 @@ public class Round {
     @Column(nullable = false)
     private String name;
     @Column(name = "start_date", nullable = false)
-    private LocalDateTime startDate;
+    private LocalDate startDate;
     @Column(name = "end_date", nullable = false)
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     @ManyToMany
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();
