@@ -32,4 +32,6 @@ public class EditSinglesPlayerDTO {
 
     private Long groupId;
 
+    private Long userId;
+
 }

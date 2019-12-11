@@ -20,9 +20,11 @@
     <p>Poziom NTRP: <form:input path="ntrp"/><form:errors path="ntrp"/></p>
     <p>Numer telefonu: <form:input path="phoneNumber"/><form:errors path="phoneNumber"/></p>
     <p>Liczba wygranych meczy: <form:input path="totalMatchesWon"/><form:errors path="totalMatchesWon"/></p>
+    <p>Liczba przegranych meczy meczy: <form:input path="totalMatchesLost"/><form:errors path="totalMatchesLost"/></p>
     <p>Liczba wygranych setów: <form:input path="totalSetsWon"/><form:errors path="totalSetsWon"/></p>
     <p>Suma punktów: <form:input path="totalPoints"/><form:errors path="totalPoints"/></p>
     <p>Nazwa grupy: <form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
+    <p>Id użytkownika: <form:input path="userId"/></p>
     <p><input type="submit" value="Submit"></p>
 </form:form>
 </body>
