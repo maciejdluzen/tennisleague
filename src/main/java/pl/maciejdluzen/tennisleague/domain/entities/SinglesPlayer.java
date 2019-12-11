@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter @Setter
-@ToString
 @EqualsAndHashCode(of = "id")
 
 @Entity
@@ -32,11 +31,11 @@ public class SinglesPlayer {
     @Column(name = "total_points")
     private Integer totalPoints = 0;
     @Column(name = "sets_won")
-    private Integer totalSetsWon;
+    private Integer totalSetsWon = 0;
     @Column(name = "matches_won")
-    private Integer totalMatchesWon;
+    private Integer totalMatchesWon = 0;
     @Column(name = "matches_lost")
-    private Integer totalMatchesLost;
+    private Integer totalMatchesLost = 0;
 
     @OneToOne
     private User user;

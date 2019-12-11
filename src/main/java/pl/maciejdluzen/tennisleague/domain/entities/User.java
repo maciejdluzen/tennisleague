@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Getter @Setter
-@ToString(exclude = "password") @EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "id")
 
 @Entity
 @Table(name = "users")

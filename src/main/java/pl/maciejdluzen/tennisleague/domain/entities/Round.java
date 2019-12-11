@@ -7,13 +7,13 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Getter @Setter
-@ToString
 @EqualsAndHashCode(of = "id")
 
 @Entity
@@ -26,9 +26,9 @@ public class Round {
     @Column(nullable = false)
     private String name;
     @Column(name = "start_date", nullable = false)
-    private LocalDate startDate;
-    @Column(name = "end-date", nullable = false)
-    private LocalDate endDate;
+    private LocalDateTime startDate;
+    @Column(name = "end_date", nullable = false)
+    private LocalDateTime endDate;
 
     @ManyToMany
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();

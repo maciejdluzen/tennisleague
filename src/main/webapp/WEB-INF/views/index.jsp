@@ -55,8 +55,16 @@
                     <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                    <a class="navbar-item desktop has-text-black is-size-5" href="/">MOJE KONTO</a>
-                    <a class="navbar-item desktop has-text-black is-size-5" href="/">WYLOGUJ</a>
+                    <sec:authorize access="hasAnyRole('USER')">
+                        <a class="navbar-item desktop has-text-black is-size-5" href="/user">MOJE KONTO</a>
+                    </sec:authorize>
+                    <sec:authorize access="hasAnyRole('ADMIN')">
+                        <a class="navbar-item desktop has-text-black is-size-5" href="/admin">KONTO ADMINA</a>
+                    </sec:authorize>
+                    <form method="post" action="/logout">
+                        <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
+                        <sec:csrfInput/>
+                    </form>
                 </sec:authorize>
                 <!-- ... -->
             </div>

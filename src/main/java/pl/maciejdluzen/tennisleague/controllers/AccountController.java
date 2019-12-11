@@ -42,20 +42,20 @@ public class AccountController {
         return "user/account";
     }
 
-    @GetMapping("/account/joinround")
+    @GetMapping("/joinround")
     public String prepareJoinRoundPage(Model model) {
         model.addAttribute("singlesPlayer", new SinglesPlayerSignUpDTO());
         return "/user/player-form";
     }
 
-    @PostMapping("/account/joinround")
+    @PostMapping("/joinround")
     public String processJoinRoundPage(@ModelAttribute("singlesPlayer")
         @Valid SinglesPlayerSignUpDTO singlesPlayerSignUp, BindingResult result) {
         if (result.hasErrors()) {
             return "/user/player-form";
         }
         joinRoundService.joinRound(singlesPlayerSignUp);
-        return "user/account";
+        return "redirect:/user";
     }
 
 

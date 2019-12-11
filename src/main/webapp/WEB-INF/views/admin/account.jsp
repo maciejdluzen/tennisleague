@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -43,7 +44,10 @@
             </div>
             <div class="column right">
                 <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>
-                <a class="navbar-item desktop has-text-black is-size-5" href="/">WYLOGUJ</a>
+                <form method="post" action="/logout">
+                    <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
+                    <sec:csrfInput/>
+                </form>
                 <!-- ... -->
             </div>
         </div>
