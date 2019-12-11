@@ -36,7 +36,7 @@ public class DefaultAdminService implements AdminService {
     public void addNewGroup(NewGroupCreationDTO newGroup) {
         ModelMapper mapper = new ModelMapper();
         Group group = mapper.map(newGroup, Group.class);
-
+        groupRepository.save(group);
     }
 
     @Override

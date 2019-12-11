@@ -37,18 +37,19 @@ public class AdminGroupsController {
         return "admin/groups/groups";
     }
 
-    @GetMapping
+    @GetMapping("/add")
     public String prepareNewGroupForm(Model model) {
         model.addAttribute("newGroup", new NewGroupCreationDTO());
         return "admin/groups/new-group-form";
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String processNewGroupForm(@ModelAttribute("newGroup")
       @Valid NewGroupCreationDTO newGroup, BindingResult result) {
         if(result.hasErrors()) {
             return "admin/groups/new-group-form";
         }
+        adminService.addNewGroup(newGroup);
         return "redirect:/";
     }
 }
