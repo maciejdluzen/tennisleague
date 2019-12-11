@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -17,9 +18,9 @@
 
     <%-- Linki do szablonów css trafią tutaj --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link href="../../../../../resources/static/public_html/styles/bulma.css" rel="stylesheet" type="text/css">
-    <link href="../../../../../resources/static/public_html/styles/helpers.css" rel="stylesheet" type="text/css">
-    <link href="../../../../../resources/static/public_html/styles/grid.css" rel="stylesheet" type="text/css">
+    <link href="public_html/styles/bulma.css" rel="stylesheet" type="text/css">
+    <link href="public_html/styles/helpers.css" rel="stylesheet" type="text/css">
+    <link href="public_html/styles/grid.css" rel="stylesheet" type="text/css">
 
     <%-- Linki do skryptów js trafią tutaj --%>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -49,6 +50,40 @@
         </div>
     </div>
     <!-- /. hero-head-->
+    <!-- .hero-body-->
+    <header class="hero-body">
+        <div class="column center">
+            <table class="table">
+                <tr>
+                    <td>Lp.</td>
+                    <td>ID rundy</td>
+                    <td>Nazwa rundy</td>
+                    <td>Data rozpoczęcia</td>
+                    <td>Data zakończenia</td>
+                    <td>Akcje</td>
+                </tr>
+                <c:forEach items="${allrounds}" var="round" varStatus="stat">
+                    <tr>
+                        <td>${stat.count}</td>
+                       <td>${round.id}</td>
+                       <td>${round.name}</td>
+                       <td>${round.startDate}</td>
+                       <td>${round.endDate}</td>
+                        <td>
+                            <c:url value="/" var="deleteURL">
+                                <c:param name="id" value="${round.id}"/>
+                            </c:url>
+                            <c:url value="/" var="updateURL">
+                                <c:param name="id" value="${round.id}"/>
+                            </c:url>
+                            <a href="${deleteURL}">Usuń</a>
+                            <a href="${updateURL}">Edytuj</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </header>
 </section>
 </body>
 </html>

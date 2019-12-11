@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Tworzenie nowej rundy</title>
 </head>
 <body>
 <form:form method="post" modelAttribute="newRound">

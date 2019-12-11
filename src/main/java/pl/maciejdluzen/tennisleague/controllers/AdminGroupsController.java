@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
-import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
+import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/rounds")
+@RequestMapping("/admin/groups")
 @Slf4j
-public class AdminRoundsController {
+public class AdminGroupsController {
 
     private final AdminService adminService;
 
-    public AdminRoundsController(AdminService adminService) {
+    public AdminGroupsController(AdminService adminService) {
         this.adminService = adminService;
     }
 
@@ -33,26 +33,22 @@ public class AdminRoundsController {
     }
 
     @GetMapping
-    public String prepareManageRoundsPage() {
-        return "admin/rounds/rounds";
+    public String prepareManageGroupsPage() {
+        return "admin/groups/groups";
     }
 
-    @GetMapping("/add")
-    public String prepareNewRoundForm(Model model) {
-        model.addAttribute("newRound", new NewRoundCreationDTO());
-        return "admin/rounds/new-round-form";
+    @GetMapping
+    public String prepareNewGroupForm(Model model) {
+        model.addAttribute("newGroup", new NewGroupCreationDTO());
+        return "admin/groups/new-group-form";
     }
 
-    @PostMapping("/add")
-    public String processNewRoundForm(@ModelAttribute("newRound") @Valid NewRoundCreationDTO newRound,
-                                      BindingResult result) {
-        if (result.hasErrors()) {
-            log.info("Nieprawidłowe dane rundy: " + newRound);
-            return "admin/rounds/new-round-form";
+    @PostMapping
+    public String processNewGroupForm(@ModelAttribute("newGroup")
+      @Valid NewGroupCreationDTO newGroup, BindingResult result) {
+        if(result.hasErrors()) {
+            return "admin/groups/new-group-form";
         }
-        log.info("Dane rundy do zapisu: " + newRound);
-        adminService.addNewRound(newRound);
         return "redirect:/";
     }
-
 }

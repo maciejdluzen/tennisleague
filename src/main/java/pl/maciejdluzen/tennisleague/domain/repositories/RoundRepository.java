@@ -12,5 +12,4 @@ public interface RoundRepository extends JpaRepository<Round, Long> {
     List<Round> findAllByStartDateAfter(LocalDate dateNow);
 
     Round findFirstByStartDateAfter(LocalDate dateNow);
-
 }

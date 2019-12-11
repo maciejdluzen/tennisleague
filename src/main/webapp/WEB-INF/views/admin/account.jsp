@@ -36,7 +36,7 @@
             </div>
             <div class="column center desktop">
                 <a class="navbar-item has-text-black is-size-5" href="/admin/rounds">RUNDY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/groups">GRUPY</a>
+                <a class="navbar-item has-text-black is-size-5" href="/admin/groups">GRUPY</a>
                 <a class="navbar-item has-text-black is-size-5" href="/admin/account/matches">MECZE</a>
                 <a class="navbar-item has-text-black is-size-5" href="/admin/account/singlesplayers">ZAWODNICY</a>
                 <a class="navbar-item has-text-black is-size-5" href="/admin/account/users">UŻYTKOWNICY</a>
