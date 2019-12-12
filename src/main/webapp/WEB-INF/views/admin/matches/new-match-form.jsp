@@ -16,8 +16,7 @@
 <form:form method="post" modelAttribute="newMatch">
     <p>Zawodnik 1: <form:select path="playerOneId" items="${allsinglesplayers}" itemLabel="lastName" itemValue="id"/></p>
     <p>Zawodnik 2: <form:select path="playerTwoId" items="${allsinglesplayers}" itemLabel="lastName" itemValue="id"/></p>
-    <p>Data zakończenia <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="endDate"/></p>
-    <p><input type="submit" value="Utwórz rundę"></p>
+    <p><input type="submit" value="Utwórz mecz"></p>
 </form:form>
 </body>
 </html>

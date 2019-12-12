@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter @Setter
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "id") @ToString(exclude = {"singlePlayers", "matches"})
 
 @Entity
 @Table(name = "groups")

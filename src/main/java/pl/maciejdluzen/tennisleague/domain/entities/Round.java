@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Getter @Setter
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "id") @ToString(exclude = {"singlesPlayers", "groups"})
 
 @Entity
 @Table(name = "rounds")

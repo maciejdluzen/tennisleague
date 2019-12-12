@@ -27,6 +27,7 @@
         <div class="column"></div>
         <div class="column">
         <form:form method="post" modelAttribute="newGroup">
+            <form:hidden path=""/>
             <div class="field">
             Nazwa grupy: <form:input path="name"/>
             </div>

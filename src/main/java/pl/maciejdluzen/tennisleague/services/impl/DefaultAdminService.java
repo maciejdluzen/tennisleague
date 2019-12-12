@@ -1,6 +1,7 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
+import pl.maciejdluzen.tennisleague.dtos.NewMatchCreationDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
@@ -21,13 +23,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
+@Transactional @Slf4j
 public class DefaultAdminService implements AdminService {
 
     private final RoundRepository roundRepository;
     private final GroupRepository groupRepository;
     private final SinglesPlayerRepository singlesPlayerRepository;
     private final MatchRepository matchRepository;
+    //ten model mapper został wstrzyknięty opcjonalnie (ustawiona strategia STRICT zamiast STANDART)
 
     public DefaultAdminService(RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository, MatchRepository matchRepository) {
         this.roundRepository = roundRepository;
@@ -47,6 +50,9 @@ public class DefaultAdminService implements AdminService {
     public void addNewGroup(NewGroupCreationDTO newGroup) {
         ModelMapper mapper = new ModelMapper();
         Group group = mapper.map(newGroup, Group.class);
+        // ModelMapper mapuje pole roundId również na pole id w encji (WTF?!)
+        group.setId(null);
+        log.info("Group to save: {}", group);
         groupRepository.save(group);
     }
 
@@ -86,5 +92,12 @@ public class DefaultAdminService implements AdminService {
         ModelMapper mapper = new ModelMapper();
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerDTO, SinglesPlayer.class);
         singlesPlayerRepository.save(singlesPlayer);
+    }
+
+    @Override
+    public void addNewMatch(NewMatchCreationDTO newMatch) {
+        ModelMapper mapper = new ModelMapper();
+        Match match = mapper.map(newMatch, Match.class);
+        matchRepository.save(match);
     }
 }

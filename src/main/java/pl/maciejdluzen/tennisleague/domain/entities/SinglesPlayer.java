@@ -12,7 +12,7 @@ import java.util.List;
 
 @Getter @Setter
 @EqualsAndHashCode(of = "id")
-
+@ToString
 @Entity
 @Table(name = "singles_players")
 public class SinglesPlayer {

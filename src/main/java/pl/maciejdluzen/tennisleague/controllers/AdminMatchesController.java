@@ -58,16 +58,11 @@ public class AdminMatchesController {
 
     @PostMapping("/add")
     public String processNewMatchForm(@ModelAttribute("newMatch")
-      @Valid NewGroupCreationDTO newMatch, BindingResult result){
+      @Valid NewMatchCreationDTO newMatch, BindingResult result){
         if(result.hasErrors()) {
             return "admin/matches/new-match-form";
         }
-
-
-
-        return "";
+        adminService.addNewMatch(newMatch);
+        return "redirect:/admin/matches";
     }
-
-
-
 }
