@@ -69,12 +69,22 @@
                         <td>${match.id}</td>
                         <td>${match.group.name}</td>
                         <td>Tutaj będzie data</td>
-                        <td>${match.playerOne.lastName}</td>
-                        <td>${match.playerOneSets}</td>
-                        <td>${match.playerTwo.lastName}</td>
-                        <td>${match.playerTwoSets}</td>
+                        <c:choose>
+                            <c:when test="${username.equals(match.playerOne.user.username)}">
+                                <td>${match.playerOne.lastName}</td>
+                                <td>${match.playerOneSets}</td>
+                                <td>${match.playerTwo.lastName}</td>
+                                <td>${match.playerTwoSets}</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>${match.playerTwo.lastName}</td>
+                                <td>${match.playerTwoSets}</td>
+                                <td>${match.playerOne.lastName}</td>
+                                <td>${match.playerOneSets}</td>
+                            </c:otherwise>
+                        </c:choose>
                         <td>
-                            <c:url value="/" var="reportResultURL">
+                            <c:url value="/user/matches/reportresult" var="reportResultURL">
                                 <c:param name="id" value="${match.id}"/>
                             </c:url>
                             <a href="${reportResultURL}">Dodaj wynik</a>
