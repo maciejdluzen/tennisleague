@@ -17,10 +17,8 @@
 
 <form:form method="post" modelAttribute="match">
     <form:hidden path="id"/>
-    <p>Pierwszy zawodnik: ${match.playerOneLastName}</p>
-    <p>Wynik pierwszego zawodnika: <form:select path="playerOneSets" items="${sets}"/></p>
-    <p>Drugi zawodnik: ${match.playerTwoLastName}</p>
-    <p>Wynik drugiego zawodnika: <form:select path="playerTwoSets" items="${sets}"/></p>
+    <p>Podaj wynik dla ${match.playerOneLastName}: <form:select path="playerOneSets" items="${sets}"/></p>
+    <p>Podaj wynik dla: ${match.playerTwoLastName} <form:select path="playerTwoSets" items="${sets}"/></p>
     <p><input type="submit" value="Zapisz wynik"></p>
 </form:form>
 </body>
