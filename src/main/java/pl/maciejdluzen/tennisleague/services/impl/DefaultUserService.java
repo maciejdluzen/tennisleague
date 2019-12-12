@@ -65,14 +65,28 @@ public class DefaultUserService implements UserService {
         Match match = matchRepository.getOne(singleMatchResultDTO.getId());
         match.setPlayerOneSets(singleMatchResultDTO.getPlayerOneSets());
 
-        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon() + singleMatchResultDTO.getPlayerOneSets()); // nowe
+        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon() + singleMatchResultDTO.getPlayerOneSets()); // add won sets to total sets count
+        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints() + singleMatchResultDTO.getPlayerOneSets()); // add points
+
 
         log.info("Player one {} sets: {}", singleMatchResultDTO.getPlayerOneLastName(), singleMatchResultDTO.getPlayerOneSets());
         log.info("Player two {} sets: {}", singleMatchResultDTO.getPlayerTwoLastName(), singleMatchResultDTO.getPlayerTwoSets());
 
         match.setPlayerTwoSets(singleMatchResultDTO.getPlayerTwoSets());
 
-        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon() + singleMatchResultDTO.getPlayerTwoSets()); // nowe
+        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon() + singleMatchResultDTO.getPlayerTwoSets()); // add won sets to total sets count
+        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalPoints() + singleMatchResultDTO.getPlayerTwoSets()); // add points
+
+        // adding won and lost matches to the total count of the players
+
+        if(singleMatchResultDTO.getPlayerOneSets() > singleMatchResultDTO.getPlayerTwoSets()) {
+            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()+1);
+            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()+1);
+        }
+        if(singleMatchResultDTO.getPlayerTwoSets() > singleMatchResultDTO.getPlayerOneSets()) {
+            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()+1);
+            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()+1);
+        }
         matchRepository.save(match);
     }
 }
