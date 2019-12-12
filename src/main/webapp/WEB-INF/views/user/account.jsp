@@ -38,7 +38,7 @@
             </div>
             <div class="column center desktop">
                 <a class="navbar-item has-text-black is-size-5" href="/user/joinround">ZAPIS DO RUNDY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/user">MOJE MECZE</a>
+                <a class="navbar-item has-text-black is-size-5" href="/user/matches">MOJE MECZE</a>
                 <!-- ... -->
             </div>
             <div class="column right">
