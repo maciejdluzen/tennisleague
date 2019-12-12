@@ -13,7 +13,7 @@ import java.util.List;
 
 @Getter @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 @Entity
 @Table(name = "matches")
 public class Match {

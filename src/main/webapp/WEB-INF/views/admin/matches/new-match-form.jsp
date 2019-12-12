@@ -14,6 +14,7 @@
 </head>
 <body>
 <form:form method="post" modelAttribute="newMatch">
+    <p>Nazwa group: <form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
     <p>Zawodnik 1: <form:select path="playerOneId" items="${allsinglesplayers}" itemLabel="lastName" itemValue="id"/></p>
     <p>Zawodnik 2: <form:select path="playerTwoId" items="${allsinglesplayers}" itemLabel="lastName" itemValue="id"/></p>
     <p><input type="submit" value="Utwórz mecz"></p>

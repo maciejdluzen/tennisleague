@@ -66,17 +66,17 @@
                     <tr>
                         <td>${stat.count}</td>
                         <td>${match.id}</td>
-                        <td>${match.group}</td>
-                        <td>${match.playerOne}</td>
+                        <td>${match.group.name}</td>
+                        <td>${match.playerOne.lastName}</td>
                         <td>${match.playerOneSets}</td>
-                        <td>${match.playerTwo}</td>
+                        <td>${match.playerTwo.lastName}</td>
                         <td>${match.playerTwoSets}</td>
                         <td>
                             <c:url value="/" var="deleteURL">
-                                <c:param name="id" value="${player.id}"/>
+                                <c:param name="id" value="${match.id}"/>
                             </c:url>
                             <c:url value="/" var="updateURL">
-                                <c:param name="id" value="${player.id}"/>
+                                <c:param name="id" value="${match.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>
                             <a href="${updateURL}">Edytuj</a>
