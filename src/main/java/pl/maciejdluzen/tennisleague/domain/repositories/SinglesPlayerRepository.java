@@ -7,9 +7,6 @@ import java.util.List;
 
 public interface SinglesPlayerRepository extends JpaRepository<SinglesPlayer, Long> {
 
-    List<SinglesPlayer> findAllByGroupName
-
-
-
+    List<SinglesPlayer> findAllByGroupIdOrderByTotalPointsDescTotalMatchesWonDesc(Long id);
 
 }

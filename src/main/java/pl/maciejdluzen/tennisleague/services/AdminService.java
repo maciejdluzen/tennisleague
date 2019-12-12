@@ -30,4 +30,6 @@ public interface AdminService {
     EditSinglesPlayerDTO findById(Long id);
 
     List<Match> findAllMatches();
+
+
 }

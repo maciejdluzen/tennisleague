@@ -100,4 +100,6 @@ public class DefaultAdminService implements AdminService {
         Match match = mapper.map(newMatch, Match.class);
         matchRepository.save(match);
     }
+
+
 }
