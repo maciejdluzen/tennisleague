@@ -16,12 +16,11 @@
 <body>
 
 <form:form method="post" modelAttribute="match">
-    <p>Nazwisko zalogowanego użytkownika: <form:input path="playerOneId" readonly="true"/></p>
-    <p>Nazwisko zalogowanego zawodnika: ${match.playerOneId}</p>
-    <p>Wynik zalogowanego zawodnika: <form:select path="playerOneSets" items="${sets}"/></p>
-    <p>Nazwisko przeciwnika: <form:input path="playerTwoId" readonly="true"/> </p>
-    <p>Nazwisko zalogowanego zawodnika: ${match.playerTwoId}</p>
-    <p>Wynik przeciwnika: <form:select path="playerOneSets" items="${sets}"/></p>
+    <form:hidden path="id"/>
+    <p>Pierwszy zawodnik: ${match.playerOneLastName}</p>
+    <p>Wynik pierwszego zawodnika: <form:select path="playerOneSets" items="${sets}"/></p>
+    <p>Drugi zawodnik: ${match.playerTwoLastName}</p>
+    <p>Wynik drugiego zawodnika: <form:select path="playerTwoSets" items="${sets}"/></p>
     <p><input type="submit" value="Zapisz wynik"></p>
 </form:form>
 </body>

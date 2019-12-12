@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
+@Transactional @Slf4j
 public class DefaultUserService implements UserService {
 
     private final RoundRepository roundRepository;
@@ -50,16 +51,17 @@ public class DefaultUserService implements UserService {
     @Override
     public ReportSingleMatchResultDTO findById(Long id) {
         ModelMapper mapper = new ModelMapper();
-        Optional<Match> result = matchRepository.findById(id);
-        Match match = result.get();
+        Match match = matchRepository.getOne(id);
         ReportSingleMatchResultDTO matchResultDTO = mapper.map(match, ReportSingleMatchResultDTO.class);
+        log.info("Returning match info: {}", matchResultDTO);
         return matchResultDTO;
     }
 
     @Override
     public void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO) {
-        ModelMapper mapper = new ModelMapper();
-        Match match = mapper.map(singleMatchResultDTO, Match.class);
+        Match match = matchRepository.getOne(singleMatchResultDTO.getId());
+        match.setPlayerOneSets(singleMatchResultDTO.getPlayerOneSets());
+        match.setPlayerTwoSets(singleMatchResultDTO.getPlayerTwoSets());
         matchRepository.save(match);
     }
 }

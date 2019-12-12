@@ -14,9 +14,6 @@ public class ReportSingleMatchResultDTO {
     @Max(2) @Min(0)
     private Integer playerTwoSets = 0;
 
-    private Long groupId;
-
-    private Long playerOneId;
-
-    private Long playerTwoId;
+    private String playerOneLastName;
+    private String playerTwoLastName;
 }
