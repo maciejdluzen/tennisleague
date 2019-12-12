@@ -16,4 +16,5 @@ public class ReportSingleMatchResultDTO {
 
     private String playerOneLastName;
     private String playerTwoLastName;
+
 }

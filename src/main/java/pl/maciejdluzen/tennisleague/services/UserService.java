@@ -19,4 +19,5 @@ public interface UserService {
     ReportSingleMatchResultDTO findById(Long id);
 
     void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO);
+
 }
