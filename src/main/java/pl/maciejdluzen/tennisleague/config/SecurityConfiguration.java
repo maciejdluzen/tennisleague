@@ -47,6 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()   // tworzymy Od szczegółu do ogółu, .anyRequest().authenticated na początu nie może być!!!
                 .antMatchers("/register").permitAll()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/ranking").permitAll()
                 .antMatchers("/logout").authenticated()
                 .antMatchers("/user", "/user/**").hasRole("USER")   // ta metoda dokleja ROLE_ z przodu - na bazie mamy ROLE_USER!
                 .antMatchers("/admin", "/admin/**").hasRole("ADMIN")

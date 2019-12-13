@@ -10,5 +10,7 @@ import java.util.List;
 public interface GroupRepository extends JpaRepository<Group, Long> {
 
         @EntityGraph(type = EntityGraph.EntityGraphType.LOAD, attributePaths = "singlePlayers")
-        List<Group> findAllWithSinglesPlayersBy();
+        List<Group> findAllWithSinglesPlayersByOrderBySinglePlayersTotalPointsDesc();
+
+//        List<Group> findAllWithSinglesPlayersBy();
 }

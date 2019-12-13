@@ -9,5 +9,6 @@ public class RankingByGroupsDTO {
 
     private Long id;
     private String name;
-    private List<String> playersFullNames;
+    private List<String> playersDescription;
+    private List<Integer> playersTotalPoints;
 }

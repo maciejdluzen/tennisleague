@@ -45,7 +45,7 @@
             </div>
             <div class="column center desktop">
                 <p class="navbar-item has-text-black is-size-5">O LIDZE</p>
-                <p class="navbar-item has-text-black is-size-5">WYNIKI</p>
+                <a class="navbar-item has-text-black is-size-5" href="/ranking">WYNIKI</a>
                 <p class="navbar-item has-text-black is-size-5">ZASADY</p>
                 <!-- ... -->
             </div>

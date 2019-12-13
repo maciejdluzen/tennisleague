@@ -33,6 +33,5 @@ public class SomeStarterClass implements ApplicationRunner {
 
         userRepository.createAdmin();
         userRepository.makeAdminAdmin();
-
     }
 }

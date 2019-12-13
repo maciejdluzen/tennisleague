@@ -1,6 +1,8 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
@@ -12,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Transactional
 public class DefaultRankingService implements RankingService {
 
     private final SinglesPlayerRepository singlesPlayerRepository;
@@ -24,13 +28,15 @@ public class DefaultRankingService implements RankingService {
 
     // napisane przez Michała:
     public List<RankingByGroupsDTO> getAllRankings() {
-        List<Group> groups = groupRepository.findAllWithSinglesPlayersBy();
+        List<Group> groups = groupRepository.findAllWithSinglesPlayersByOrderBySinglePlayersTotalPointsDesc();
         List<RankingByGroupsDTO> rankings = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
         for (Group group : groups) {
             RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
-            List<String> playersFullNames = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName()).collect(Collectors.toList());
-            ranking.setPlayersFullNames(playersFullNames);
+            List<String> playersFullNames = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints()).collect(Collectors.toList());
+            List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
+            ranking.setPlayersTotalPoints(playersTotalPoints);
+            ranking.setPlayersDescription(playersFullNames);
             rankings.add(ranking);
         }
         return rankings;
@@ -41,8 +47,6 @@ public class DefaultRankingService implements RankingService {
 //        return groupRepository.findAllWithSinglesPlayers().stream().map(r ->
 //                new ModelMapper().map(r, RankingByGroupsDTO.class)).collect(Collectors.toList());
 //    }
-
-
 
     // Redundant:
     @Override
