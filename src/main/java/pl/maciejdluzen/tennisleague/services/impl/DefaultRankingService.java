@@ -8,6 +8,7 @@ import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.dtos.RankingByGroupsDTO;
 import pl.maciejdluzen.tennisleague.services.RankingService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,20 @@ public class DefaultRankingService implements RankingService {
     public DefaultRankingService(SinglesPlayerRepository singlesPlayerRepository, GroupRepository groupRepository) {
         this.singlesPlayerRepository = singlesPlayerRepository;
         this.groupRepository = groupRepository;
+    }
+
+    // napisane przez Michała:
+    public List<RankingByGroupsDTO> getAllRankings() {
+        List<Group> groups = groupRepository.findAllWithSinglesPlayersBy();
+        List<RankingByGroupsDTO> rankings = new ArrayList<>();
+        ModelMapper mapper = new ModelMapper();
+        for (Group group : groups) {
+            RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
+            List<String> playersFullNames = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName()).collect(Collectors.toList());
+            ranking.setPlayersFullNames(playersFullNames);
+            rankings.add(ranking);
+        }
+        return rankings;
     }
 
 //    @Override
