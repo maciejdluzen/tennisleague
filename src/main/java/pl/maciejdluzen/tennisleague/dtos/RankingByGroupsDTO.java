@@ -10,7 +10,4 @@ public class RankingByGroupsDTO {
     private Long id;
     private String name;
     private List<String> playersFullNames;
-
-
-
 }

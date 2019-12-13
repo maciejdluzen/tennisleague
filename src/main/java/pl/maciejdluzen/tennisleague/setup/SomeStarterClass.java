@@ -20,7 +20,12 @@ public class SomeStarterClass implements ApplicationRunner {
     @Override @Transactional
     public void run(ApplicationArguments args) throws Exception {
         Role userRole = new Role();
+        userRole.setId(1L);
         userRole.setName("ROLE_USER");
         roleRepository.save(userRole);
+        Role userRole2 = new Role();
+        userRole2.setId(2L);
+        userRole2.setName("ROLE_ADMIN");
+        roleRepository.save(userRole2);
     }
 }
