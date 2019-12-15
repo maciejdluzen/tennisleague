@@ -16,9 +16,14 @@
 <header class="hero-body">
     <div class="column center">
         <table class="table">
-            <tr>
-                <c:forEach items="${ranking}" var="group">
+            Wyniki rundy: <tr>${ranking[0].round.name}</tr>
+            Rozpoczęcie rozgrywek: <tr>${ranking[0].round.startDate}</tr>
+            Zakończenie rozgrywek: <tr>${ranking[0].round.endDate}</tr>
+            <c:forEach items="${ranking}" var="group">
+                <tr>
                     <td>${group.name}</td>
+                </tr>
+                <tr>
                     <td>
                         <ol>
                             <c:forEach items="${group.playersDescription}" var="playerdescription">
@@ -26,15 +31,17 @@
                             </c:forEach>
                         </ol>
                     </td>
+                </tr>
+                <tr>
                     <td>
-                        <ol>
+                        <ul>
                             <c:forEach items="${group.matchesDescription}" var="matchdescription">
-                                <li>${matchdescription}</li>
+                                    <li>${matchdescription}</li>
                             </c:forEach>
-                        </ol>
+                        </ul>
                     </td>
-                </c:forEach>
-            </tr>
+                </tr>
+            </c:forEach>
         </table>
     </div>
 </header>
