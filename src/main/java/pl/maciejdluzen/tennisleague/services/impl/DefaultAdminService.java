@@ -50,7 +50,7 @@ public class DefaultAdminService implements AdminService {
     public void addNewGroup(NewGroupCreationDTO newGroup) {
         ModelMapper mapper = new ModelMapper();
         Group group = mapper.map(newGroup, Group.class);
-        // ModelMapper mapuje pole roundId również na pole id w encji (WTF?!)
+        // ModelMapper mapuje pole roundId również na pole id w encji (WTF?!) - dlatego zostało dodane setId własnoręcznie
         group.setId(null);
         log.info("Group to save: {}", group);
         groupRepository.save(group);

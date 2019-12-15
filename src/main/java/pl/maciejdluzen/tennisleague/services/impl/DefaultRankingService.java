@@ -33,20 +33,14 @@ public class DefaultRankingService implements RankingService {
         ModelMapper mapper = new ModelMapper();
         for (Group group : groups) {
             RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
-            List<String> playersFullNames = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints()).collect(Collectors.toList());
+            List<String> playersDescription = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints()).collect(Collectors.toList());
             List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
             ranking.setPlayersTotalPoints(playersTotalPoints);
-            ranking.setPlayersDescription(playersFullNames);
+            ranking.setPlayersDescription(playersDescription);
             rankings.add(ranking);
         }
         return rankings;
     }
-
-//    @Override
-//    public List<Group> findAllWithSinglesPlayers() {
-//        return groupRepository.findAllWithSinglesPlayers().stream().map(r ->
-//                new ModelMapper().map(r, RankingByGroupsDTO.class)).collect(Collectors.toList());
-//    }
 
     // Redundant:
     @Override
