@@ -21,8 +21,8 @@
                     <td>${group.name}</td>
                     <td>
                         <ol>
-                            <c:forEach items="${group.playersDescription}" var="description">
-                                <li>${description}</li>
+                            <c:forEach items="${group.playersDescription}" var="playerdescription">
+                                <li>${playerdescription}</li>
                             </c:forEach>
                         </ol>
                     </td>
