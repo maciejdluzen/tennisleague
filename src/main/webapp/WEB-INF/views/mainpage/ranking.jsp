@@ -26,6 +26,13 @@
                             </c:forEach>
                         </ol>
                     </td>
+                    <td>
+                        <ol>
+                            <c:forEach items="${group.matchesDescription}" var="matchdescription">
+                                <li>${matchdescription}</li>
+                            </c:forEach>
+                        </ol>
+                    </td>
                 </c:forEach>
             </tr>
         </table>

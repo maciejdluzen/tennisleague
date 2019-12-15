@@ -28,15 +28,17 @@ public class DefaultRankingService implements RankingService {
 
     // napisane przez Michała:
     public List<RankingByGroupsDTO> getAllRankings() {
-        List<Group> groups = groupRepository.findAllWithSinglesPlayersByOrderBySinglePlayersTotalPointsDesc();
+        List<Group> groups = groupRepository.findAllWithSinglesPlayersAndMatchesByOrderBySinglePlayersTotalPointsDesc();
         List<RankingByGroupsDTO> rankings = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
         for (Group group : groups) {
             RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
             List<String> playersDescription = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints()).collect(Collectors.toList());
             List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
+            List<String> matchDescription = group.getMatches().stream().map(p -> p.getPlayerOne().getFirstName() + " " + p.getPlayerOne().getLastName() + " - " + p.getPlayerTwo().getFirstName() + " " + p.getPlayerTwo().getLastName() + " " + p.getPlayerOneSets() + " : " + p.getPlayerTwoSets()).collect(Collectors.toList()); /***/
             ranking.setPlayersTotalPoints(playersTotalPoints);
             ranking.setPlayersDescription(playersDescription);
+            ranking.setMatchesDescription(matchDescription); /***/
             rankings.add(ranking);
         }
         return rankings;
