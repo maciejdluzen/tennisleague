@@ -26,7 +26,6 @@ public class DefaultRankingService implements RankingService {
         this.groupRepository = groupRepository;
     }
 
-    // napisane przez Michała:
     public List<RankingByGroupsDTO> getAllRankings() {
         List<Group> groups = groupRepository.findAllWithSinglesPlayersAndMatchesByOrderBySinglePlayersTotalPointsDesc();
         List<RankingByGroupsDTO> rankings = new ArrayList<>();
@@ -45,6 +44,11 @@ public class DefaultRankingService implements RankingService {
         }
         return rankings;
     }
+
+
+
+
+
 
     // Redundant:
     @Override

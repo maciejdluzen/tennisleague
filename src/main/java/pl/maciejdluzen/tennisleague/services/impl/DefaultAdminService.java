@@ -1,6 +1,5 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -56,8 +55,6 @@ public class DefaultAdminService implements AdminService {
         groupRepository.save(group);
     }
 
-
-
     @Override
     public List<Round> findAllRounds() {
         return roundRepository.findAll();
@@ -101,5 +98,8 @@ public class DefaultAdminService implements AdminService {
         matchRepository.save(match);
     }
 
-
+    @Override
+    public void deleteMatchById(Long id) {
+        matchRepository.deleteById(id);
+    }
 }

@@ -72,7 +72,7 @@
                         <td>${match.playerTwo.lastName}</td>
                         <td>${match.playerTwoSets}</td>
                         <td>
-                            <c:url value="/" var="deleteURL">
+                            <c:url value="/admin/matches/delete" var="deleteURL">
                                 <c:param name="id" value="${match.id}"/>
                             </c:url>
                             <c:url value="/" var="updateURL">

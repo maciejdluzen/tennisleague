@@ -65,4 +65,10 @@ public class AdminMatchesController {
         adminService.addNewMatch(newMatch);
         return "redirect:/admin/matches";
     }
+
+    @GetMapping("/delete")
+    public String prepareDeleteMatch(Long id) {
+        adminService.deleteMatchById(id);
+        return "redirect:/admin/matches";
+    }
 }

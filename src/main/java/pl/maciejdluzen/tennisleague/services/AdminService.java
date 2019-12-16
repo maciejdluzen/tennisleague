@@ -31,5 +31,5 @@ public interface AdminService {
 
     List<Match> findAllMatches();
 
-
+    void deleteMatchById(Long id);
 }
