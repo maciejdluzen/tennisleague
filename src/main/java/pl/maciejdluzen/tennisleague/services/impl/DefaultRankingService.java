@@ -35,10 +35,12 @@ public class DefaultRankingService implements RankingService {
             RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
             List<String> playersDescription = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints()).collect(Collectors.toList());
             List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
-            List<String> matchDescription = group.getMatches().stream().map(p -> p.getPlayerOne().getFirstName() + " " + p.getPlayerOne().getLastName() + " - " + p.getPlayerTwo().getFirstName() + " " + p.getPlayerTwo().getLastName() + " " + p.getPlayerOneSets() + " : " + p.getPlayerTwoSets()).collect(Collectors.toList()); /***/
+            List<String> matchDescription = group.getMatches().stream().filter(p -> (p.getPlayerOneSets() + p.getPlayerTwoSets()) != 0).map(p -> p.getPlayerOne().getFirstName() + " " + p.getPlayerOne().getLastName()
+                    + " - " + p.getPlayerTwo().getFirstName() + " " + p.getPlayerTwo().getLastName() + " " + p.getPlayerOneSets() + " : " + p.getPlayerTwoSets()).collect(Collectors.toList());
             ranking.setPlayersTotalPoints(playersTotalPoints);
             ranking.setPlayersDescription(playersDescription);
-            ranking.setMatchesDescription(matchDescription); /***/
+
+            ranking.setMatchesDescription(matchDescription);
             rankings.add(ranking);
         }
         return rankings;
