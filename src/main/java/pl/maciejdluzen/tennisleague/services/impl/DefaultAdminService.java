@@ -100,10 +100,27 @@ public class DefaultAdminService implements AdminService {
         matchRepository.deleteById(id);
     }
 
+    /**
+     Edycja meczy działa, ale nie ma wpływu na goólny ranking - poprawić!!!
+     */
+
     @Override
     public EditMatchDTO findMatchById(Long id) {
         ModelMapper mapper = new ModelMapper();
         Match match = matchRepository.getOne(id);
+        // Przetestowac linijki 111 - 123, napisane 16 grudnia!
+//        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon()-match.getPlayerOneSets());
+//        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()-match.getPlayerOneSets());
+//        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
+//        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
+//        if(match.getPlayerOneSets() > match.getPlayerTwoSets()) {
+//            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()-1);
+//            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()-1);
+//        }
+//        if(match.getPlayerTwoSets() > match.getPlayerTwoSets()) {
+//            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
+//            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
+//        }
         EditMatchDTO matchDTO = mapper.map(match, EditMatchDTO.class);
         return matchDTO;
     }

@@ -80,6 +80,9 @@ public class AdminMatchesController {
         return "redirect:/admin/matches";
     }
 
+    /**
+     Edycja meczy działa, ale nie ma wpływu na goólny ranking - poprawić!!!
+     */
     @GetMapping("/edit")
     public String prepareEditMatchForm(Long id, Model model) {
         EditMatchDTO editMatch = adminService.findMatchById(id);

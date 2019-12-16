@@ -18,8 +18,8 @@
     <p><form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
     <p><form:hidden path="playerOne"/></p>
     <p><form:hidden path="playerTwo"/></p>
-    <p>Nazwisko zawodnika 1 ${editMatch.playerOne.firstName} + " " + ${editMatch.playerOne.lastName}</p>
-    <p>Nazwisko zawodnika 2 ${editMatch.playerTwo.firstName} + " " + ${editMatch.playerTwo.lastName} </p>
+    <p>Nazwisko zawodnika 1 ${editMatch.playerOne.firstName} ${editMatch.playerOne.lastName}</p>
+    <p>Nazwisko zawodnika 2 ${editMatch.playerTwo.firstName} ${editMatch.playerTwo.lastName} </p>
     <p>Liczba setów zawodnika 1 <form:select path="playerOneSets" items="${sets}"/><form:errors path="playerOneSets"/></p>
     <p>Liczba setów zawodnika 2 <form:select path="playerTwoSets" items="${sets}"/><form:errors path="playerTwoSets"/></p>
     <p><input type="submit" value="Zatwierdź"></p>
