@@ -4,10 +4,7 @@ import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
-import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewMatchCreationDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
+import pl.maciejdluzen.tennisleague.dtos.*;
 
 import java.util.List;
 
@@ -32,4 +29,8 @@ public interface AdminService {
     List<Match> findAllMatches();
 
     void deleteMatchById(Long id);
+
+    void editMatch(EditMatchDTO matchDTO);
+
+    EditMatchDTO findMatchById(Long id);
 }

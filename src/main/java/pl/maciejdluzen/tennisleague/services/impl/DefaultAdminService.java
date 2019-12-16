@@ -12,10 +12,7 @@ import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.MatchRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
-import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewMatchCreationDTO;
-import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
+import pl.maciejdluzen.tennisleague.dtos.*;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
 import java.util.List;
@@ -101,5 +98,20 @@ public class DefaultAdminService implements AdminService {
     @Override
     public void deleteMatchById(Long id) {
         matchRepository.deleteById(id);
+    }
+
+    @Override
+    public EditMatchDTO findMatchById(Long id) {
+        ModelMapper mapper = new ModelMapper();
+        Match match = matchRepository.getOne(id);
+        EditMatchDTO matchDTO = mapper.map(match, EditMatchDTO.class);
+        return matchDTO;
+    }
+
+    @Override
+    public void editMatch(EditMatchDTO matchDTO) {
+        ModelMapper mapper = new ModelMapper();
+        Match match = mapper.map(matchDTO, Match.class);
+        matchRepository.save(match);
     }
 }

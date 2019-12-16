@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
+import pl.maciejdluzen.tennisleague.dtos.EditMatchDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewMatchCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -25,6 +27,12 @@ public class AdminMatchesController {
 
     public AdminMatchesController(AdminService adminService) {
         this.adminService = adminService;
+    }
+
+    @ModelAttribute("sets")
+    public List<Integer> sets() {
+        Integer[] sets = new Integer[]{0,1,2};
+        return Arrays.asList(sets);
     }
 
     @ModelAttribute("allmatches")
@@ -69,6 +77,22 @@ public class AdminMatchesController {
     @GetMapping("/delete")
     public String prepareDeleteMatch(Long id) {
         adminService.deleteMatchById(id);
+        return "redirect:/admin/matches";
+    }
+
+    @GetMapping("/edit")
+    public String prepareEditMatchForm(Long id, Model model) {
+        EditMatchDTO editMatch = adminService.findMatchById(id);
+        model.addAttribute("editMatch", editMatch);
+        return "admin/matches/edit-match-form";
+    }
+
+    @PostMapping("/edit")
+    public String processEditMatchForm(@ModelAttribute @Valid EditMatchDTO editMatch, BindingResult result) {
+        if(result.hasErrors()) {
+            return "admin/matches/edit-match-form";
+        }
+        adminService.editMatch(editMatch);
         return "redirect:/admin/matches";
     }
 }

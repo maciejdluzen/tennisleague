@@ -75,7 +75,7 @@
                             <c:url value="/admin/matches/delete" var="deleteURL">
                                 <c:param name="id" value="${match.id}"/>
                             </c:url>
-                            <c:url value="/" var="updateURL">
+                            <c:url value="/admin/matches/edit" var="updateURL">
                                 <c:param name="id" value="${match.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>
