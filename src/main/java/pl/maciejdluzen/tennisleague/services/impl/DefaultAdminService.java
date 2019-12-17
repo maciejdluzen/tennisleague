@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
@@ -86,7 +87,23 @@ public class DefaultAdminService implements AdminService {
             player.setGroup(null);
         }
         groupRepository.deleteById(id);
-    }//
+    }
+
+
+    @Override
+    public EditGroupDTO findGroupById(Long id) {
+        ModelMapper mapper = new ModelMapper();
+        Group group = groupRepository.getOne(id);
+        EditGroupDTO groupDTO = mapper.map(group, EditGroupDTO.class);
+        return groupDTO;
+    }
+
+    @Override
+    public void editGroup(EditGroupDTO groupDTO) {
+        ModelMapper mapper = new ModelMapper();
+        Group group = mapper.map(groupDTO, Group.class);
+        groupRepository.save(group);
+    }
 
     /*----------------------------------------*/
     /*-----------SINGLES PLAYERS--------------*/

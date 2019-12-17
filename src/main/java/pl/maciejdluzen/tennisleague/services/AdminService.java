@@ -35,4 +35,9 @@ public interface AdminService {
     EditMatchDTO findMatchById(Long id);
 
     void deleteGroupById(Long id);
+
+    void editGroup(EditGroupDTO groupDTO);
+
+    EditGroupDTO findGroupById(Long id);
+
 }

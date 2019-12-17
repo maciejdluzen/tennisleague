@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.dtos.EditGroupDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewGroupCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
@@ -64,6 +65,12 @@ public class AdminGroupsController {
     public String prepareDeleteGroup(Long id) {
         adminService.deleteGroupById(id);
         return "redirect:/admin/groups";
+    }
+
+    @GetMapping("/edit")
+    public String prepareEditGroupForm(Model model) {
+        model.addAttribute("editGroup", new EditGroupDTO());
+        return "admin/groups/edit-group-form";
     }
 
 
