@@ -86,7 +86,7 @@ public class DefaultAdminService implements AdminService {
             player.setGroup(null);
         }
         groupRepository.deleteById(id);
-    }
+    }//
 
     /*----------------------------------------*/
     /*-----------SINGLES PLAYERS--------------*/
