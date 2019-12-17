@@ -100,27 +100,23 @@ public class DefaultAdminService implements AdminService {
         matchRepository.deleteById(id);
     }
 
-    /**
-     Edycja meczy działa, ale nie ma wpływu na goólny ranking - poprawić!!!
-     */
-
     @Override
     public EditMatchDTO findMatchById(Long id) {
         ModelMapper mapper = new ModelMapper();
         Match match = matchRepository.getOne(id);
-        // Przetestowac linijki 111 - 123, napisane 16 grudnia!
-//        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon()-match.getPlayerOneSets());
-//        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()-match.getPlayerOneSets());
-//        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
-//        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
-//        if(match.getPlayerOneSets() > match.getPlayerTwoSets()) {
-//            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()-1);
-//            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()-1);
-//        }
-//        if(match.getPlayerTwoSets() > match.getPlayerTwoSets()) {
-//            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
-//            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
-//        }
+
+        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon()-match.getPlayerOneSets());
+        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()-match.getPlayerOneSets());
+        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
+        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalPoints()-match.getPlayerTwoSets());
+        if(match.getPlayerOneSets() > match.getPlayerTwoSets()) {
+            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()-1);
+            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()-1);
+        }
+        if(match.getPlayerTwoSets() > match.getPlayerTwoSets()) {
+            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
+            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
+        }
         EditMatchDTO matchDTO = mapper.map(match, EditMatchDTO.class);
         return matchDTO;
     }
@@ -129,6 +125,25 @@ public class DefaultAdminService implements AdminService {
     public void editMatch(EditMatchDTO matchDTO) {
         ModelMapper mapper = new ModelMapper();
         Match match = mapper.map(matchDTO, Match.class);
+
+        match.setPlayerOneSets(matchDTO.getPlayerOneSets());
+
+        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon()+matchDTO.getPlayerOneSets());
+        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()+matchDTO.getPlayerOneSets());
+
+        match.setPlayerTwoSets(matchDTO.getPlayerTwoSets());
+
+        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()+matchDTO.getPlayerTwoSets());
+        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalPoints()+matchDTO.getPlayerTwoSets());
+
+        if(matchDTO.getPlayerOneSets() > matchDTO.getPlayerTwoSets()) {
+            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()+1);
+            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()+1);
+        }
+        if(matchDTO.getPlayerTwoSets() > matchDTO.getPlayerOneSets()) {
+            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()+1);
+            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()+1);
+        }
         matchRepository.save(match);
     }
 }
