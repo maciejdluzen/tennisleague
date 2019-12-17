@@ -95,6 +95,7 @@ public class DefaultAdminService implements AdminService {
         matchRepository.save(match);
     }
 
+
     @Override
     public void deleteMatchById(Long id) {
         Match match = matchRepository.getOne(id);
@@ -111,6 +112,7 @@ public class DefaultAdminService implements AdminService {
             match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
             match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
         }
+
         matchRepository.deleteById(id);
     }
 
@@ -137,8 +139,10 @@ public class DefaultAdminService implements AdminService {
 
     @Override
     public void editMatch(EditMatchDTO matchDTO) {
-        ModelMapper mapper = new ModelMapper();
-        Match match = mapper.map(matchDTO, Match.class);
+//        ModelMapper mapper = new ModelMapper();
+//        Match match = mapper.map(matchDTO, Match.class);
+
+        Match match = matchRepository.getOne(matchDTO.getId());
 
         match.setPlayerOneSets(matchDTO.getPlayerOneSets());
 
