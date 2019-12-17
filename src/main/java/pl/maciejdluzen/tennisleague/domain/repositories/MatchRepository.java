@@ -12,4 +12,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
     @Query("SELECT m FROM Match m WHERE m.playerOne.user.username = ?1 OR m.playerTwo.user.username = ?1")
     List<Match> findAllByUsername(String username);
 
+    List<Match> findAllByGroupId(Long id);
+
 }

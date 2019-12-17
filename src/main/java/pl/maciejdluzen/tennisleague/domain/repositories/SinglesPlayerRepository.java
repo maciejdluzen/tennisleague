@@ -9,4 +9,7 @@ public interface SinglesPlayerRepository extends JpaRepository<SinglesPlayer, Lo
 
     List<SinglesPlayer> findAllByGroupIdOrderByTotalPointsDescTotalMatchesWonDesc(Long id);
 
+    List<SinglesPlayer> findAllByGroupId(Long id);
+
+
 }

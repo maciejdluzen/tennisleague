@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -74,16 +75,18 @@ public class DefaultAdminService implements AdminService {
     @Override
     public void deleteGroupById(Long id) {
 
+        List<Match> matchesByGroup = matchRepository.findAllByGroupId(id);
+        List<SinglesPlayer> playersByGroup = singlesPlayerRepository.findAllByGroupId(id);
+
+        for(Match match : matchesByGroup) {
+            match.setGroup(null);
+        }
+
+        for(SinglesPlayer player : playersByGroup) {
+            player.setGroup(null);
+        }
         groupRepository.deleteById(id);
     }
-
-
-
-
-
-
-
-
 
     /*----------------------------------------*/
     /*-----------SINGLES PLAYERS--------------*/
