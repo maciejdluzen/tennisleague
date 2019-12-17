@@ -97,6 +97,20 @@ public class DefaultAdminService implements AdminService {
 
     @Override
     public void deleteMatchById(Long id) {
+        Match match = matchRepository.getOne(id);
+
+        match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon()-match.getPlayerOneSets());
+        match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()-match.getPlayerOneSets());
+        match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
+        match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalPoints()-match.getPlayerTwoSets());
+        if(match.getPlayerOneSets() > match.getPlayerTwoSets()) {
+            match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()-1);
+            match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()-1);
+        }
+        if(match.getPlayerTwoSets() > match.getPlayerTwoSets()) {
+            match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
+            match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
+        }
         matchRepository.deleteById(id);
     }
 
