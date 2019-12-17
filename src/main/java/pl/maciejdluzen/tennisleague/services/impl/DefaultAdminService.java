@@ -125,24 +125,24 @@ public class DefaultAdminService implements AdminService {
         match.getPlayerOne().setTotalPoints(match.getPlayerOne().getTotalPoints()-match.getPlayerOneSets());
         match.getPlayerTwo().setTotalSetsWon(match.getPlayerTwo().getTotalSetsWon()-match.getPlayerTwoSets());
         match.getPlayerTwo().setTotalPoints(match.getPlayerTwo().getTotalPoints()-match.getPlayerTwoSets());
+
         if(match.getPlayerOneSets() > match.getPlayerTwoSets()) {
             match.getPlayerOne().setTotalMatchesWon(match.getPlayerOne().getTotalMatchesWon()-1);
             match.getPlayerTwo().setTotalMatchesLost(match.getPlayerTwo().getTotalMatchesLost()-1);
         }
-        if(match.getPlayerTwoSets() > match.getPlayerTwoSets()) {
+        if(match.getPlayerTwoSets() > match.getPlayerOneSets()) {
             match.getPlayerTwo().setTotalMatchesWon(match.getPlayerTwo().getTotalMatchesWon()-1);
             match.getPlayerOne().setTotalMatchesLost(match.getPlayerOne().getTotalMatchesLost()-1);
         }
+
         EditMatchDTO matchDTO = mapper.map(match, EditMatchDTO.class);
         return matchDTO;
     }
 
     @Override
     public void editMatch(EditMatchDTO matchDTO) {
-//        ModelMapper mapper = new ModelMapper();
-//        Match match = mapper.map(matchDTO, Match.class);
-
-        Match match = matchRepository.getOne(matchDTO.getId());
+        ModelMapper mapper = new ModelMapper();
+        Match match = mapper.map(matchDTO, Match.class);
 
         match.setPlayerOneSets(matchDTO.getPlayerOneSets());
 
