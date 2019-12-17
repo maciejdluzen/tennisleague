@@ -33,4 +33,6 @@ public interface AdminService {
     void editMatch(EditMatchDTO matchDTO);
 
     EditMatchDTO findMatchById(Long id);
+
+    void deleteGroupById(Long id);
 }

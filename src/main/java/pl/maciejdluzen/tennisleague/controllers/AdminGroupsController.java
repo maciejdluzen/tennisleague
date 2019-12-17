@@ -59,4 +59,13 @@ public class AdminGroupsController {
         adminService.addNewGroup(newGroup);
         return "redirect:/";
     }
+
+    @GetMapping("/delete")
+    public String prepareDeleteGroup(Long id) {
+        adminService.deleteGroupById(id);
+        return "redirect:/admin/groups";
+    }
+
+
+
 }

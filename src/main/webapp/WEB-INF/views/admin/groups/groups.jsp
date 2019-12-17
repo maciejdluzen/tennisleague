@@ -69,7 +69,7 @@
                         <td>${group.round.id}</td>
                         <td>${group.round.name}</td>
                         <td>
-                            <c:url value="/" var="deleteURL">
+                            <c:url value="/admin/groups/delete" var="deleteURL">
                                 <c:param name="id" value="${group.id}"/>
                             </c:url>
                             <c:url value="/" var="updateURL">

@@ -35,11 +35,30 @@ public class DefaultAdminService implements AdminService {
         this.matchRepository = matchRepository;
     }
 
+
+    /*----------------------------------------*/
+    /*---------------ROUNDS-------------------*/
+    /*----------------------------------------*/
+
+    @Override
+    public List<Round> findAllRounds() {
+        return roundRepository.findAll();
+    }
+
     @Override
     public void addNewRound(NewRoundCreationDTO newRound) {
         ModelMapper mapper = new ModelMapper();
         Round round = mapper.map(newRound, Round.class);
         roundRepository.save(round);
+    }
+
+    /*----------------------------------------*/
+    /*----------------GROUPS------------------*/
+    /*----------------------------------------*/
+
+    @Override
+    public List<Group> findAllGroups() {
+        return groupRepository.findAll();
     }
 
     @Override
@@ -53,14 +72,23 @@ public class DefaultAdminService implements AdminService {
     }
 
     @Override
-    public List<Round> findAllRounds() {
-        return roundRepository.findAll();
+    public void deleteGroupById(Long id) {
+
+        groupRepository.deleteById(id);
     }
 
-    @Override
-    public List<Group> findAllGroups() {
-        return groupRepository.findAll();
-    }
+
+
+
+
+
+
+
+
+    /*----------------------------------------*/
+    /*-----------SINGLES PLAYERS--------------*/
+    /*----------------------------------------*/
+
 
     @Override
     public List<SinglesPlayer> findAllSinglesPlayers() {
@@ -77,15 +105,20 @@ public class DefaultAdminService implements AdminService {
     }
 
     @Override
-    public List<Match> findAllMatches() {
-        return matchRepository.findAll();
-    }
-
-    @Override
     public void editSinglesPlayer(EditSinglesPlayerDTO singlesPlayerDTO) {
         ModelMapper mapper = new ModelMapper();
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerDTO, SinglesPlayer.class);
         singlesPlayerRepository.save(singlesPlayer);
+    }
+
+
+    /*---------------------------------------*/
+    /*------------- MATCHES ---------------- */
+    /*---------------------------------------*/
+
+    @Override
+    public List<Match> findAllMatches() {
+        return matchRepository.findAll();
     }
 
     @Override
@@ -94,7 +127,6 @@ public class DefaultAdminService implements AdminService {
         Match match = mapper.map(newMatch, Match.class);
         matchRepository.save(match);
     }
-
 
     @Override
     public void deleteMatchById(Long id) {
