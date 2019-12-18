@@ -54,6 +54,17 @@ public class DefaultAdminService implements AdminService {
         roundRepository.save(round);
     }
 
+    // Currently, user and round are not connected, despite having relation. Delete round do not take into account this rund functionality.
+
+    @Override
+    public void deleteRoundById(Long id) {
+        List<Group> groupsByRound = groupRepository.findAllByRoundId(id);
+        for(Group group : groupsByRound) {
+            group.setRound(null);
+        }
+        roundRepository.deleteById(id);
+    }
+
     /*----------------------------------------*/
     /*----------------GROUPS------------------*/
     /*----------------------------------------*/
@@ -82,7 +93,6 @@ public class DefaultAdminService implements AdminService {
         for(Match match : matchesByGroup) {
             match.setGroup(null);
         }
-
         for(SinglesPlayer player : playersByGroup) {
             player.setGroup(null);
         }

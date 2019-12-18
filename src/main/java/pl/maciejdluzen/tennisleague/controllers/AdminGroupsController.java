@@ -73,6 +73,12 @@ public class AdminGroupsController {
         return "admin/groups/edit-group-form";
     }
 
-
-
+    @PostMapping("/edit")
+    public String processEditGroupForm(@ModelAttribute("editGroup") @Valid EditGroupDTO groupDTO, BindingResult result) {
+        if(result.hasErrors()) {
+            return "admin/groups/edit-group-form";
+        }
+        adminService.editGroup(groupDTO);
+        return "redirect:/admin/groups";
+    }
 }

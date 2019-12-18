@@ -17,7 +17,7 @@
     <p><form:hidden path="id"/></p>
     <p>Nazwa grupy: <form:input path="name"/><form:errors path="name"/></p>
     <p>Nazwa rundy: <form:select path="roundId" items="${allrounds}" itemLabel="name" itemValue="id"/></p>
-    <p><input type="submit" value="Zatwierdź"</p>
+    <p><input type="submit" value="Zatwierdź"/></p>
 </form:form>
 </body>
 </html>

@@ -55,4 +55,10 @@ public class AdminRoundsController {
         return "redirect:/";
     }
 
+    @GetMapping("/delete")
+    public String processDeleteGroup(Long id) {
+        adminService.deleteRoundById(id);
+        return "redirect:/admin/rounds";
+    }
+
 }

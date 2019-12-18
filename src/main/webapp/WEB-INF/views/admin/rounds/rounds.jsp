@@ -70,7 +70,7 @@
                        <td>${round.startDate}</td>
                        <td>${round.endDate}</td>
                         <td>
-                            <c:url value="/" var="deleteURL">
+                            <c:url value="/admin/rounds/delete" var="deleteURL">
                                 <c:param name="id" value="${round.id}"/>
                             </c:url>
                             <c:url value="/" var="updateURL">

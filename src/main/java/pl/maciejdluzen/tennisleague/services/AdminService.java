@@ -40,4 +40,6 @@ public interface AdminService {
 
     EditGroupDTO findGroupById(Long id);
 
+    void deleteRoundById(Long id);
+
 }

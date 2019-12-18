@@ -72,7 +72,7 @@
                             <c:url value="/admin/groups/delete" var="deleteURL">
                                 <c:param name="id" value="${group.id}"/>
                             </c:url>
-                            <c:url value="/" var="updateURL">
+                            <c:url value="/admin/groups/edit" var="updateURL">
                                 <c:param name="id" value="${group.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>
