@@ -1,6 +1,7 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.dtos.EditRoundDTO;
 import pl.maciejdluzen.tennisleague.dtos.NewRoundCreationDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
@@ -55,17 +57,31 @@ public class AdminRoundsController {
         return "redirect:/";
     }
 
-
     @GetMapping("/delete")
     public String prepareDeleteRound(Model model, Long id) {
         model.addAttribute("id", id);
         return "admin/rounds/delete-round";
     }
 
-
     @PostMapping("/delete")
     public String processDeleteRound(Long id) {
         adminService.deleteRoundById(id);
+        return "redirect:/admin/rounds";
+    }
+
+    @GetMapping("/edit")
+    public String prepareEditRoundForm(Long id, Model model) {
+        EditRoundDTO roundDTO = adminService.findRoundById(id);
+        model.addAttribute("roundDTO", roundDTO);
+        return "admin/rounds/edit-round-form";
+    }
+
+    @PostMapping("/edit")
+    public String processEditRoundForm(@ModelAttribute @Valid EditRoundDTO roundDTO, BindingResult result) {
+        if(result.hasErrors()) {
+            return "admin/rounds/edit-round-form";
+        }
+        adminService.editRound(roundDTO);
         return "redirect:/admin/rounds";
     }
 }

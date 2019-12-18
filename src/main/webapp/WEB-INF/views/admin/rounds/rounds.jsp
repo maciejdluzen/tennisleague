@@ -73,7 +73,7 @@
                             <c:url value="/admin/rounds/delete" var="deleteURL">
                                 <c:param name="id" value="${round.id}"/>
                             </c:url>
-                            <c:url value="/" var="updateURL">
+                            <c:url value="/admin/rounds/edit" var="updateURL">
                                 <c:param name="id" value="${round.id}"/>
                             </c:url>
                             <a href="${deleteURL}">Usuń</a>
