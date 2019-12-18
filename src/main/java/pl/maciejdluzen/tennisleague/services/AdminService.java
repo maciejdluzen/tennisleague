@@ -44,4 +44,6 @@ public interface AdminService {
     void editRound(EditRoundDTO roundDTO);
 
     List<User> findAllUsers();
+
+    void deleteUserById(Long id);
 }

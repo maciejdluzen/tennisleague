@@ -11,5 +11,5 @@ public interface SinglesPlayerRepository extends JpaRepository<SinglesPlayer, Lo
 
     List<SinglesPlayer> findAllByGroupId(Long id);
 
-
+    SinglesPlayer findByUserId(Long id);
 }

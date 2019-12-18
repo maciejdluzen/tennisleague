@@ -34,6 +34,16 @@
                     <td>${user.active}</td>
                     <td>${user.singlesPlayer.id}</td>
                     <td>${user.singlesPlayer.firstName} ${user.singlesPlayer.lastName}</td>
+                    <td>
+                        <c:url value="/admin/users/delete" var="deleteURL">
+                            <c:param name="id" value="${user.id}"/>
+                        </c:url>
+                        <c:url value="" var="updateURL">
+                            <c:param name="id" value="${user.id}"/>
+                        </c:url>
+                        <a href="${deleteURL}">Usuń</a>
+                        <a href="${updateURL}">Edytuj</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

@@ -28,4 +28,13 @@ public class AdminUsersController {
     public String prepareManageUsersPage() {
         return "admin/users/users";
     }
+
+    @GetMapping("/delete")
+    public String prepareDeleteUser(Long id) {
+        adminService.deleteUserById(id);
+        return "redirect:/admin/users";
+    }
+
+
+
 }

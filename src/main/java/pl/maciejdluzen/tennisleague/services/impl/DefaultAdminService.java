@@ -36,6 +36,17 @@ public class DefaultAdminService implements AdminService {
     /*----------------------------------------*/
 
     @Override
+    public void deleteUserById(Long id) {
+        SinglesPlayer singlesPlayer = singlesPlayerRepository.findByUserId(id);
+        singlesPlayerRepository.delete(singlesPlayer);
+        List<Match> matches = matchRepository.findAllBySinglesPlayer(singlesPlayer);
+        for(Match match : matches) {
+            matchRepository.delete(match);
+        }
+        userRepository.deleteById(id);
+    }
+
+    @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
