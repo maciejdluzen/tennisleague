@@ -18,5 +18,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
 
         List<Group> findAllByRoundId(Long id);
 
+
+
 //        List<Group> findAllWithSinglesPlayersBy();
 }

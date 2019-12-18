@@ -60,7 +60,16 @@ public class DefaultAdminService implements AdminService {
     public void deleteRoundById(Long id) {
         List<Group> groupsByRound = groupRepository.findAllByRoundId(id);
         for(Group group : groupsByRound) {
-            group.setRound(null);
+//            group.setRound(null);
+            List<SinglesPlayer> singlesPlayersByRound = singlesPlayerRepository.findAllByGroupId(group.getId());
+            for(SinglesPlayer singlesPlayer : singlesPlayersByRound) {
+                singlesPlayer.setGroup(null);
+            }
+            List<Match> matchesByGroup = matchRepository.findAllByGroupId(group.getId());
+            for(Match match : matchesByGroup) {
+                matchRepository.deleteById(match.getId());
+            }
+            groupRepository.deleteById(group.getId());
         }
         roundRepository.deleteById(id);
     }
