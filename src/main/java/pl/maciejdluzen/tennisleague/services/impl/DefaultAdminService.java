@@ -6,6 +6,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
@@ -72,6 +74,21 @@ public class DefaultAdminService implements AdminService {
             groupRepository.deleteById(group.getId());
         }
         roundRepository.deleteById(id);
+    }
+
+    @Override
+    public EditRoundDTO findRoundById(Long id) {
+        ModelMapper mapper = new ModelMapper();
+        Round round = roundRepository.getOne(id);
+        EditRoundDTO editRound = mapper.map(round, EditRoundDTO.class);
+        return editRound;
+    }
+
+    @Override
+    public void editRound(EditRoundDTO roundDTO) {
+        ModelMapper mapper = new ModelMapper();
+        Round round = mapper.map(roundDTO, Round.class);
+        roundRepository.save(round);
     }
 
     /*----------------------------------------*/

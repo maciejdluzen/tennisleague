@@ -42,4 +42,8 @@ public interface AdminService {
 
     void deleteRoundById(Long id);
 
+    EditRoundDTO findRoundById(Long id);
+
+    void editRound(EditRoundDTO roundDTO);
+
 }
