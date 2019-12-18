@@ -39,7 +39,7 @@
                 <a class="navbar-item has-text-black is-size-5" href="/admin/groups">GRUPY</a>
                 <a class="navbar-item has-text-black is-size-5" href="/admin/matches">MECZE</a>
                 <a class="navbar-item has-text-black is-size-5" href="/admin/singlesplayers">ZAWODNICY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/account/users">UŻYTKOWNICY</a>
+                <a class="navbar-item has-text-black is-size-5" href="/admin/users">UŻYTKOWNICY</a>
                 <!-- ... -->
             </div>
             <div class="column right">

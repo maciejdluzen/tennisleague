@@ -1,21 +1,11 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
-import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import pl.maciejdluzen.tennisleague.domain.entities.Group;
-import pl.maciejdluzen.tennisleague.domain.entities.Match;
-import pl.maciejdluzen.tennisleague.domain.entities.Round;
-import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
-import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.MatchRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
+import pl.maciejdluzen.tennisleague.domain.entities.*;
+import pl.maciejdluzen.tennisleague.domain.repositories.*;
 import pl.maciejdluzen.tennisleague.dtos.*;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
@@ -30,15 +20,25 @@ public class DefaultAdminService implements AdminService {
     private final GroupRepository groupRepository;
     private final SinglesPlayerRepository singlesPlayerRepository;
     private final MatchRepository matchRepository;
+    private final UserRepository userRepository;
     //ten model mapper został wstrzyknięty opcjonalnie (ustawiona strategia STRICT zamiast STANDART)
 
-    public DefaultAdminService(RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository, MatchRepository matchRepository) {
+    public DefaultAdminService(RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository, MatchRepository matchRepository, UserRepository userRepository) {
         this.roundRepository = roundRepository;
         this.groupRepository = groupRepository;
         this.singlesPlayerRepository = singlesPlayerRepository;
         this.matchRepository = matchRepository;
+        this.userRepository = userRepository;
     }
 
+    /*----------------------------------------*/
+    /*---------------USERS--------------------*/
+    /*----------------------------------------*/
+
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 
     /*----------------------------------------*/
     /*---------------ROUNDS-------------------*/

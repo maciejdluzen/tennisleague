@@ -1,6 +1,5 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,7 +15,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin/singlesplayers")
 public class AdminSinglePlayersController {
-
 
     private final AdminService adminService;
 

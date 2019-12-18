@@ -1,9 +1,6 @@
 package pl.maciejdluzen.tennisleague.services;
 
-import pl.maciejdluzen.tennisleague.domain.entities.Group;
-import pl.maciejdluzen.tennisleague.domain.entities.Match;
-import pl.maciejdluzen.tennisleague.domain.entities.Round;
-import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
+import pl.maciejdluzen.tennisleague.domain.entities.*;
 import pl.maciejdluzen.tennisleague.dtos.*;
 
 import java.util.List;
@@ -46,4 +43,5 @@ public interface AdminService {
 
     void editRound(EditRoundDTO roundDTO);
 
+    List<User> findAllUsers();
 }
