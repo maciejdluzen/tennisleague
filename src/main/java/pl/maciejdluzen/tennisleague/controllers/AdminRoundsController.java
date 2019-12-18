@@ -55,16 +55,17 @@ public class AdminRoundsController {
         return "redirect:/";
     }
 
+
     @GetMapping("/delete")
-    public String processDeleteGroup(Long id) {
+    public String prepareDeleteRound(Model model, Long id) {
+        model.addAttribute("id", id);
+        return "admin/rounds/delete-round";
+    }
+
+
+    @PostMapping("/delete")
+    public String processDeleteRound(Long id) {
         adminService.deleteRoundById(id);
         return "redirect:/admin/rounds";
     }
-
-    @PostMapping("/delete")
-    
-
-
-
-
 }
