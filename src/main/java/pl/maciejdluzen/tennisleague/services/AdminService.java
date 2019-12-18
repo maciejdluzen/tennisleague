@@ -46,4 +46,6 @@ public interface AdminService {
     List<User> findAllUsers();
 
     void deleteUserById(Long id);
+
+    User findUserById(Long id);
 }
