@@ -28,14 +28,4 @@ public class AdminUsersController {
     public String prepareManageUsersPage() {
         return "admin/users/users";
     }
-
-
-    @GetMapping
-    public String prepareEditUserForm() {
-        return "abc";
-    }
-
-
-
-
 }
