@@ -68,6 +68,12 @@ public class DefaultAdminService implements AdminService {
         user.setActive(false);
     }
 
+    @Override
+    public void activateUserAccount(Long id) {
+        User user = userRepository.getOne(id);
+        user.setActive(true);
+    }
+
     /*----------------------------------------*/
     /*---------------ROUNDS-------------------*/
     /*----------------------------------------*/

@@ -54,4 +54,6 @@ public interface AdminService {
     void deleteSinglesPlayerById(Long id);
 
     void deactivateUserAccount(Long id);
+
+    void activateUserAccount(Long id);
 }
