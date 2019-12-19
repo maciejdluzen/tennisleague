@@ -38,11 +38,21 @@
                         <c:url value="/admin/users/delete" var="deleteURL">
                             <c:param name="id" value="${user.id}"/>
                         </c:url>
-                        <c:url value="/admin/users/deactivateuser" var="deactivateuserURL">
-                            <c:param name="id" value="${user.id}"/>
-                        </c:url>
+                        <c:choose>
+                            <c:when test="${user.active.equals(true)}">
+                                <c:url value="/admin/users/deactivateuser" var="deactivateuserURL">
+                                    <c:param name="id" value="${user.id}"/>
+                                </c:url>
+                                <a href="${deactivateuserURL}">Dezaktywuj konto</a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:url value="/admin/users/deactivateuser" var="activateuserURL">
+                                    <c:param name="id" value="${user.id}"/>
+                                </c:url>
+                                <a href="${deactivateuserURL}">Aktywuj konto</a>
+                            </c:otherwise>
+                        </c:choose>
                         <a href="${deleteURL}">Usuń</a>
-                        <a href="${deactivateuserURL}">Dezaktywuj konto</a>
                     </td>
                 </tr>
             </c:forEach>
