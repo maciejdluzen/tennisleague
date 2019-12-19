@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -12,6 +13,15 @@
     <title>Usuwanie zawodnika</title>
 </head>
 <body>
+<h2>Potwierdź, czy chcesz kontynuować:</h2>
+<form method="get" action="/admin/singlesplayers">
+    <input class="button is-warning" type="submit" value="Anuluj"/>
+</form>
 
+<form method="post">
+    <input type="hidden" name="id" value="${id}"/>
+    <input class="button is-danger" type="submit" value="Usuń"/>
+    <sec:csrfInput/>
+</form>
 </body>
 </html>

@@ -184,6 +184,7 @@ public class DefaultAdminService implements AdminService {
                 match.setPlayerTwo(null);
             }
         }
+        singlesPlayerRepository.delete(singlesPlayer);
     }
 
 

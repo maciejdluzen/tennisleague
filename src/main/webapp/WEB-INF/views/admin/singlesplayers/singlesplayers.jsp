@@ -82,7 +82,7 @@
                         <td>${player.group.name}</td>
                         <td>${player.user.id}</td>
                         <td>
-                            <c:url value="/" var="deleteURL">
+                            <c:url value="/admin/singlesplayers/delete" var="deleteURL">
                                 <c:param name="id" value="${player.id}"/>
                             </c:url>
                             <c:url value="/admin/singlesplayers/edit" var="updateURL">
