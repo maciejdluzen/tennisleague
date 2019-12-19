@@ -84,10 +84,18 @@
                             </c:otherwise>
                         </c:choose>
                         <td>
-                            <c:url value="/user/matches/reportresult" var="reportResultURL">
-                                <c:param name="id" value="${match.id}"/>
-                            </c:url>
-                            <a href="${reportResultURL}">Dodaj wynik</a>
+                            <c:choose>
+                                <c:when test="${match.playerTwo.active == true && match.playerOne.active == true}">
+                                    <c:url value="/user/matches/reportresult" var="reportResultURL">
+                                        <c:param name="id" value="${match.id}"/>
+                                    </c:url>
+                                    <a href="${reportResultURL}">Dodaj wynik</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a>Gracz się wycofał</a>
+                                </c:otherwise>
+                            </c:choose>
+
                         </td>
                     </tr>
                 </c:forEach>

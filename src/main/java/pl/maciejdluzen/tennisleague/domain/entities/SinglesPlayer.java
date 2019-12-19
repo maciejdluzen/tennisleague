@@ -36,6 +36,8 @@ public class SinglesPlayer {
     private Integer totalMatchesWon = 0;
     @Column(name = "matches_lost")
     private Integer totalMatchesLost = 0;
+    @Column(nullable = false)
+    private Boolean active = Boolean.TRUE;
 
     @OneToOne
     private User user;

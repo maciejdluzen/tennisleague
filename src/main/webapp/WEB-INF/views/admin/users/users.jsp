@@ -43,13 +43,13 @@
                                 <c:url value="/admin/users/deactivateuser" var="deactivateuserURL">
                                     <c:param name="id" value="${user.id}"/>
                                 </c:url>
-                                <a href="${deactivateuserURL}">Dezaktywuj konto</a>
+                                <a href="${deactivateuserURL}">Dezaktywuj</a>
                             </c:when>
                             <c:otherwise>
                                 <c:url value="/admin/users/activateuser" var="activateuserURL">
                                     <c:param name="id" value="${user.id}"/>
                                 </c:url>
-                                <a href="${activateuserURL}">Aktywuj konto</a>
+                                <a href="${activateuserURL}">Aktywuj</a>
                             </c:otherwise>
                         </c:choose>
                         <a href="${deleteURL}">Usuń</a>

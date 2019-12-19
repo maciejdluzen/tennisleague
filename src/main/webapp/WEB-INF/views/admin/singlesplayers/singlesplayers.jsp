@@ -66,6 +66,7 @@
                     <td>Liczba punktów</td>
                     <td>ID grupy</td>
                     <td>ID użytkownika</td>
+                    <td>Aktywny</td>
                 </tr>
                 <c:forEach items="${allsinglesplayers}" var="player" varStatus="stat">
                     <tr>
@@ -81,6 +82,7 @@
                         <td>${player.totalPoints}</td>
                         <td>${player.group.name}</td>
                         <td>${player.user.id}</td>
+                        <td>${player.active}</td>
                         <td>
                             <c:url value="/admin/singlesplayers/delete" var="deleteURL">
                                 <c:param name="id" value="${player.id}"/>
