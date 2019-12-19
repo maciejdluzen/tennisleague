@@ -38,6 +38,8 @@ public class SinglesPlayer {
     private Integer totalMatchesLost = 0;
     @Column(nullable = false)
     private Boolean active = Boolean.TRUE;
+    @Column
+    private String notes = " ";
 
     @OneToOne
     private User user;

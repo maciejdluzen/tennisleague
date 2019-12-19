@@ -34,4 +34,6 @@ public class EditSinglesPlayerDTO {
 
     private Long userId;
 
+    private String notes;
+
 }

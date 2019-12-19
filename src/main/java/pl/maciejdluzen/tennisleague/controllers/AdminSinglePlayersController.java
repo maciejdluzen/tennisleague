@@ -10,6 +10,7 @@ import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -31,6 +32,12 @@ public class AdminSinglePlayersController {
     public List<Group> findAllGroups() {
         List<Group> allGroups = adminService.findAllGroups();
         return allGroups;
+    }
+
+    @ModelAttribute("notes")
+    public List<String> notes() {
+        String[] notes = new String[] {"zawiera 2 punkty bonusowe", "Gracz się wycofał z rundy"};
+        return Arrays.asList(notes);
     }
 
     @GetMapping

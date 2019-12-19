@@ -25,6 +25,10 @@
     <p>Suma punktów: <form:input path="totalPoints"/><form:errors path="totalPoints"/></p>
     <p>Nazwa grupy: <form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
     <p>Id użytkownika: <form:input path="userId"/></p>
+    <p>Adnotacje: <form:select path="notes">
+        <form:option value=" " label="Wybierz adnotację"/>
+        <form:options items="${notes}"/>
+    </form:select></p>
     <p><input type="submit" value="Submit"></p>
 </form:form>
 </body>
