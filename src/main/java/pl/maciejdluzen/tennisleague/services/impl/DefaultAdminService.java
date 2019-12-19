@@ -61,6 +61,13 @@ public class DefaultAdminService implements AdminService {
         return userRepository.findAll();
     }
 
+
+    @Override
+    public void deactivateUserAccount(Long id) {
+        User user = userRepository.getOne(id);
+        user.setActive(false);
+    }
+
     /*----------------------------------------*/
     /*---------------ROUNDS-------------------*/
     /*----------------------------------------*/
@@ -178,7 +185,7 @@ public class DefaultAdminService implements AdminService {
         List<Match> matchesBySinglesPlayer = matchRepository.findAllBySinglesPlayer(singlesPlayer);
         for(Match match : matchesBySinglesPlayer) {
             if(match.getPlayerOne() == singlesPlayer) {
-                match.setPlayerOne(null);
+                match.setPlayerOne(null); // Tutaj lepiej byłoby nie robić null - chwilowe rozwiązanie. Zawodnika usuwamy, wyłącznie, gdzy wszystkie jego mecze są usunięte
             }
             if(match.getPlayerTwo() == singlesPlayer) {
                 match.setPlayerTwo(null);

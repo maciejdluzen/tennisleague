@@ -38,11 +38,11 @@
                         <c:url value="/admin/users/delete" var="deleteURL">
                             <c:param name="id" value="${user.id}"/>
                         </c:url>
-                        <c:url value="" var="updateURL">
+                        <c:url value="/admin/users/deactivateuser" var="deactivateuserURL">
                             <c:param name="id" value="${user.id}"/>
                         </c:url>
                         <a href="${deleteURL}">Usuń</a>
-                        <a href="${updateURL}">Edytuj</a>
+                        <a href="${deactivateuserURL}">Dezaktywuj konto</a>
                     </td>
                 </tr>
             </c:forEach>

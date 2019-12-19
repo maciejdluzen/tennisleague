@@ -42,4 +42,10 @@ public class AdminUsersController {
         adminService.deleteUserById(id);
         return "redirect:/admin/users";
     }
+
+    @GetMapping("/deactivateuser")
+    public String deactivateUserAccount(Long id) {
+        adminService.deactivateUserAccount(id);
+        return "redirect:/admin/users";
+    }
 }
