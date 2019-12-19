@@ -166,6 +166,26 @@ public class DefaultAdminService implements AdminService {
     /*-----------SINGLES PLAYERS--------------*/
     /*----------------------------------------*/
 
+    @Override
+    public SinglesPlayer findSinglesPlayerById(Long id) {
+        return singlesPlayerRepository.getOne(id);
+    }
+
+    @Override
+    public void deleteSinglesPlayerById(Long id) {
+        SinglesPlayer singlesPlayer = singlesPlayerRepository.getOne(id);
+
+        List<Match> matchesBySinglesPlayer = matchRepository.findAllBySinglesPlayer(singlesPlayer);
+        for(Match match : matchesBySinglesPlayer) {
+            if(match.getPlayerOne() == singlesPlayer) {
+                match.setPlayerOne(null);
+            }
+            if(match.getPlayerTwo() == singlesPlayer) {
+                match.setPlayerTwo(null);
+            }
+        }
+    }
+
 
     @Override
     public List<SinglesPlayer> findAllSinglesPlayers() {

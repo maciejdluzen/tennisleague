@@ -48,4 +48,8 @@ public interface AdminService {
     void deleteUserById(Long id);
 
     User findUserById(Long id);
+
+    SinglesPlayer findSinglesPlayerById(Long id);
+
+    void deleteSinglesPlayerById(Long id);
 }

@@ -56,4 +56,19 @@ public class AdminSinglePlayersController {
         }
         return "redirect:/admin/singlesplayers";
     }
+
+    @GetMapping("/delete")
+    public String prepareDeleteSinglesPlayer(Model model, Long id) {
+        model.addAttribute("id", id);
+        return "admin/singlesplayers/delete-player";
+    }
+
+    @PostMapping("/delete")
+    public String processDeleteSinglesPlayer(Long id) {
+        adminService.deleteSinglesPlayerById(id);
+        return "redirect:/admin/singlesplayers";
+    }
+
+
+
 }
