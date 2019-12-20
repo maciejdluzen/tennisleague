@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
 import pl.maciejdluzen.tennisleague.services.JoinRoundService;
 import pl.maciejdluzen.tennisleague.services.UserService;
@@ -43,11 +45,11 @@ public class AccountController {
     }
 
     @GetMapping
-    public String prepareAccountPage(Principal principal) {
+    public String prepareAccountPage(Model model, Principal principal) {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
-
+        model.addAttribute("username", username);
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
-        return "account";
+        return "user/account2";
     }
 
     @GetMapping("/joinround")
@@ -65,6 +67,46 @@ public class AccountController {
         joinRoundService.joinRound(singlesPlayerSignUp);
         return "redirect:/user";
     }
+
+    // Przeniesione z UserMatchesController 20Dec
+
+    @ModelAttribute("sets")
+    public List<Integer> sets() {
+        Integer[] sets = new Integer[]{0,1,2};
+        return Arrays.asList(sets);
+    }
+
+    @ModelAttribute("userMatches")
+    public List<Match> findAllMatchesByUserName() {
+        List<Match> userMatches = userService.findAllByUserUsername();
+        return userMatches;
+    }
+
+//    @GetMapping
+//    public String prepareUserMatchesPage(Model model, Principal principal) {
+//        model.addAttribute("username", principal.getName());
+//        return "user/matches/playermatches";
+//    }
+
+    @GetMapping("/reportresult")
+    public String prepareReportMatchResultForm(Long id, Model model) {
+        ReportSingleMatchResultDTO match = userService.findById(id);
+        model.addAttribute("match", match);
+        return "user/matches/report-result-form";
+    }
+
+    @PostMapping("/reportresult")
+    public String processReportMatchResultForm(@ModelAttribute
+                                               @Valid ReportSingleMatchResultDTO match, BindingResult result) {
+        if(result.hasErrors()) {
+            return "user/matches/report-result-form";
+        }
+        if(match != null) {
+            userService.reportSinglesMatchResult(match);
+        }
+        return "redirect:/user/matches";
+    }
+
 
 
 

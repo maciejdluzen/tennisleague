@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -29,8 +31,11 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="navbar-item button" href="#"><strong>Strona główna</strong></a>
-                        <a class="button is-primary" href="#"><strong>Wyloguj</strong></a>
+                        <a class="navbar-item button" href="/"><strong>Strona główna</strong></a>
+                        <form method="post" action="/logout">
+                            <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
+                            <sec:csrfInput/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,7 +67,7 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Witaj ${nazwaużytkownika}
+                                Witaj ${username}
                             </h1>
                             <h2 class="subtitle">
                                 Obecnie grasz w rundzie, która kończy się .........
@@ -91,16 +96,38 @@
                                         <td>Data meczu</td>
                                         <td>Imię i nazwisko przeciwnika</td>
                                         <td>Wynik (Ja : Przeciwnik)</td>
-                                        <td>Dodaj wynik</a></td>
+                                        <td>Dodaj wynik</td>
                                     </tr>
-                                    <tr>
-                                        <td width="5%"><i class="fas fa-baseball-ball"></i></td>
-                                        <td>1</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="level-right"><a class="button is-small is-primary" href="#">Dodaj wynik</a></td>
-                                    </tr>
+                                    <c:forEach items="${userMatches}" var="match" varStatus="stat">
+                                        <tr>
+                                            <td width="5%"><i class="fas fa-baseball-ball"></i></td>
+                                            <td>${stat.count}</td>
+                                            <td>2019-12-20</td>
+                                            <c:choose>
+                                                <c:when test="${username.equals(match.playerOne.user.username)}">
+                                                    <td>${match.playerTwo.firstName} ${match.playerTwo.lastName}</td>
+                                                    <td>${match.playerOneSets} : ${match.playerTwoSets}</td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td>${match.playerOne.firstName} ${match.playerOne.lastName}</td>
+                                                    <td>${match.playerTwoSets} : ${match.playerOneSets}</td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <td class="level-right">
+                                                <c:choose>
+                                                    <c:when test="${match.playerTwo.active == true && match.playerOne.active == true}">
+                                                    <c:url value="/user/matches/reportresult" var="reportResultURL">
+                                                        <c:param name="id" value="${match.id}"/>
+                                                    </c:url>
+                                                        <a class="button is-small is-primary" href="${reportResultURL}">Dodaj wynik</a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a>Gracz się wycofał</a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
