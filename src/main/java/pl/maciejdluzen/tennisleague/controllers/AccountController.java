@@ -15,7 +15,6 @@ import pl.maciejdluzen.tennisleague.services.UserService;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class AccountController {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
 
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
-        return "user/account";
+        return "account";
     }
 
     @GetMapping("/joinround")
