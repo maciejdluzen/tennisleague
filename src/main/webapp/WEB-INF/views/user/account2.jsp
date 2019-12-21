@@ -53,7 +53,7 @@
                         General
                     </p>
                     <ul class="menu-list">
-                        <li><a>ZAPISZ SIĘ DO RUNDY</a></li></br>
+                        <li><a href="/user/joinround">ZAPIS DO RUNDY: (${soonestround.name})</a></li></br>
                         <li><a>WYCOFAJ SIĘ DO RUNDY</a></li></br>
                         <li><a>USUŃ KONTO</a></li></br>
                         <li><a>ZGŁOŚ PROBLEM</a></li>
