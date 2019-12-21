@@ -49,7 +49,7 @@ public class AccountController {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
         model.addAttribute("username", username);
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
-        return "user/account2";
+        return "user/account";
     }
 
     @GetMapping("/joinround")
@@ -88,14 +88,14 @@ public class AccountController {
 //        return "user/matches/playermatches";
 //    }
 
-    @GetMapping("/reportresult")
+    @GetMapping("/matches/reportresult")
     public String prepareReportMatchResultForm(Long id, Model model) {
         ReportSingleMatchResultDTO match = userService.findById(id);
         model.addAttribute("match", match);
         return "user/matches/report-result-form";
     }
 
-    @PostMapping("/reportresult")
+    @PostMapping("/matches/reportresult")
     public String processReportMatchResultForm(@ModelAttribute
                                                @Valid ReportSingleMatchResultDTO match, BindingResult result) {
         if(result.hasErrors()) {
@@ -104,7 +104,7 @@ public class AccountController {
         if(match != null) {
             userService.reportSinglesMatchResult(match);
         }
-        return "redirect:/user/matches";
+        return "redirect:/user";
     }
 
 
