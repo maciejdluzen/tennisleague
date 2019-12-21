@@ -57,6 +57,7 @@
                     <td>Lp.</td>
                     <td>ID meczu</td>
                     <td>Grupa</td>
+                    <td>Data meczu</td>
                     <td>Zawodnik 1</td>
                     <td>Liczba wygranych setów</td>
                     <td>Zawodnik 2</td>
@@ -67,6 +68,7 @@
                         <td>${stat.count}</td>
                         <td>${match.id}</td>
                         <td>${match.group.name}</td>
+                        <td>${match.dateOfGame}</td>
                         <td>${match.playerOne.lastName}</td>
                         <td>${match.playerOneSets}</td>
                         <td>${match.playerTwo.lastName}</td>

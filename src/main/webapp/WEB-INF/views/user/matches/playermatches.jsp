@@ -68,7 +68,7 @@
                         <td>${stat.count}</td>
                         <td>${match.id}</td>
                         <td>${match.group.name}</td>
-                        <td>Tutaj będzie data</td>
+                        <td></td>
                         <c:choose>
                             <c:when test="${username.equals(match.playerOne.user.username)}">
                                 <td>${match.playerOne.lastName}</td>
@@ -95,7 +95,6 @@
                                     <a>Gracz się wycofał</a>
                                 </c:otherwise>
                             </c:choose>
-
                         </td>
                     </tr>
                 </c:forEach>

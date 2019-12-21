@@ -63,6 +63,7 @@ public class DefaultUserService implements UserService {
     public void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO) {
 
         Match match = matchRepository.getOne(singleMatchResultDTO.getId());
+        match.setDateOfGame(singleMatchResultDTO.getDateOfGame());
         match.setPlayerOneSets(singleMatchResultDTO.getPlayerOneSets());
 
         match.getPlayerOne().setTotalSetsWon(match.getPlayerOne().getTotalSetsWon() + singleMatchResultDTO.getPlayerOneSets()); // add won sets to total sets count

@@ -53,7 +53,7 @@
                         General
                     </p>
                     <ul class="menu-list">
-                        <li><a href="/user/joinround">ZAPIS DO RUNDY: (${soonestround.name})</a></li></br>
+                        <li><a href="/user/joinround">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
                         <li><a>WYCOFAJ SIĘ DO RUNDY</a></li></br>
                         <li><a>USUŃ KONTO</a></li></br>
                         <li><a>ZGŁOŚ PROBLEM</a></li>
@@ -102,7 +102,7 @@
                                         <tr>
                                             <td width="5%"><i class="fas fa-baseball-ball"></i></td>
                                             <td>${stat.count}</td>
-                                            <td>2019-12-20</td>
+                                            <td>${match.dateOfGame}</td>
                                             <c:choose>
                                                 <c:when test="${username.equals(match.playerOne.user.username)}">
                                                     <td>${match.playerTwo.firstName} ${match.playerTwo.lastName}</td>

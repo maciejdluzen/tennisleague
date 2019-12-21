@@ -18,6 +18,7 @@
     <p><form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
     <p><form:hidden path="playerOne"/></p>
     <p><form:hidden path="playerTwo"/></p>
+    <p>Data rozegrania meczu: <form:input path="dateOfGame" type="date" dataType="rrrr-MM-dd"/><form:errors path="dateOfGame"/></p>
     <p>Nazwisko zawodnika 1 ${editMatch.playerOne.firstName} ${editMatch.playerOne.lastName}</p>
     <p>Nazwisko zawodnika 2 ${editMatch.playerTwo.firstName} ${editMatch.playerTwo.lastName} </p>
     <p>Liczba setów zawodnika 1 <form:select path="playerOneSets" items="${sets}"/><form:errors path="playerOneSets"/></p>

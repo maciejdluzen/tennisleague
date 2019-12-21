@@ -17,6 +17,7 @@
 
 <form:form method="post" modelAttribute="match">
     <form:hidden path="id"/>
+    <p>Data rozegrania meczu: <form:input path="dateOfGame" type="date" dataType="rrrr-MM-dd"/><form:errors path="dateOfGame"/></p>
     <p>Podaj wynik dla ${match.playerOneLastName}: <form:select path="playerOneSets" items="${sets}"/></p>
     <p>Podaj wynik dla: ${match.playerTwoLastName} <form:select path="playerTwoSets" items="${sets}"/></p>
     <p><input type="submit" value="Zapisz wynik"></p>
