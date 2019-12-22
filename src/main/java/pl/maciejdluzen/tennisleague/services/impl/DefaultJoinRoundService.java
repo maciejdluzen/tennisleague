@@ -39,6 +39,10 @@ public class DefaultJoinRoundService implements JoinRoundService {
         ModelMapper mapper = new ModelMapper();
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerData, SinglesPlayer.class);
         singlesPlayer.setUser(user);
+
+        Round round = roundRepository.getOne(singlesPlayerData.getRound().getId()); //Dodane 22Dec
+        round.getSinglesPlayers().add(singlesPlayer); // Dodane 22Dec
+
         singlesPlayerRepository.save(singlesPlayer);
     }
 

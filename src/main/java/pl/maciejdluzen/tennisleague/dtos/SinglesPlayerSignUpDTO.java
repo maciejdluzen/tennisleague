@@ -20,7 +20,7 @@ public class SinglesPlayerSignUpDTO {
 
     private Double ntrp;
 
-    private List<Round> rounds;
+    private Round round;
 
 //    @NotBlank
 //    private List<Round> rounds; // round which users whants to play in

@@ -15,10 +15,10 @@
 <body>
 <form:form method="post" modelAttribute="singlesPlayer">
     <p>Zapis do rundy ${soonestround.name} rozpoczynającej się ${soonestround.startDate} i kończącej ${soonestround.endDate}</p>
-    <p><form:select path="rounds">
-        <form:option value="-" label="--Wybierz Rundę"/>
-        <form:options items="${allrounds}"/>
-    </form:select> </p>
+    <p>Runda zapisu: <form:select path="round">
+        <form:option value="-" label="--Wybierz rundę--"/>
+        <form:options items="${allrounds}" itemLabel="name" title="id"/>
+    </form:select></p>
     <p>Imię: <form:input path="firstName"/><form:errors path="firstName"/></p>
     <p>Nazwisko: <form:input path="lastName"/><form:errors path="lastName"/></p>
     <p>Numer telefonu: <form:input path="phoneNumber"/><form:errors path="phoneNumber"/></p>
