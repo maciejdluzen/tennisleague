@@ -47,4 +47,7 @@ public class SinglesPlayer {
     @ManyToOne
     private Group group;
 
+    @ManyToOne
+    private Round round;
+
 }

@@ -37,9 +37,15 @@ public class AccountController {
         return joinRoundService.findAllRounds();
     }
 
+    @ModelAttribute("registerLimit")
+    public LocalDate dateToday() {
+        LocalDate registerLimit = LocalDate.now().plusDays(1L);
+        return registerLimit;
+    }
+
     @ModelAttribute("soonestround")
     public Round soonestRound() {
-        LocalDate dayNow = LocalDate.now();
+        LocalDate dayNow = LocalDate.now().plusDays(1L);
         return userService.findFirstByStartDateAfter(dayNow);
     }
 

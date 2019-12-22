@@ -30,7 +30,7 @@ public class Round {
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "round")
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();
 
     @OneToMany(mappedBy = "round")

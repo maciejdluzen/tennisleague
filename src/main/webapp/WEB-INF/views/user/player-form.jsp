@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -15,10 +16,7 @@
 <body>
 <form:form method="post" modelAttribute="singlesPlayer">
     <p>Zapis do rundy ${soonestround.name} rozpoczynającej się ${soonestround.startDate} i kończącej ${soonestround.endDate}</p>
-    <p>Runda zapisu: <form:select path="round">
-        <form:option value="-" label="--Wybierz rundę--"/>
-        <form:options items="${allrounds}" itemLabel="name" title="id"/>
-    </form:select></p>
+    <p><form:hidden path="roundId" value="${soonestround.id}" readonly="true"/></p>
     <p>Imię: <form:input path="firstName"/><form:errors path="firstName"/></p>
     <p>Nazwisko: <form:input path="lastName"/><form:errors path="lastName"/></p>
     <p>Numer telefonu: <form:input path="phoneNumber"/><form:errors path="phoneNumber"/></p>
@@ -26,7 +24,14 @@
         <form:option value="-" label="--Wybierz NTRP--"/>
         <form:options items="${ntrplevels}"/>
     </form:select> </p>
-    <p><input type="submit" value="Dołącz"></p>
+    <c:choose>
+        <c:when test="${soonestround.startDate > registerLimit}">
+            <p><input type="submit" value="Dołącz"></p>
+        </c:when>
+        <c:otherwise>
+            <p>Zapisy do tej rundy zakończone/Użytkownik już zapisany</p>
+        </c:otherwise>
+    </c:choose>
 </form:form>
 </body>
 </html>
