@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Nazwisko zawodnika: ${match.playerOneLastName}</label>
+                    <label class="label">Nazwisko zawodnika: ${match.playerOneLastName}. Liczba wygranych setów:</label>
                     <div class="control">
                         <div class="select">
                             <form:select path="playerOneSets" items="${sets}" required="true"/>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">Nazwisko zawodnika: ${match.playerTwoLastName}</label>
+                    <label class="label">Nazwisko zawodnika: ${match.playerTwoLastName}. Liczba wygranych setów:</label>
                     <div class="control">
                         <div class="select">
                             <form:select path="playerTwoSets" items="${sets}" required="true"/>
@@ -83,7 +83,7 @@
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link" type="submit">Submit</button>
+                        <button class="button is-link" type="submit">Dodaj</button>
                     </div>
                     <div class="control">
                         <a class="button is-link is-light" href="/user">Anuluj</a>

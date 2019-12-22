@@ -32,6 +32,11 @@ public class AccountController {
         this.userService = userService;
     }
 
+    @ModelAttribute("allrounds")
+    public List<Round> allRounds() {
+        return joinRoundService.findAllRounds();
+    }
+
     @ModelAttribute("soonestround")
     public Round soonestRound() {
         LocalDate dayNow = LocalDate.now();

@@ -46,4 +46,7 @@ public class SinglesPlayer {
 
     @ManyToOne
     private Group group;
+
+    @ManyToMany(mappedBy = "singlesPlayers")
+    private List<Round> rounds = new ArrayList<>();
 }

@@ -124,7 +124,7 @@
                                                                 <a class="button is-small is-primary" href="${reportResultURL}">Dodaj wynik</a>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <a>Gracz się wycofał</a>
+                                                                <p>Gracz się wycofał</p>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </c:when>
