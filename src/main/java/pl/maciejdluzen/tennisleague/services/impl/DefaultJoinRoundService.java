@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,10 @@ public class DefaultJoinRoundService implements JoinRoundService {
     @Override
     public List<Round> findAllRounds() {
         return roundRepository.findAll();
+    }
+
+    @Override
+    public SinglesPlayer findSinglesPlayerById(Long id) {
+        return singlesPlayerRepository.getOne(id);
     }
 }

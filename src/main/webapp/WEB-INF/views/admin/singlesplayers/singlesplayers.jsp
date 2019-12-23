@@ -64,7 +64,8 @@
                     <td>Przegrane mecze</td>
                     <td>Wygrane sety</td>
                     <td>Liczba punktów</td>
-                    <td>ID grupy</td>
+                    <td>Runda</td>
+                    <td>Grupa</td>
                     <td>ID użytkownika</td>
                     <td>Aktywny</td>
                 </tr>
@@ -80,6 +81,7 @@
                         <td>${player.totalMatchesLost}</td>
                         <td>${player.totalSetsWon}</td>
                         <td>${player.totalPoints}</td>
+                        <td>${player.round.name}</td>
                         <td>${player.group.name}</td>
                         <td>${player.user.id}</td>
                         <td>${player.active}</td>

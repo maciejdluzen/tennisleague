@@ -75,6 +75,10 @@ public class AccountController {
         if (result.hasErrors()) {
             return "/user/player-form";
         }
+        if(singlesPlayerSignUp.getRoundId() == joinRoundService.findSinglesPlayerById(singlesPlayerSignUp.getId()).getRound().getId()) {
+            return "redirect:/user";
+        }
+
         joinRoundService.joinRound(singlesPlayerSignUp);
         return "redirect:/user";
     }
