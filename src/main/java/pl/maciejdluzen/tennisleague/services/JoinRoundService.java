@@ -12,7 +12,4 @@ public interface JoinRoundService {
     void joinRound(SinglesPlayerSignUpDTO singlesPlayer);
 
     List<Round> findAllRounds();
-
-
-    SinglesPlayer findSinglesPlayerById(Long id);
 }

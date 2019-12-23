@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
+import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
 import pl.maciejdluzen.tennisleague.services.JoinRoundService;
 import pl.maciejdluzen.tennisleague.services.UserService;
@@ -55,6 +56,23 @@ public class AccountController {
         return Arrays.asList(ntrp);
     }
 
+    @GetMapping("/playerdetails")
+    public String prepareSinglesPlayerDetailsForm(Model model) {
+        model.addAttribute("singlesPlayerDetails", new SinglesPlayerDetailsDTO());
+        return "/user/player-details-form";
+    }
+
+    @PostMapping("/playerdetails")
+    public String processSinglesPlayerDetailsForm(@ModelAttribute("singlesPlayerDetails")
+      @Valid SinglesPlayerDetailsDTO singlesPlayerDetails, BindingResult result) {
+        if(result.hasErrors()) {
+            return "/user/player-details-form";
+        }
+        userService.singlesPlayerDetails(singlesPlayerDetails);
+        return "redirect:/user";
+    }
+
+
     @GetMapping
     public String prepareAccountPage(Model model, Principal principal) {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
@@ -75,10 +93,6 @@ public class AccountController {
         if (result.hasErrors()) {
             return "/user/player-form";
         }
-        if(singlesPlayerSignUp.getRoundId() == joinRoundService.findSinglesPlayerById(singlesPlayerSignUp.getId()).getRound().getId()) {
-            return "redirect:/user";
-        }
-
         joinRoundService.joinRound(singlesPlayerSignUp);
         return "redirect:/user";
     }

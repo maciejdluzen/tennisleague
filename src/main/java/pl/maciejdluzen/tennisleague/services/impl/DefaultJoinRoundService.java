@@ -49,8 +49,4 @@ public class DefaultJoinRoundService implements JoinRoundService {
         return roundRepository.findAll();
     }
 
-    @Override
-    public SinglesPlayer findSinglesPlayerById(Long id) {
-        return singlesPlayerRepository.getOne(id);
     }
-}

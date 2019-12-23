@@ -16,7 +16,6 @@
 <body>
 <form:form method="post" modelAttribute="singlesPlayer">
     <p>Zapis do rundy ${soonestround.name} rozpoczynającej się ${soonestround.startDate} i kończącej ${soonestround.endDate}</p>
-    <p><form:hidden path="id"/></p>
     <p><form:hidden path="roundId" value="${soonestround.id}" readonly="true"/></p>
     <p>Imię: <form:input path="firstName"/><form:errors path="firstName"/></p>
     <p>Nazwisko: <form:input path="lastName"/><form:errors path="lastName"/></p>
@@ -26,19 +25,14 @@
         <form:options items="${ntrplevels}"/>
     </form:select> </p>
     <c:choose>
-        <c:when test="${singlesPlayer.roundId == null}">
-            <c:choose>
-                <c:when test="${soonestround.startDate > registerLimit}">
-                    <p><input type="submit" value="Dołącz"></p>
-                </c:when>
-                <c:otherwise>
-                    <p>Zapisy do tej rundy zakończone/Użytkownik już zapisany</p>
-                </c:otherwise>
-            </c:choose>
-        </c:when>
-        <c:otherwise>
-            <p>Użytkownik już jest zapisany do rundy</p>
-        </c:otherwise>
+        <c:choose>
+            <c:when test="${soonestround.startDate > registerLimit}">
+                <p><input type="submit" value="Dołącz"></p>
+            </c:when>
+            <c:otherwise>
+                <p>Zapisy do tej rundy zakończone/Użytkownik już zapisany</p>
+            </c:otherwise>
+        </c:choose>
     </c:choose>
 </form:form>
 </body>

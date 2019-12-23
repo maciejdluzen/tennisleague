@@ -8,11 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
+import pl.maciejdluzen.tennisleague.domain.entities.User;
 import pl.maciejdluzen.tennisleague.domain.repositories.MatchRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.UserRepository;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
+import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.services.UserService;
 
 import java.time.LocalDate;
@@ -58,6 +60,18 @@ public class DefaultUserService implements UserService {
         log.info("Returning match info: {}", matchResultDTO);
         return matchResultDTO;
     }
+
+    @Override
+    public void singlesPlayerDetails(SinglesPlayerDetailsDTO singlesPlayerDetails) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.getByUsername(username);
+        ModelMapper mapper = new ModelMapper();
+        SinglesPlayer singlesPlayer = mapper.map(singlesPlayerDetails, SinglesPlayer.class);
+        singlesPlayer.setUser(user);
+        singlesPlayerRepository.save(singlesPlayer);
+    }
+
+
 
     @Override
     public void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO) {
