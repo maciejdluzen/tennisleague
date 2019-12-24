@@ -1,6 +1,7 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import pl.maciejdluzen.tennisleague.domain.repositories.MatchRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.UserRepository;
+import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.services.UserService;
@@ -67,6 +69,22 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    public EditSinglesPlayerDetailsDTO findSinglesPlayerByUser(Long id) {
+
+        SinglesPlayer singlesPlayer = singlesPlayerRepository.findByUserId(id);
+        ModelMapper mapper = new ModelMapper();
+        EditSinglesPlayerDetailsDTO singlesPlayerEditDTO = mapper.map(singlesPlayer, EditSinglesPlayerDetailsDTO.class);
+        return singlesPlayerEditDTO;
+    }
+
+    @Override
+    public void editUserProfile(EditSinglesPlayerDetailsDTO singlesPlayerEditDTO) {
+        ModelMapper mapper = new ModelMapper();
+        SinglesPlayer singlesPlayer = mapper.map(singlesPlayerEditDTO, SinglesPlayer.class);
+        singlesPlayerRepository.save(singlesPlayer);
+    }
+    
+    @Override // The purpose of this method is to fill all the neccessary information in user's profile
     public void singlesPlayerDetails(SinglesPlayerDetailsDTO singlesPlayerDetails) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.getByUsername(username);

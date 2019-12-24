@@ -3,6 +3,7 @@ package pl.maciejdluzen.tennisleague.services;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.User;
+import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 
@@ -21,6 +22,10 @@ public interface UserService {
     List<Match> findAllByUserUsername();
 
     ReportSingleMatchResultDTO findById(Long id);
+
+    EditSinglesPlayerDetailsDTO findSinglesPlayerByUser(Long id);
+
+    void editUserProfile(EditSinglesPlayerDetailsDTO singlesPlayerEditDTO);
 
     void singlesPlayerDetails(SinglesPlayerDetailsDTO singlesPlayerDetails);
 

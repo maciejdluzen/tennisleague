@@ -52,6 +52,8 @@ public class DefaultJoinRoundService implements JoinRoundService {
         return roundRepository.findAll();
     }
 
+    // The purpose of the methods below is allowing a player to sign up to the round:
+
     @Override
     public SinglesPlayerSignUpDTO findSinglesPlayerByUser(Long id) {
 //        String username = SecurityContextHolder.getContext().getAuthentication().getName();

@@ -53,7 +53,14 @@
                         General
                     </p>
                     <ul class="menu-list">
-                        <li><a href="/user/playerdetails">UZUPEŁNIJ INFORMACJE</a></li></br>
+                        <c:choose>
+                            <c:when test="${user.singlesPlayer == null}">
+                                <li><a href="/user/playerdetails">UZUPEŁNIJ PROFIL</a></li></br>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="/user">EDYTUJ PROFIL</a></li></br>
+                            </c:otherwise>
+                        </c:choose>
                         <li><a href="/user/joinround2">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
                         <li><a>WYCOFAJ SIĘ DO RUNDY</a></li></br>
                         <li><a>USUŃ KONTO</a></li></br>
