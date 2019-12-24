@@ -54,7 +54,7 @@
                     </p>
                     <ul class="menu-list">
                         <li><a href="/user/playerdetails">UZUPEŁNIJ INFORMACJE</a></li></br>
-                        <li><a href="/user/joinround">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
+                        <li><a href="/user/joinround2">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
                         <li><a>WYCOFAJ SIĘ DO RUNDY</a></li></br>
                         <li><a>USUŃ KONTO</a></li></br>
                         <li><a>ZGŁOŚ PROBLEM</a></li>

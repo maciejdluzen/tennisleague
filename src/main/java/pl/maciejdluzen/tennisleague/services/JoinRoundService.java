@@ -15,4 +15,6 @@ public interface JoinRoundService {
     List<Round> findAllRounds();
 
     SinglesPlayerSignUpDTO findSinglesPlayerByUser(Long id);
+
+    void singlesPlayerRoundSignUp(SinglesPlayerSignUpDTO singlesPlayerSignUp);
 }

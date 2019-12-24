@@ -87,19 +87,29 @@ public class AccountController {
     public String prepareJoinRoundPage2(Model model, Principal principal) {
         String username = principal.getName();
         User user = userService.findUserByUsername(username);
-        SinglesPlayerDetailsDTO singlesPlayerDetails = joinRoundService.findSinglesPlayerByUser(user.getId());
-        if (singlesPlayerDetails == null) {
+        SinglesPlayerSignUpDTO singlesPlayerSignUp = joinRoundService.findSinglesPlayerByUser(user.getId());
+        if (singlesPlayerSignUp == null) {
             return "redirect:/user";
         }
-        if (singlesPlayerDetails.getFirstName() == null || singlesPlayerDetails.getLastName() == null || singlesPlayerDetails.getPhoneNumber() == null || singlesPlayerDetails.getNtrp() == null) {
+        if (singlesPlayerSignUp.getFirstName() == null || singlesPlayerSignUp.getLastName() == null || singlesPlayerSignUp.getPhoneNumber() == null || singlesPlayerSignUp.getNtrp() == null) {
             return "redirect:/user";
         }
-        if(singlesPlayerDetails.)
-        model.addAttribute("singlesPlayerDetails", singlesPlayerDetails);
-        return "/user/round-singup-form";
+        if(singlesPlayerSignUp.getRoundId() != null) {
+            return "redirect:/user";
+        }
+        model.addAttribute("singlesPlayerSignUp", singlesPlayerSignUp);
+        return "/user/round-signup-form";
     }
 
-
+    @PostMapping("/joinround2")
+    public String processJoinRoundPage2(@ModelAttribute @Valid SinglesPlayerSignUpDTO singlesPlayerSignUp,
+                                        BindingResult result) {
+        if(result.hasErrors()) {
+            return "/user/round-signup-form";
+        }
+        joinRoundService.singlesPlayerRoundSignUp(singlesPlayerSignUp);
+        return "redirect:/user";
+    }
 
     // Poprzednie metody zapisu graczas do rundy
 

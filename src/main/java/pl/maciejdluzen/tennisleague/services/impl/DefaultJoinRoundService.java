@@ -1,6 +1,8 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
 import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
+import org.apache.catalina.mapper.Mapper;
+import org.modelmapper.MappingException;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -60,7 +62,10 @@ public class DefaultJoinRoundService implements JoinRoundService {
         return singlesPlayerSignUp;
     }
 
-    
-
-
+    @Override
+    public void singlesPlayerRoundSignUp(SinglesPlayerSignUpDTO singlesPlayerSignUp) {
+        ModelMapper mapper = new ModelMapper();
+        SinglesPlayer singlesPlayer = mapper.map(singlesPlayerSignUp, SinglesPlayer.class);
+        singlesPlayerRepository.save(singlesPlayer);
+    }
 }
