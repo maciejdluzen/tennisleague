@@ -47,6 +47,11 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    public User findUserByUsername(String username) {
+        return userRepository.getByUsername(username);
+    }
+
+    @Override
     public List<Match> findAllByUserUsername() {
         String username =  SecurityContextHolder.getContext().getAuthentication().getName();
         return matchRepository.findAllByUsername(username);
@@ -70,8 +75,6 @@ public class DefaultUserService implements UserService {
         singlesPlayer.setUser(user);
         singlesPlayerRepository.save(singlesPlayer);
     }
-
-
 
     @Override
     public void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO) {

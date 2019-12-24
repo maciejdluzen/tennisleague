@@ -11,6 +11,7 @@ import pl.maciejdluzen.tennisleague.domain.entities.User;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.UserRepository;
+import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
 import pl.maciejdluzen.tennisleague.services.JoinRoundService;
 
@@ -49,4 +50,17 @@ public class DefaultJoinRoundService implements JoinRoundService {
         return roundRepository.findAll();
     }
 
+    @Override
+    public SinglesPlayerSignUpDTO findSinglesPlayerByUser(Long id) {
+//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+//        User user = userRepository.getByUsername(username);
+        ModelMapper mapper = new ModelMapper();
+        SinglesPlayer singlesPlayer = singlesPlayerRepository.findByUserId(id);
+        SinglesPlayerSignUpDTO singlesPlayerSignUp = mapper.map(singlesPlayer, SinglesPlayerSignUpDTO.class);
+        return singlesPlayerSignUp;
     }
+
+    
+
+
+}

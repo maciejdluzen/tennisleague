@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.domain.entities.User;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
@@ -80,6 +81,27 @@ public class AccountController {
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
         return "user/account";
     }
+
+
+    @GetMapping("/joinround2")
+    public String prepareJoinRoundPage2(Model model, Principal principal) {
+        String username = principal.getName();
+        User user = userService.findUserByUsername(username);
+        SinglesPlayerDetailsDTO singlesPlayerDetails = joinRoundService.findSinglesPlayerByUser(user.getId());
+        if (singlesPlayerDetails == null) {
+            return "redirect:/user";
+        }
+        if (singlesPlayerDetails.getFirstName() == null || singlesPlayerDetails.getLastName() == null || singlesPlayerDetails.getPhoneNumber() == null || singlesPlayerDetails.getNtrp() == null) {
+            return "redirect:/user";
+        }
+        if(singlesPlayerDetails.)
+        model.addAttribute("singlesPlayerDetails", singlesPlayerDetails);
+        return "/user/round-singup-form";
+    }
+
+
+
+    // Poprzednie metody zapisu graczas do rundy
 
     @GetMapping("/joinround")
     public String prepareJoinRoundPage(Model model) {
