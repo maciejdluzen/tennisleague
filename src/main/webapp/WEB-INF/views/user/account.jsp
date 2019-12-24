@@ -58,7 +58,7 @@
                                 <li><a href="/user/playerdetails">UZUPEŁNIJ PROFIL</a></li></br>
                             </c:when>
                             <c:otherwise>
-                                <li><a href="/user">EDYTUJ PROFIL</a></li></br>
+                                <li><a href="/user/playerdetails/edit">EDYTUJ PROFIL</a></li></br>
                             </c:otherwise>
                         </c:choose>
                         <li><a href="/user/joinround2">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
@@ -78,7 +78,7 @@
                                 Witaj ${user.username}
                             </h1>
                             <h2 class="subtitle">
-                                Obecnie grasz w rundzie, która kończy się .........
+                                Obecnie grasz w rundzie, która kończy się ${user.singlesPlayer.round.endDate}
                                 Musisz rozegrać 3 mecze do ...., aby zdobyć 2 bonusowe punkty
                             </h2>
                         </div>

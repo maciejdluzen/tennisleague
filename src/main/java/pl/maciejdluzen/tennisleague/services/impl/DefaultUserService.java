@@ -83,7 +83,7 @@ public class DefaultUserService implements UserService {
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerEditDTO, SinglesPlayer.class);
         singlesPlayerRepository.save(singlesPlayer);
     }
-    
+
     @Override // The purpose of this method is to fill all the neccessary information in user's profile
     public void singlesPlayerDetails(SinglesPlayerDetailsDTO singlesPlayerDetails) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();

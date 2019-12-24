@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.User;
+import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
@@ -176,12 +177,22 @@ public class AccountController {
         return "redirect:/user";
     }
 
+    @GetMapping("/playerdetails/edit")
+    public String prepareSinglesPlayerDetailsEditForm(Model model, Principal principal) {
+        String username = principal.getName();
+        User user = userService.findUserByUsername(username);
+        EditSinglesPlayerDetailsDTO singlesPlayerEditDTO = userService.findSinglesPlayerByUser(user.getId());
+        model.addAttribute("singlesPlayerEditDTO", singlesPlayerEditDTO);
+        return "/user/player-edit-form";
+    }
 
-
-
-
-
-
-
-
+    @PostMapping("/playerdetails/edit")
+    public String processSinglesPlayerDetailsEditForm(@ModelAttribute @Valid
+          EditSinglesPlayerDetailsDTO singlesPlayerEditDTO, BindingResult result) {
+        if(result.hasErrors()) {
+            return "redirect:/user/player-edit-form";
+        }
+        userService.editUserProfile(singlesPlayerEditDTO);
+        return "redirect:/user";
+    }
 }
