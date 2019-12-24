@@ -23,6 +23,7 @@
     <p>Liczba przegranych meczy meczy: <form:input path="totalMatchesLost"/><form:errors path="totalMatchesLost"/></p>
     <p>Liczba wygranych setów: <form:input path="totalSetsWon"/><form:errors path="totalSetsWon"/></p>
     <p>Suma punktów: <form:input path="totalPoints"/><form:errors path="totalPoints"/></p>
+    <p>Runda: <form:input path="roundId" readonly="true"/></p>
     <p>Nazwa grupy: <form:select path="groupId" items="${allgroups}" itemLabel="name" itemValue="id"/></p>
     <p>Id użytkownika: <form:input path="userId"/></p>
     <p>Adnotacje: <form:select path="notes">

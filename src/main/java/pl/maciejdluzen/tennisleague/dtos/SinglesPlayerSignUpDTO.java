@@ -11,7 +11,7 @@ public class SinglesPlayerSignUpDTO {
 
     // This DTO is used when a user whats to sign up for a round (all info comes from the form)
 
-
+    private Long id;
     @NotBlank
     private String firstName;
     @NotBlank
@@ -22,6 +22,8 @@ public class SinglesPlayerSignUpDTO {
     private Double ntrp;
 
     private Long roundId;
+
+    private Long userId;
 
 //    @NotBlank
 //    private List<Round> rounds; // round which users whants to play in

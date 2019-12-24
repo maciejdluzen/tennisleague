@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -77,28 +78,35 @@ public class AccountController {
     @GetMapping
     public String prepareAccountPage(Model model, Principal principal) {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
-        model.addAttribute("username", username);
+        User user = userService.findUserByUsername(username);
+        model.addAttribute("user", user);
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
         return "user/account";
     }
-
 
     @GetMapping("/joinround2")
     public String prepareJoinRoundPage2(Model model, Principal principal) {
         String username = principal.getName();
         User user = userService.findUserByUsername(username);
-        SinglesPlayerSignUpDTO singlesPlayerSignUp = joinRoundService.findSinglesPlayerByUser(user.getId());
-        if (singlesPlayerSignUp == null) {
+        try {
+            SinglesPlayerSignUpDTO singlesPlayerSignUp = joinRoundService.findSinglesPlayerByUser(user.getId());
+            if (singlesPlayerSignUp == null) {
+                return "redirect:/user";
+            }
+            if (singlesPlayerSignUp.getFirstName() == null || singlesPlayerSignUp.getLastName() == null || singlesPlayerSignUp.getPhoneNumber() == null || singlesPlayerSignUp.getNtrp() == null) {
+                return "redirect:/user";
+            }
+            if(singlesPlayerSignUp.getRoundId() != null) {
+                return "redirect:/user";
+            }
+            model.addAttribute("singlesPlayerSignUp", singlesPlayerSignUp);
+            return "/user/round-signup-form";
+
+        } catch (IllegalArgumentException e) {
+            return "redirect:/user";
+        } catch (JpaSystemException e) {  // exception is thrown when user wants to fill information about him again and sign up to the round (like two different players)!
             return "redirect:/user";
         }
-        if (singlesPlayerSignUp.getFirstName() == null || singlesPlayerSignUp.getLastName() == null || singlesPlayerSignUp.getPhoneNumber() == null || singlesPlayerSignUp.getNtrp() == null) {
-            return "redirect:/user";
-        }
-        if(singlesPlayerSignUp.getRoundId() != null) {
-            return "redirect:/user";
-        }
-        model.addAttribute("singlesPlayerSignUp", singlesPlayerSignUp);
-        return "/user/round-signup-form";
     }
 
     @PostMapping("/joinround2")

@@ -16,7 +16,9 @@
 <body>
 <form:form method="post" modelAttribute="singlesPlayerSignUp">
     <p>Zapis do rundy ${soonestround.name} rozpoczynającej się ${soonestround.startDate} i kończącej ${soonestround.endDate}</p>
+    <p><form:hidden path="id"/></p>
     <p><form:hidden path="roundId" value="${soonestround.id}" readonly="true"/></p>
+    <p><form:hidden path="userId"/></p>
     <p>Imię: <form:input path="firstName" readonly="true"/><form:errors path="firstName"/></p>
     <p>Nazwisko: <form:input path="lastName" readonly="true"/><form:errors path="lastName"/></p>
     <p>Numer telefonu: <form:input path="phoneNumber" readonly="true"/><form:errors path="phoneNumber"/></p>

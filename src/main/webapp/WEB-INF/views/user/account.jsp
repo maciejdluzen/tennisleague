@@ -68,7 +68,7 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Witaj ${username}
+                                Witaj ${user.username}
                             </h1>
                             <h2 class="subtitle">
                                 Obecnie grasz w rundzie, która kończy się .........
@@ -105,7 +105,7 @@
                                             <td>${stat.count}</td>
                                             <td>${match.dateOfGame}</td>
                                             <c:choose>
-                                                <c:when test="${username.equals(match.playerOne.user.username)}">
+                                                <c:when test="${user.username.equals(match.playerOne.user.username)}">
                                                     <td>${match.playerTwo.firstName} ${match.playerTwo.lastName}</td>
                                                     <td>${match.playerOneSets} : ${match.playerTwoSets}</td>
                                                 </c:when>
