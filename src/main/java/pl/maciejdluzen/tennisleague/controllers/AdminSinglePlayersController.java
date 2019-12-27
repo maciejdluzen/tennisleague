@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
+import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDTO;
 import pl.maciejdluzen.tennisleague.services.AdminService;
@@ -32,6 +33,12 @@ public class AdminSinglePlayersController {
     public List<Group> findAllGroups() {
         List<Group> allGroups = adminService.findAllGroups();
         return allGroups;
+    }
+
+    @ModelAttribute("allrounds")
+    public List<Round> findAllRounds() {
+        List<Round> allRounds = adminService.findAllRounds();
+        return allRounds;
     }
 
     @ModelAttribute("notes")

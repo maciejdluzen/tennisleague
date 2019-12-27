@@ -36,6 +36,8 @@ public class EditSinglesPlayerDTO {
 
     private Long roundId;
 
+    private Boolean active;
+
     private String notes;
 
 }
