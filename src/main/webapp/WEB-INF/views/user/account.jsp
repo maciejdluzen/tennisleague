@@ -78,8 +78,16 @@
                                 Witaj ${user.username}
                             </h1>
                             <h2 class="subtitle">
-                                Obecnie grasz w rundzie, która kończy się ${user.singlesPlayer.round.endDate}
-                                Musisz rozegrać 3 mecze do ...., aby zdobyć 2 bonusowe punkty
+                                <c:choose>
+                                    <c:when test="${user.singlesPlayer.round != null && user.singlesPlayer.active == true}">
+                                        Obecnie grasz w rundzie, która kończy się ${user.singlesPlayer.round.endDate}
+                                        Musisz rozegrać 3 mecze do ...., aby zdobyć 2 bonusowe punkty
+                                    </c:when>
+                                    <c:otherwise>
+                                        Obecnie nie jesteś zapisany do żadnej rundy.
+                                    </c:otherwise>
+                                </c:choose>
+
                             </h2>
                         </div>
                     </div>
