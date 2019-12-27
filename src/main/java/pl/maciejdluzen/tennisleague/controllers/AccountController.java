@@ -104,7 +104,7 @@ public class AccountController {
             return "/user/round-signup-form";
 
         } catch (IllegalArgumentException e) {
-            return "redirect:/user";
+            return "/user/no-player-details-warning";
         } catch (JpaSystemException e) {  // exception is thrown when user wants to fill information about him again and sign up to the round (like two different players)!
             return "redirect:/user";
         }
