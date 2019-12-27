@@ -62,7 +62,7 @@
                             </c:otherwise>
                         </c:choose>
                         <li><a href="/user/joinround2">ZAPIS DO RUNDY: ${soonestround.name}</a></li></br>
-                        <li><a>WYCOFAJ SIĘ DO RUNDY</a></li></br>
+                        <li><a href="/user/withdraw">WYCOFAJ SIĘ DO RUNDY</a></li></br>
                         <li><a>USUŃ KONTO</a></li></br>
                         <li><a>ZGŁOŚ PROBLEM</a></li>
                     </ul>

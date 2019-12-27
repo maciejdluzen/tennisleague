@@ -25,6 +25,8 @@ public interface UserService {
 
     EditSinglesPlayerDetailsDTO findSinglesPlayerByUser(Long id);
 
+    void withdrawFromARound(EditSinglesPlayerDetailsDTO singlesPlayerDetailsDTO);
+
     void editUserProfile(EditSinglesPlayerDetailsDTO singlesPlayerEditDTO);
 
     void singlesPlayerDetails(SinglesPlayerDetailsDTO singlesPlayerDetails);

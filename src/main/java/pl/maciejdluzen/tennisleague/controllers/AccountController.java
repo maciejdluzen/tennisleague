@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
+import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.entities.User;
 import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDetailsDTO;
 import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
@@ -74,7 +75,7 @@ public class AccountController {
         userService.singlesPlayerDetails(singlesPlayerDetails);
         return "redirect:/user";
     }
-    
+
     @GetMapping
     public String prepareAccountPage(Model model, Principal principal) {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
@@ -82,6 +83,21 @@ public class AccountController {
         model.addAttribute("user", user);
 //        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); ALTERNATYWA
         return "user/account";
+    }
+
+    @GetMapping("/withdraw")
+    public String withdrawalConfirmation(Model model, Principal principal) {
+        String username = principal.getName();
+        User user = userService.findUserByUsername(username);
+        EditSinglesPlayerDetailsDTO singlesPlayerWithdrawalDTO = userService.findSinglesPlayerByUser(user.getId());
+        model.addAttribute("singlesPlayer", singlesPlayerWithdrawalDTO);
+        return "/user/withdrawal-confirmation";
+    }
+
+    @PostMapping("/withdraw")
+    public String processWithdrawal(@ModelAttribute("singlesPlayer") EditSinglesPlayerDetailsDTO singlesPlayerWithdrawalDTO) {
+        userService.withdrawFromARound(singlesPlayerWithdrawalDTO);
+        return "redirect:/user";
     }
 
     @GetMapping("/joinround2")
@@ -194,4 +210,6 @@ public class AccountController {
         userService.editUserProfile(singlesPlayerEditDTO);
         return "redirect:/user";
     }
+
+
 }

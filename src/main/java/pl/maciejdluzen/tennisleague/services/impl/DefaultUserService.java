@@ -78,6 +78,14 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    public void withdrawFromARound(EditSinglesPlayerDetailsDTO singlesPlayerWithdrawalDTO) {
+        ModelMapper mapper = new ModelMapper();
+        singlesPlayerWithdrawalDTO.setActive(false);
+        SinglesPlayer singlesPlayer = mapper.map(singlesPlayerWithdrawalDTO, SinglesPlayer.class);
+        singlesPlayerRepository.save(singlesPlayer);
+    }
+
+    @Override
     public void editUserProfile(EditSinglesPlayerDetailsDTO singlesPlayerEditDTO) {
         ModelMapper mapper = new ModelMapper();
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerEditDTO, SinglesPlayer.class);
