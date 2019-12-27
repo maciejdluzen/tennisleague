@@ -74,8 +74,7 @@ public class AccountController {
         userService.singlesPlayerDetails(singlesPlayerDetails);
         return "redirect:/user";
     }
-
-
+    
     @GetMapping
     public String prepareAccountPage(Model model, Principal principal) {
         String username = principal.getName(); // tutaj chcemy sie dostac do zalogowanego uzytkownika!
@@ -98,7 +97,7 @@ public class AccountController {
                 return "redirect:/user";
             }
             if(singlesPlayerSignUp.getRoundId() != null) {
-                return "redirect:/user";
+                return "/user/player-in-the-round-warning";
             }
             model.addAttribute("singlesPlayerSignUp", singlesPlayerSignUp);
             return "/user/round-signup-form";
@@ -106,7 +105,7 @@ public class AccountController {
         } catch (IllegalArgumentException e) {
             return "/user/no-player-details-warning";
         } catch (JpaSystemException e) {  // exception is thrown when user wants to fill information about him again and sign up to the round (like two different players)!
-            return "redirect:/user";
+            return "/user/player-in-the-round-warning";
         }
     }
 
