@@ -62,6 +62,43 @@
                 </section>
             </div>
         </div>
+        <div class="columns">
+            <div class="column is-4 is-offset-2">
+                <c:forEach items="${ranking}" var="group">
+                <article class="message is-danger">
+                    <div class="message-header">
+                        <p>${group.name}</p>
+                    </div>
+                    <div class="message-body has-text-centered">
+                        <tr>
+                            <td>
+                                <ol>
+                                    <c:forEach items="${group.playersDescription}" var="playerdescription">
+                                        <li>${playerdescription}</li>
+                                    </c:forEach>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <c:forEach items="${group.matchesDescription}" var="matchdescription">
+                                        <li>${matchdescription}</li>
+                                    </c:forEach>
+                                </ul>
+                            </td>
+                        </tr>
+                    </div>
+                </article>
+                </c:forEach>
+            </div>
+            <div class="column is-3">
+
+            </div>
+            <div class="column is-3">
+
+            </div>
+        </div>
     </div>
 </section>
 
