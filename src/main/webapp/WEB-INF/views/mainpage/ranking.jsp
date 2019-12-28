@@ -65,11 +65,12 @@
         <div class="columns">
             <div class="column is-4 is-offset-2">
                 <c:forEach items="${ranking}" var="group">
-                <article class="message is-danger">
+                <article class="message is-info">
                     <div class="message-header">
                         <p>${group.name}</p>
+                        <i class="fas fa-minus-square"></i>
                     </div>
-                    <div class="message-body has-text-centered">
+                    <div class="message-body">
                         <tr>
                             <td>
                                 <ol>
@@ -79,6 +80,8 @@
                                 </ol>
                             </td>
                         </tr>
+                        <br/>
+                        <br/>
                         <tr>
                             <td>
                                 <ul>
@@ -92,10 +95,10 @@
                 </article>
                 </c:forEach>
             </div>
-            <div class="column is-3">
+            <div class="column is-2">
 
             </div>
-            <div class="column is-3">
+            <div class="column is-2">
 
             </div>
         </div>
@@ -104,38 +107,6 @@
 
 
 
-<header class="hero-body">
-    <div class="column center">
-        <table class="table">
-            Wyniki rundy: <tr>${ranking[0].round.name}</tr>
-            Rozpoczęcie rozgrywek: <tr>${ranking[0].round.startDate}</tr>
-            Zakończenie rozgrywek: <tr>${ranking[0].round.endDate}</tr>
-            <c:forEach items="${ranking}" var="group">
-                <tr>
-                    <td>${group.name}</td>
-                </tr>
-                <tr>
-                    <td>
-                        <ol>
-                            <c:forEach items="${group.playersDescription}" var="playerdescription">
-                                <li>${playerdescription}</li>
-                            </c:forEach>
-                        </ol>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <c:forEach items="${group.matchesDescription}" var="matchdescription">
-                                    <li>${matchdescription}</li>
-                            </c:forEach>
-                        </ul>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
-</header>
 
 
 

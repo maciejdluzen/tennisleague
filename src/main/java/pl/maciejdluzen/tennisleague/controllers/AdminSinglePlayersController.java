@@ -43,7 +43,7 @@ public class AdminSinglePlayersController {
 
     @ModelAttribute("notes")
     public List<String> notes() {
-        String[] notes = new String[] {"zawiera 2 punkty bonusowe", "Gracz się wycofał z rundy"};
+        String[] notes = new String[] {"zawiera 2 pkt. bonusowe", "Gracz się wycofał z rundy"};
         return Arrays.asList(notes);
     }
 
