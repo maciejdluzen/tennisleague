@@ -68,9 +68,9 @@
                 <article class="message is-info">
                     <div class="message-header">
                         <p>${group.name}</p>
-                        <i class="fas fa-minus-square" id="hide-group"></i>
+                        <i class="fas fa-minus-square hide-group"></i>
                     </div>
-                    <div class="message-body" id="group-info">
+                    <div class="message-body group-info">
                         <tr>
                             <td>
                                 <ol>
@@ -108,7 +108,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-<script src="public_html/scripts/script.js"></script>
+<script src="public_html/scripts/script2.js"></script>
 
 </body>
 </html>
