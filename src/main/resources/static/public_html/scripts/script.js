@@ -8,12 +8,12 @@ $(function() {
     //     $(groupInfo).toggle();
     // });
 
-    groupInfo.each(function () {
-        hideBtn.on("click", function () {
-            $(this).hide();
-
-        });
-    });
+    // groupInfo.each(function () {
+    //     hideBtn.on("click", function () {
+    //         $(this).hide();
+    //
+    //     });
+    // });
 
     // groupInfo.each(function () {
     //     hideBtn.on("click", function () {
@@ -22,5 +22,10 @@ $(function() {
     //     });
     // });
 
+    hideBtn.each(function () {
+        $(this).on("click", function (e) {
+
+        })
+    })
 
 });
