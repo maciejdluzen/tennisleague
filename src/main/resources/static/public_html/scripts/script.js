@@ -4,28 +4,16 @@ $(function() {
 
     let groupInfo = $(".group-info");
 
-    // $(hideBtn).on("click", function () {
-    //     $(groupInfo).toggle();
-    // });
+    let grInfo2 = hideBtn.parents(".message-header").siblings('.group-info:first');
 
-    // groupInfo.each(function () {
-    //     hideBtn.on("click", function () {
-    //         $(this).hide();
-    //
-    //     });
-    // });
+    console.log(grInfo2);
 
-    // groupInfo.each(function () {
-    //     hideBtn.on("click", function () {
-    //         console.log("clicked");
-    //         $(this).hide();
-    //     });
-    // });
+    groupInfo.hide();
 
     hideBtn.each(function () {
-        $(this).on("click", function (e) {
-
-        })
-    })
-
+        $(this).on("click", function () {
+            let groupInfo2 = $(this).parents('div').siblings('div:first');
+            groupInfo2.toggle();
+        });
+    });
 });

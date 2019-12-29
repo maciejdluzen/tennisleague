@@ -69,7 +69,7 @@
                 <article class="message is-info">
                     <div class="message-header">
                         <p>${group.name}</p>
-                        <i class="fas fa-minus-square hide-group"></i>
+                        <i class="far fa-caret-square-down hide-group"></i>
                     </div>
                     <div class="message-body group-info">
                         <tr>
