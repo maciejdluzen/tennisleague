@@ -29,6 +29,10 @@ public class Round {
     private LocalDate startDate;
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+    @Column(name = "midpoint_date")
+    private LocalDate midpointDate;
+    @Column(name = "joinby_date")
+    private LocalDate joinByDate;
 
     @OneToMany(mappedBy = "round")
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();

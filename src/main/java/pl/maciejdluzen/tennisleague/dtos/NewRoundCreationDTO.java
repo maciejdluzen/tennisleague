@@ -21,4 +21,10 @@ public class NewRoundCreationDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private LocalDate endDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
+    private LocalDate midpointDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
+    private LocalDate joinByDate;
 }

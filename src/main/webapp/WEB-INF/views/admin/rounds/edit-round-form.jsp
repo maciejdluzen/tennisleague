@@ -18,6 +18,8 @@
     <p>Nazwa rundy: <form:input path="name"/><form:errors path="name"/></p>
     <p>Data rozpoczęcia: <form:input path="startDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="startDate"/></p>
     <p>Data zakończenia <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="endDate"/></p>
+    <p>Środek rundy: <form:input path="midpointDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="midpointDate"/></p>
+    <p>Data zakończenia zapisów: <form:input path="joinByDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="joinByDate"/></p>
     <p><input type="submit" value="Edytuj rundę"></p>
 </form:form>
 </body>

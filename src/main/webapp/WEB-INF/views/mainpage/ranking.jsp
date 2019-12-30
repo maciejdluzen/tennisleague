@@ -100,32 +100,59 @@
             <div class="column is-2">
 
             </div>
+
+
             <div class="column is-2">
-                <article class="message is-warning">
-                    <div class="message-header">
-                        Następne rundy:
-                    </div>
-                    <div class="message-body">
-                        <tr>
-                            <td>
-                                <ul>
-                                    Runda 1
-                                    Start:
-                                    Zapisy:
-                                    Od: 26.12.2019
-                                    Do: 25.01.2020
-                                </ul>
-                                <ul>
-                                    Runda 2
-                                    Start:
-                                    Zapisy:
-                                    Od: 26.12.2019
-                                    Do: 25.01.2020
-                                </ul>
-                            </td>
-                        </tr>
-                    </div>
-                </article>
+                <div class="columns">
+                    <article class="message is-warning">
+                        <div class="message-header">
+                            Następne rundy:
+                        </div>
+                        <div class="message-body">
+                            <tr>
+                                <td>
+                                    <ul>
+                                        Runda 1
+                                        Start:
+                                        Zapisy:
+                                        Od: 26.12.2019
+                                        Do: 25.01.2020
+                                    </ul><br/>
+                                    <ul>
+                                        Runda 2
+                                        Start:
+                                        Zapisy:
+                                        Od: 26.12.2019
+                                        Do: 25.01.2020
+                                    </ul>
+                                </td>
+                            </tr>
+                        </div>
+                    </article>
+                </div>
+                <div class="columns">
+                    <article class="message is-success">
+                        <div class="message-header">
+                            Poprzednie rundy:
+                        </div>
+                        <div class="message-body">
+                            <tr>
+                                <td>
+                                    <ul>
+                                        Runda 1
+                                        Zakończona:
+                                        Zobacz wyniki
+                                    </ul><br/>
+                                    <ul>
+                                        Runda 1
+                                        Zakończona:
+                                        Zobacz wyniki
+                                    </ul>
+                                </td>
+                            </tr>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </div>
