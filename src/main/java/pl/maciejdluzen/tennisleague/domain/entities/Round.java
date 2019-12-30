@@ -29,10 +29,12 @@ public class Round {
     private LocalDate startDate;
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
-    @Column(name = "midpoint_date")
+    @Column(name = "midpoint_date", nullable = false)
     private LocalDate midpointDate;
-    @Column(name = "joinby_date")
+    @Column(name = "joinby_date", nullable = false)
     private LocalDate joinByDate;
+    @Column(name = "current_round", nullable = false)
+    private Boolean current = Boolean.FALSE;
 
     @OneToMany(mappedBy = "round")
     private List<SinglesPlayer> singlesPlayers = new ArrayList<>();

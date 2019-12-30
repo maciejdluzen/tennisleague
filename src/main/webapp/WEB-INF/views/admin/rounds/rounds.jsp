@@ -62,17 +62,19 @@
                     <td>Data zakończenia</td>
                     <td>Środek rundy</td>
                     <td>Zakończenie zapisów</td>
+                    <td>Runda aktywna</td>
                     <td>Akcje</td>
                 </tr>
                 <c:forEach items="${allrounds}" var="round" varStatus="stat">
                     <tr>
                         <td>${stat.count}</td>
-                       <td>${round.id}</td>
-                       <td>${round.name}</td>
-                       <td>${round.startDate}</td>
-                       <td>${round.endDate}</td>
+                        <td>${round.id}</td>
+                        <td>${round.name}</td>
+                        <td>${round.startDate}</td>
+                        <td>${round.endDate}</td>
                         <td>${round.midpointDate}</td>
                         <td>${round.joinByDate}</td>
+                        <td>${round.current}</td>
                         <td>
                             <c:url value="/admin/rounds/delete" var="deleteURL">
                                 <c:param name="id" value="${round.id}"/>

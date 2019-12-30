@@ -25,5 +25,6 @@ public class EditRoundDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private LocalDate joinByDate;
+    private Boolean current;
 
 }

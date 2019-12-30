@@ -19,6 +19,7 @@
     <p>Data zakończenia <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="endDate"/></p>
     <p>Środek rundy: <form:input path="midpointDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="midpointDate"/></p>
     <p>Data zakończenia zapisów: <form:input path="joinByDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="joinByDate"/></p>
+    <p>Runda aktywna: <form:checkbox path="current"/></p>
     <p><input type="submit" value="Utwórz rundę"></p>
 </form:form>
 </body>
