@@ -52,11 +52,12 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title has-text-centered">
-                                WROCŁAWSKA LIGA TENISOWA - RUNDA ${ranking[0].round.name}
+                                WROCŁAWSKA LIGA TENISOWA - RUNDA ${currentRound.name}
                             </h1>
                             <h2 class="subtitle has-text-centered">
-                                Start: ${ranking[0].round.startDate}
-                                Koniec: ${ranking[0].round.endDate}
+                                Start: ${currentRound.startDate}
+                                Środek: ${currentRound.midpointDate}
+                                Koniec: ${currentRound.endDate}
                             </h2>
                         </div>
                     </div>
@@ -112,6 +113,9 @@
                             <tr>
                                 <td>
                                     <ul>
+                                        <c:forEach items="${futureRounds}" var="round">
+                                            <li></li>
+                                        </c:forEach>
                                         Runda 1
                                         Start:
                                         Zapisy:

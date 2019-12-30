@@ -4,12 +4,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
+import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
+import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.SinglesPlayerRepository;
 import pl.maciejdluzen.tennisleague.dtos.RankingByGroupsDTO;
 import pl.maciejdluzen.tennisleague.services.RankingService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,10 +23,12 @@ public class DefaultRankingService implements RankingService {
 
     private final SinglesPlayerRepository singlesPlayerRepository;
     private final GroupRepository groupRepository;
+    private final RoundRepository roundRepository;
 
-    public DefaultRankingService(SinglesPlayerRepository singlesPlayerRepository, GroupRepository groupRepository) {
+    public DefaultRankingService(SinglesPlayerRepository singlesPlayerRepository, GroupRepository groupRepository, RoundRepository roundRepository) {
         this.singlesPlayerRepository = singlesPlayerRepository;
         this.groupRepository = groupRepository;
+        this.roundRepository = roundRepository;
     }
 
     public List<RankingByGroupsDTO> getAllRankings() {
@@ -45,10 +50,17 @@ public class DefaultRankingService implements RankingService {
         return rankings;
     }
 
+    public Round findCurrentRound() {
+        return roundRepository.getFirstByCurrentTrue();
+    }
 
+    public List<Round> findAllFutureRounds(LocalDate dateNow) {
+        return roundRepository.findAllByStartDateAfter(dateNow);
+    }
 
-
-
+    public List<Round> findAllPreviousRounds(LocalDate dateNow) {
+        return roundRepository.findAllByStartDateBeforeAndCurrentIsFalse(dateNow);
+    }
 
     // Redundant:
     @Override

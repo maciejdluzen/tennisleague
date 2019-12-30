@@ -81,7 +81,7 @@
                                 <c:choose>
                                     <c:when test="${user.singlesPlayer.round != null && user.singlesPlayer.active == true}">
                                         Obecnie grasz w rundzie, która kończy się ${user.singlesPlayer.round.endDate}
-                                        Musisz rozegrać 3 mecze do ...., aby zdobyć 2 bonusowe punkty
+                                        Musisz rozegrać 3 mecze do ${user.singlesPlayer.round.midpointDate}, aby zdobyć 2 bonusowe punkty
                                     </c:when>
                                     <c:otherwise>
                                         Obecnie nie jesteś zapisany do żadnej rundy.
