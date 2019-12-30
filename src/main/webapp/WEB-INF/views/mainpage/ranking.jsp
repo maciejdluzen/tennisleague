@@ -18,9 +18,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="public_html/styles/style1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .hero.is-fullheight {
+            background: url(public_html/images/tenis4.jpeg) center / cover;
+        }
+
+        @media (max-width: 1024px) {.hero {background: url(public_html/images/tenis4.jpeg) center / cover;}}
+    </style>
 </head>
 <body>
 <!-- Header -->
+<section class="hero is-fullheight">
+
 <header>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main-navigation">
         <div class="navbar-brand">
@@ -52,7 +61,7 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title has-text-centered">
-                                WROCŁAWSKA LIGA TENISOWA - RUNDA ${currentRound.name}
+                                WROCŁAWSKA LIGA TENISOWA - ${currentRound.name}
                             </h1>
                             <h2 class="subtitle has-text-centered">
                                 Start: ${currentRound.startDate}
@@ -67,7 +76,7 @@
         <div class="columns">
             <div class="column is-4 is-offset-2">
                 <c:forEach items="${ranking}" var="group">
-                <article class="message is-info">
+                <article class="message is-dark">
                     <div class="message-header">
                         <p>${group.name}</p>
                         <i class="far fa-caret-square-down hide-group"></i>
@@ -104,7 +113,7 @@
 
 
             <div class="column is-2">
-                <div class="columns">
+                <div class="columns is-gapless">
                     <article class="message is-warning">
                         <div class="message-header">
                             Następne rundy:
@@ -125,7 +134,7 @@
                         </div>
                     </article>
                 </div>
-                <div class="columns">
+                <div class="columns is-gapless">
                     <article class="message is-success">
                         <div class="message-header">
                             Poprzednie rundy:
@@ -148,6 +157,8 @@
             </div>
         </div>
     </div>
+</section>
+
 </section>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
