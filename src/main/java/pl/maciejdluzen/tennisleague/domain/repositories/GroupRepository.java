@@ -13,6 +13,9 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
         @EntityGraph(type = EntityGraph.EntityGraphType.LOAD, attributePaths = "singlePlayers")
         List<Group> findAllWithSinglesPlayersAndMatchesByOrderBySinglePlayersTotalPointsDesc();
 
+        @EntityGraph(type = EntityGraph.EntityGraphType.LOAD, attributePaths = "singlePlayers")
+        Group findWithSinglesPlayersAndMatchesByIdOrderBySinglePlayersTotalPointsDesc(Long id);
+
         @EntityGraph(type = EntityGraph.EntityGraphType.LOAD, attributePaths = "matches")
         List<Group> findAllWithMatchesBy();
 

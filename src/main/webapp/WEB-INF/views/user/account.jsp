@@ -164,8 +164,8 @@
                         <div class="card events-card">
                             <header class="card=header">
                                 <p class="card-header-title">
-                                    Ranking grupy
-                                </p>
+                                    Ranking groupy: ${user.singlesPlayer.group.name}
+                                </>
                             </header>
                             <div class="card-table">
                                 <div class="content">

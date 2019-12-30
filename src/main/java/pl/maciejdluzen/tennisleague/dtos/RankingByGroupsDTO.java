@@ -13,5 +13,5 @@ public class RankingByGroupsDTO {
     private Round round;
     private List<String> playersDescription;
     private List<Integer> playersTotalPoints;
-    private List<String> matchesDescription; /***/
+    private List<String> matchesDescription;
 }
