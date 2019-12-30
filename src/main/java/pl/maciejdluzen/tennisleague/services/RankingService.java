@@ -22,4 +22,6 @@ public interface RankingService {
 
     List<Round> findAllPreviousRounds(LocalDate dateNow);
 
+    RankingByGroupsDTO getGroupRanking(Long id);
+
 }

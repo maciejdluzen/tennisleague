@@ -12,11 +12,9 @@ import pl.maciejdluzen.tennisleague.domain.entities.Match;
 import pl.maciejdluzen.tennisleague.domain.entities.Round;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 import pl.maciejdluzen.tennisleague.domain.entities.User;
-import pl.maciejdluzen.tennisleague.dtos.EditSinglesPlayerDetailsDTO;
-import pl.maciejdluzen.tennisleague.dtos.ReportSingleMatchResultDTO;
-import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerDetailsDTO;
-import pl.maciejdluzen.tennisleague.dtos.SinglesPlayerSignUpDTO;
+import pl.maciejdluzen.tennisleague.dtos.*;
 import pl.maciejdluzen.tennisleague.services.JoinRoundService;
+import pl.maciejdluzen.tennisleague.services.RankingService;
 import pl.maciejdluzen.tennisleague.services.UserService;
 
 import javax.validation.Valid;
@@ -31,10 +29,20 @@ public class AccountController {
 
     private final JoinRoundService joinRoundService;
     private final UserService userService;
+    private final RankingService rankingService;
 
-    public AccountController(JoinRoundService joinRoundService, UserService userService) {
+    public AccountController(JoinRoundService joinRoundService, UserService userService, RankingService rankingService) {
         this.joinRoundService = joinRoundService;
         this.userService = userService;
+        this.rankingService = rankingService;
+    }
+
+    @ModelAttribute("ranking")
+    public RankingByGroupsDTO groupRanking(Principal principal) {
+        String username = principal.getName();
+        User user = userService.findUserByUsername(username);
+        RankingByGroupsDTO ranking = rankingService.getGroupRanking(user.getSinglesPlayer().getGroup().getId());
+        return ranking;
     }
 
     @ModelAttribute("allrounds")

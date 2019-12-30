@@ -164,7 +164,7 @@
                         <div class="card events-card">
                             <header class="card=header">
                                 <p class="card-header-title">
-                                    Ranking groupy: ${user.singlesPlayer.group.name}
+                                    Ranking Twojej grupy: ${user.singlesPlayer.group.name}
                                 </>
                             </header>
                             <div class="card-table">
@@ -172,9 +172,13 @@
                                     <table class="table is-fullwidth is-striped">
                                         <tbody>
                                         <tr>
-                                            <td width="5%"><i class="fas fa-baseball-ball"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
-
+                                            <td>
+                                                <ol>
+                                                    <c:forEach items="${ranking.playersDescription}" var="playerDescription">
+                                                        <li>${playerDescription}</li>
+                                                    </c:forEach>
+                                                </ol>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -197,8 +201,13 @@
                                     <table class="table is-fullwidth is-striped">
                                         <tbody>
                                         <tr>
-                                            <td width="5%"><i class="fas fa-baseball-ball"></i></td>
-                                            <td>Lorum ipsum dolem aire</td>
+                                            <td>
+                                                <ol>
+                                                    <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
+                                                        <li>${matchDescription}</li>
+                                                    </c:forEach>
+                                                </ol>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
