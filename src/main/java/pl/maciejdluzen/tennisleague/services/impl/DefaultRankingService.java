@@ -36,16 +36,18 @@ public class DefaultRankingService implements RankingService {
         List<RankingByGroupsDTO> rankings = new ArrayList<>();
         ModelMapper mapper = new ModelMapper();
         for (Group group : groups) {
-            RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
-            List<String> playersDescription = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints() + " " + p.getNotes()).collect(Collectors.toList());
-            List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
-            List<String> matchDescription = group.getMatches().stream().filter(p -> (p.getPlayerOneSets() + p.getPlayerTwoSets()) != 0).map(p -> p.getPlayerOne().getFirstName() + " " + p.getPlayerOne().getLastName()
-                    + " - " + p.getPlayerTwo().getFirstName() + " " + p.getPlayerTwo().getLastName() + " " + p.getPlayerOneSets() + " : " + p.getPlayerTwoSets()).collect(Collectors.toList());
-            ranking.setPlayersTotalPoints(playersTotalPoints);
-            ranking.setPlayersDescription(playersDescription);
+            if(group.getRound().getCurrent()) {
+                RankingByGroupsDTO ranking = mapper.map(group, RankingByGroupsDTO.class);
+                List<String> playersDescription = group.getSinglePlayers().stream().map(p -> p.getFirstName() + " " + p.getLastName() + " [W" + p.getTotalMatchesWon() + ", P" + p.getTotalMatchesLost() + "] " + p.getTotalPoints() + " " + p.getNotes()).collect(Collectors.toList());
+                List<Integer> playersTotalPoints = group.getSinglePlayers().stream().map(p -> p.getTotalPoints()).collect(Collectors.toList());
+                List<String> matchDescription = group.getMatches().stream().filter(p -> (p.getPlayerOneSets() + p.getPlayerTwoSets()) != 0).map(p -> p.getPlayerOne().getFirstName() + " " + p.getPlayerOne().getLastName()
+                        + " - " + p.getPlayerTwo().getFirstName() + " " + p.getPlayerTwo().getLastName() + " " + p.getPlayerOneSets() + " : " + p.getPlayerTwoSets()).collect(Collectors.toList());
+                ranking.setPlayersTotalPoints(playersTotalPoints);
+                ranking.setPlayersDescription(playersDescription);
 
-            ranking.setMatchesDescription(matchDescription);
-            rankings.add(ranking);
+                ranking.setMatchesDescription(matchDescription);
+                rankings.add(ranking);
+            }
         }
         return rankings;
     }
@@ -55,7 +57,7 @@ public class DefaultRankingService implements RankingService {
     }
 
     public List<Round> findAllFutureRounds(LocalDate dateNow) {
-        return roundRepository.findAllByStartDateAfter(dateNow);
+        return roundRepository.findAllByStartDateAfterAndCurrentIsFalse(dateNow);
     }
 
     public List<Round> findAllPreviousRounds(LocalDate dateNow) {

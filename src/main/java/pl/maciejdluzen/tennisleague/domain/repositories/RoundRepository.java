@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface RoundRepository extends JpaRepository<Round, Long> {
 
-    List<Round> findAllByStartDateAfter(LocalDate dateNow);
+    List<Round> findAllByStartDateAfterAndCurrentIsFalse(LocalDate dateNow);
 
     List<Round> findAllByStartDateBeforeAndCurrentIsFalse(LocalDate dateNow);
 

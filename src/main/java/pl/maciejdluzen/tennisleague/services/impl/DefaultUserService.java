@@ -40,7 +40,7 @@ public class DefaultUserService implements UserService {
 
     @Override
     public List<Round> findAllByStartDateAfter(LocalDate dateNow) {
-        return roundRepository.findAllByStartDateAfter(dateNow);
+        return roundRepository.findAllByStartDateAfterAndCurrentIsFalse(dateNow);
     }
 
     @Override

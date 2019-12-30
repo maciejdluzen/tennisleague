@@ -114,21 +114,12 @@
                                 <td>
                                     <ul>
                                         <c:forEach items="${futureRounds}" var="round">
-                                            <li></li>
+                                            <li>${round.name}</li>
+                                            <li>Start: ${round.startDate}</li>
+                                            <li>Zapisy:</li>
+                                            <li>Do: ${round.joinByDate}</li>
                                         </c:forEach>
-                                        Runda 1
-                                        Start:
-                                        Zapisy:
-                                        Od: 26.12.2019
-                                        Do: 25.01.2020
                                     </ul><br/>
-                                    <ul>
-                                        Runda 2
-                                        Start:
-                                        Zapisy:
-                                        Od: 26.12.2019
-                                        Do: 25.01.2020
-                                    </ul>
                                 </td>
                             </tr>
                         </div>
@@ -143,15 +134,12 @@
                             <tr>
                                 <td>
                                     <ul>
-                                        Runda 1
-                                        Zakończona:
-                                        Zobacz wyniki
+                                        <c:forEach items="${previousRounds}" var="round">
+                                            <li>${round.name}</li>
+                                            <li>${round.endDate}</li>
+                                            <li>Zobacz wyniki</li>
+                                        </c:forEach>
                                     </ul><br/>
-                                    <ul>
-                                        Runda 1
-                                        Zakończona:
-                                        Zobacz wyniki
-                                    </ul>
                                 </td>
                             </tr>
                         </div>
