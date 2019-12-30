@@ -8,7 +8,7 @@ $(function() {
 
     console.log(grInfo2);
 
-    groupInfo.hide();
+    groupInfo.show();
 
     hideBtn.each(function () {
         $(this).on("click", function () {
