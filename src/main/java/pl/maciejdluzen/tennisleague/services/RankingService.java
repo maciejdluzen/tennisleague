@@ -12,8 +12,6 @@ public interface RankingService {
 
     List<SinglesPlayer> findAllByGroup(Long id);
 
-//    List<Group> findAllWithSinglesPlayers();
-
     List<RankingByGroupsDTO> getAllRankings();
 
     Round findCurrentRound();

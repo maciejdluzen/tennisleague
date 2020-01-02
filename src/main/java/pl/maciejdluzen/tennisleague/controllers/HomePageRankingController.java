@@ -53,17 +53,10 @@ public class HomePageRankingController {
         return "mainpage/ranking";
     }
 
-
-
-
 //    public String showSinglesPlayersRankingByGroup(Model model) {
 //        List<RankingByGroupsDTO> ranking = rankingService.getAllRankings();
 //        model.addAttribute("ranking", ranking);
 //        return "mainpage/ranking";
 //    }
-
-
-
-
 
 }

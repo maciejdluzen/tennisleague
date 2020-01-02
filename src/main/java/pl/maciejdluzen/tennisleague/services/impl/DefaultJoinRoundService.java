@@ -35,7 +35,6 @@ public class DefaultJoinRoundService implements JoinRoundService {
 
     // need to assign this singlesPlayer to user !!! ids shall be the same !!!
 
-
     @Override
     public void joinRound(SinglesPlayerSignUpDTO singlesPlayerData) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -56,8 +55,6 @@ public class DefaultJoinRoundService implements JoinRoundService {
 
     @Override
     public SinglesPlayerSignUpDTO findSinglesPlayerByUser(Long id) {
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//        User user = userRepository.getByUsername(username);
         ModelMapper mapper = new ModelMapper();
         SinglesPlayer singlesPlayer = singlesPlayerRepository.findByUserId(id);
         SinglesPlayerSignUpDTO singlesPlayerSignUp = mapper.map(singlesPlayer, SinglesPlayerSignUpDTO.class);

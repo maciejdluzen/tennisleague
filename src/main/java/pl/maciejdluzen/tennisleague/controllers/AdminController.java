@@ -18,22 +18,6 @@ public class AdminController {
     @GetMapping
     public String prepareAdminAccountPage(Principal principal) {
         String username = principal.getName();
-
         return "admin/account";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

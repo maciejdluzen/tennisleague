@@ -143,7 +143,7 @@ public class AccountController {
         return "redirect:/user";
     }
 
-    // Poprzednie metody zapisu graczas do rundy
+    // Poprzednie metody zapisu gracza do rundy
 
     @GetMapping("/joinround")
     public String prepareJoinRoundPage(Model model) {
@@ -218,6 +218,5 @@ public class AccountController {
         userService.editUserProfile(singlesPlayerEditDTO);
         return "redirect:/user";
     }
-
 
 }

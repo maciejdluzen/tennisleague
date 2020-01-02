@@ -25,10 +25,4 @@ public class SinglesPlayerSignUpDTO {
 
     private Long userId;
 
-//    @NotBlank
-//    private List<Round> rounds; // round which users whants to play in
-
-//    private Integer totalPoints;
-//    private Integer totalSetsWon;
-//    private Integer totalSetsLost;
 }

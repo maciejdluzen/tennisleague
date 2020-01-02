@@ -25,7 +25,6 @@ public class DefaultRegistrationService implements RegistrationService {
         this.roleRepository = roleRepository;
     }
 
-
     @Override
     public void register(RegistrationDataDTO registrationData) {
         ModelMapper mapper = new ModelMapper();

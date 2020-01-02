@@ -19,12 +19,4 @@ public class RegistrationDataDTO {
     private String rePassword;
     @NotNull @AssertTrue
     private Boolean termsAcceptance;
-
-    // Tutaj umiescimy rowniez listy z polami wyboru
-
-    // Dla klasy Book
-//    private Publisher publisher;
-//
-//    private Long publisherId; //nastapi automatyczna konwersja przez modelmappera
-
 }

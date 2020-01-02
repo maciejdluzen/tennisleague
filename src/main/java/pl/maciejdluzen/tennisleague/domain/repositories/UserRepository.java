@@ -22,6 +22,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "(SELECT id FROM users WHERE username = 'admin',2);", nativeQuery = true)
     void makeAdminAdmin();
 
-
-
 }

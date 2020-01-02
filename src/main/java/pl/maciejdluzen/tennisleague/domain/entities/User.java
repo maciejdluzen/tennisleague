@@ -33,14 +33,4 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private SinglesPlayer singlesPlayer;
-
-
-    // TODO Add the following items to: firstName, lastName, telephoneNumber
-
-//    private String firstName;
-//    private String lastName;
-//    private String telephoneNumber;
-//    private Double ntrp;
-
-
 }

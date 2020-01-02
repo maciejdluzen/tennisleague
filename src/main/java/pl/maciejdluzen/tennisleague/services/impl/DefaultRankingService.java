@@ -86,7 +86,4 @@ public class DefaultRankingService implements RankingService {
     public List<SinglesPlayer> findAllByGroup(Long id) {
         return singlesPlayerRepository.findAllByGroupIdOrderByTotalPointsDescTotalMatchesWonDesc(id);
     }
-
-
-
 }

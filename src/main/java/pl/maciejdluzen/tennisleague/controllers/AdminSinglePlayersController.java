@@ -82,7 +82,4 @@ public class AdminSinglePlayersController {
         adminService.deleteSinglesPlayerById(id);
         return "redirect:/admin/singlesplayers";
     }
-
-
-
 }
