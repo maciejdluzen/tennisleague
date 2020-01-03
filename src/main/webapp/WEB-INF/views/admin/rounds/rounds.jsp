@@ -39,7 +39,7 @@
                 <div class="navbar-item">
                     <div class="buttons">
                         <form>
-                            <a class="navbar-item button" href="/admin" style="margin-right: 1em;"><strong>Strona admina</strong></a>
+                            <a class="navbar-item button" href="/admin" style="margin-right: 1em;"><strong>Powrót</strong></a>
                         </form>
                         <form>
                             <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
@@ -156,89 +156,26 @@
                 <div class="columns">
                     <div class="column is-6">
                         <div class="card events-card">
-                            
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Informacje dotyczące rund:
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <tr>
+                                    <td>
+                                        <ul>A</ul>
+                                        <ul>b</ul>
+                                        <ul>C</ul>
+                                    </td>
+                                </tr>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-<!--. hero -->
-<section class="hero is-fullheight">
-    <!--.hero-head-->
-    <div class="hero-head">
-        <div class="columns is-mobile is-marginless heading has-text-weight-bold">
-            <div class="column left">
-                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE RUNDAMI</p>
-                <!-- ... -->
-            </div>
-            <div class="column center desktop">
-                <a class="navbar-item has-text-black is-size-5" href="/admin/rounds/add">DODAJ RUNDĘ</a>
-                <!-- ... -->
-            </div>
-            <div class="column right">
-                <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>
-                <form method="post" action="/logout">
-                    <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
-                    <sec:csrfInput/>
-                </form>
-                <!-- ... -->
-            </div>
-        </div>
-    </div>
-    <!-- /. hero-head-->
-    <!-- .hero-body-->
-    <header class="hero-body">
-        <div class="column center">
-            <table class="table">
-                <tr>
-                    <td>Lp.</td>
-                    <td>ID rundy</td>
-                    <td>Nazwa rundy</td>
-                    <td>Data rozpoczęcia</td>
-                    <td>Data zakończenia</td>
-                    <td>Środek rundy</td>
-                    <td>Zakończenie zapisów</td>
-                    <td>Runda aktywna</td>
-                    <td>Akcje</td>
-                </tr>
-                <c:forEach items="${allrounds}" var="round" varStatus="stat">
-                    <tr>
-                        <td>${stat.count}</td>
-                        <td>${round.id}</td>
-                        <td>${round.name}</td>
-                        <td>${round.startDate}</td>
-                        <td>${round.endDate}</td>
-                        <td>${round.midpointDate}</td>
-                        <td>${round.joinByDate}</td>
-                        <td>${round.current}</td>
-                        <td>
-                            <c:url value="/admin/rounds/delete" var="deleteURL">
-                                <c:param name="id" value="${round.id}"/>
-                            </c:url>
-                            <c:url value="/admin/rounds/edit" var="updateURL">
-                                <c:param name="id" value="${round.id}"/>
-                            </c:url>
-                            <a href="${deleteURL}">Usuń</a>
-                            <a href="${updateURL}">Edytuj</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-    </header>
 </section>
 </body>
 </html>

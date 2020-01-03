@@ -162,10 +162,10 @@
                 <div class="columns">
                     <div class="column is-6">
                         <div class="card events-card">
-                            <header class="card=header">
+                            <header class="card-header">
                                 <p class="card-header-title">
                                     Ranking Twojej grupy: ${user.singlesPlayer.group.name}
-                                </>
+                                </p>
                             </header>
                             <div class="card-table">
                                 <div class="content">
