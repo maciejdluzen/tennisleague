@@ -38,7 +38,10 @@
                 <div class="navbar-item">
                     <div class="buttons">
                         <form>
-                            <a class="navbar-item button is-gapless" href="/"><strong>Strona główna</strong></a>
+                            <a class="navbar-item button" href="/admin" style="margin-right: 1em;"><strong>Strona admina</strong></a>
+                        </form>
+                        <form>
+                            <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
                         </form>
                         <form method="post" action="/logout">
                             <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
@@ -77,8 +80,8 @@
                     </ul>
                 </aside>
             </div>
-            <!-- User panel on the rightEND-->
-            <!-- User welcome message-->
+            <!-- Admin panel on the rightEND-->
+            <!-- Admin welcome message-->
             <div class="column is-9">
                 <section class="hero is-info welcome is-small">
                     <div class="hero-body">
@@ -93,7 +96,7 @@
                         </div>
                     </div>
                 </section>
-                <!-- User welcome messageEND-->
+                <!-- Admin welcome messageEND-->
             </div>
         </div>
     </div>
