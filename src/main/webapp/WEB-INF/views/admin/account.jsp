@@ -37,7 +37,9 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="navbar-item button" href="/"><strong>Strona główna</strong></a>
+                        <form>
+                            <a class="navbar-item button is-gapless" href="/"><strong>Strona główna</strong></a>
+                        </form>
                         <form method="post" action="/logout">
                             <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
                             <sec:csrfInput/>
@@ -60,65 +62,41 @@
                     </p>
                     <ul class="menu-list">
                         RUNDY
-                        <li><a href="">Przeglądaj</a></li>
-                        <li><a href="">Dodaj</a></li>
-                        <li><a href="">EDYTUJ PROFIL</a></li>
-                        <li><a href="">ZAPIS DO RUNDY</a></li>
-                        <li><a href="">WYCOFAJ SIĘ DO RUNDY</a></li>
-                        <li><a>USUŃ KONTO</a></li></br>
-                        <li><a>ZGŁOŚ PROBLEM</a></li>
+                        <li><a href="/admin/rounds">Przeglądaj</a></li>
+                        <li><a href="/admin/rounds/add">Dodaj</a></li>
+                        GRUPY
+                        <li><a href="/admin/groups">Przeglądaj</a></li>
+                        <li><a href="/admin/groups/add">Dodaj</a></li>
+                        MECZE
+                        <li><a href="/admin/matches">Przeglądaj</a></li>
+                        <li><a href="/admin/matches/add">Dodaj</a></li>
+                        ZAWODNICY
+                        <li><a href="/admin/singlesplayers">Przeglądaj</a></li>
+                        UŻYTKOWNICY
+                        <li><a href="/admin/users">Przeglądaj</a></li>
                     </ul>
                 </aside>
             </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--. hero -->
-<section class="hero is-fullheight">
-    <!--.hero-head-->
-    <div class="hero-head">
-        <div class="columns is-mobile is-marginless heading has-text-weight-bold">
-            <div class="column left">
-                <p class="navbar-item is-size-3 has-text-grey-light">WROCŁAWSKA LIGA TENISOWA</p>
-                <!-- ... -->
-            </div>
-            <div class="column center desktop">
-                <a class="navbar-item has-text-black is-size-5" href="/admin/rounds">RUNDY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/groups">GRUPY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/matches">MECZE</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/singlesplayers">ZAWODNICY</a>
-                <a class="navbar-item has-text-black is-size-5" href="/admin/users">UŻYTKOWNICY</a>
-                <!-- ... -->
-            </div>
-            <div class="column right">
-                <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>
-                <form method="post" action="/logout">
-                    <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
-                    <sec:csrfInput/>
-                </form>
-                <!-- ... -->
+            <!-- User panel on the rightEND-->
+            <!-- User welcome message-->
+            <div class="column is-9">
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Witaj Administratorze!
+                            </h1>
+                            <h2 class="subtitle">
+                                Obecnie rozgrywana runda to:
+                                Start: Środek: Koniec:
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                <!-- User welcome messageEND-->
             </div>
         </div>
     </div>
-    <!-- /. hero-head-->
 </section>
 </body>
 </html>
