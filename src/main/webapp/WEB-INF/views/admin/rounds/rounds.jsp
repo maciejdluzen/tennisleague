@@ -58,7 +58,7 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <!-- Admin panel on the right-->
+            <!-- Admin panel on the left-->
             <div class="column is-3 has-background-primary">
                 <aside class="menu is-hidden-mobile">
                     <p class="menu-label">
@@ -81,7 +81,87 @@
                     </ul>
                 </aside>
             </div>
-            <!-- Admin panel on the rightEND-->
+            <!-- Admin panel on the leftEND-->
+            <!-- Rounds section info -->
+            <div class="column is-9">
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Przeglądanie rund w lidze
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+                <!-- Rounds section info -->
+                <!-- Rounds table -->
+                <div class="column">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Wszystkie rundy
+                            </p>
+                        </header>
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td>Lp.</td>
+                                        <td>ID rundy</td>
+                                        <td>Nazwa rundy</td>
+                                        <td>Data rozpoczęcia</td>
+                                        <td>Środek rundy</td>
+                                        <td>Data zakończenia</td>
+                                        <td>Zakończenie zapisów</td>
+                                        <td>Runda aktywna</td>
+                                        <td>Akcje</td>
+                                    </tr>
+                                    <c:forEach items="${allrounds}" var="round" varStatus="stat">
+                                        <tr>
+                                            <td>${stat.count}</td>
+                                            <td>${round.id}</td>
+                                            <td>${round.name}</td>
+                                            <td>${round.startDate}</td>
+                                            <td>${round.midpointDate}</td>
+                                            <td>${round.endDate}</td>
+                                            <td>${round.joinByDate}</td>
+                                            <c:choose>
+                                                <c:when test="${round.current}">
+                                                    <td><i class="fas fa-check"></i></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td><i class="fas fa-minus"></i></td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <td>
+                                                <c:url value="/admin/rounds/delete" var="deleteURL">
+                                                    <c:param name="id" value="${round.id}"/>
+                                                </c:url>
+                                                <c:url value="/admin/rounds/edit" var="updateURL">
+                                                    <c:param name="id" value="${round.id}"/>
+                                                </c:url>
+                                                <a href="${deleteURL}">Usuń</a>
+                                                <a href="${updateURL}">Edytuj</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rounds tableEND -->
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
