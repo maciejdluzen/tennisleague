@@ -163,11 +163,11 @@
                             </header>
                             <div class="card-table">
                                 <tr>
-                                    <td>
-                                        <ul>A</ul>
-                                        <ul>b</ul>
-                                        <ul>C</ul>
-                                    </td>
+                                    <ul>
+                                        <li>Zakończenie zapisów do rundy powinno odbywać się na 2 dni przed rozpoczęciem rundy</li>
+                                        <li>Tylko jedna runda może być ustawiona jako aktywna w jednym momencie</li>
+                                        <li>Gracz musi rozegrać przynajmniej 3 mecze do daty 'środka' rundy, aby otrzymać 2 bonusowe punkty</li>
+                                    </ul>
                                 </tr>
                             </div>
                         </div>

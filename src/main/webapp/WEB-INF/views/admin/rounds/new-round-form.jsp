@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -11,15 +12,131 @@
 <html>
 <head>
     <title>Tworzenie nowej rundy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
+<!-- Header -->
+<header>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <div class="navbar-item is-size-3 has-text-grey-bold">
+                <p>WROCŁAWSKA LIGA TENISOWA</p>
+            </div>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <form>
+                            <a class="navbar-item button" href="/admin" style="margin-right: 1em;"><strong>Powrót</strong></a>
+                        </form>
+                        <form>
+                            <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
+                        </form>
+                        <form method="post" action="/logout">
+                            <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
+                            <sec:csrfInput/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- HeaderEND -->
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <section class="hero is-info">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title has-text-centered">
+                                Dodawanie nowej rundy
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-4">
+
+            </div>
+            <div class="column is-4">
+                <form:form method="post" modelAttribute="newRound">
+                    <div class="field">
+                        <label class="label">Nazwa rundy</label>
+                        <div class="control">
+                            <form:input path="name"/>
+                            <form:errors path="name"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Data rozpoczęcia</label>
+                        <div class="control">
+                            <form:input path="startDate" type="date" dataType="rrrr-MM-dd"/>
+                            <form:errors path="startDate"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Data zakończenia</label>
+                        <div class="control">
+                            <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/>
+                            <form:errors path="endDate"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Środek rundy</label>
+                        <div class="control">
+                            <form:input path="midpointDate" type="date" dataType="rrrr-MM-dd"/>
+                            <form:errors path="midpointDate"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Data zakończenia zapisów</label>
+                        <div class="control">
+                            <form:input path="joinByDate" type="date" dataType="rrrr-MM-dd"/>
+                            <form:errors path="joinByDate"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <form:checkbox path="current"/>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" type="submit">Utwórz</button>
+                        </div>
+                        <div class="control">
+                            <a class="button is-link is-light" href="/admin">Anuluj</a>
+                        </div>
+                    </div>
+                    <sec:csrfInput/>
+                </form:form>
+            </div>
+            <div class="column is-4">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 <form:form method="post" modelAttribute="newRound">
-    <p>Nazwa rundy: <form:input path="name"/><form:errors path="name"/></p>
-    <p>Data rozpoczęcia: <form:input path="startDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="startDate"/></p>
-    <p>Data zakończenia <form:input path="endDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="endDate"/></p>
-    <p>Środek rundy: <form:input path="midpointDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="midpointDate"/></p>
-    <p>Data zakończenia zapisów: <form:input path="joinByDate" type="date" dataType="rrrr-MM-dd"/><form:errors path="joinByDate"/></p>
-    <p>Runda aktywna: <form:checkbox path="current"/></p>
+
+    <p>Data rozpoczęcia: </p>
+    <p>Data zakończenia </p>
+    <p>Środek rundy: </p>
+    <p>Data zakończenia zapisów: </p>
+    <p>Runda aktywna: </p>
     <p><input type="submit" value="Utwórz rundę"></p>
 </form:form>
 </body>

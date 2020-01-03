@@ -190,11 +190,10 @@
                     <!-- All gorup matches-->
                     <div class="column is-6">
                         <div class="card events-card">
-                            <header class="card=header">
+                            <header class="card-header">
                                 <p class="card-header-title">
                                     Wszystkie mecze rozegrane w grupie
                                 </p>
-
                             </header>
                             <div class="card-table">
                                 <div class="content">
