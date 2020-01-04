@@ -84,7 +84,7 @@
             <!-- Admin panel on the leftEND-->
             <!-- Rounds section info -->
             <div class="column is-9">
-                <section class="hero is-info welcome is-small">
+                <section class="hero is-info welcome">
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
