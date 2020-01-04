@@ -26,77 +26,143 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<section class="hero is-fullheight">
-    <!--.hero-head-->
-    <div class="hero-head">
-        <div class="columns is-mobile is-marginless heading has-text-weight-bold">
-            <div class="column left">
-                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE GRUPAMI</p>
-                <!-- ... -->
+<!-- Header -->
+<header>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <div class="navbar-item is-size-3 has-text-grey-bold">
+                <p>WROCŁAWSKA LIGA TENISOWA</p>
             </div>
-            <div class="column center desktop">
-                <a class="navbar-item has-text-black is-size-5" href="/admin/groups/add">DODAJ GRUPE</a>
-                <!-- ... -->
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <form>
+                            <a class="navbar-item button" href="/admin" style="margin-right: 1em;"><strong>Powrót</strong></a>
+                        </form>
+                        <form>
+                            <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
+                        </form>
+                        <form method="post" action="/logout">
+                            <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
+                            <sec:csrfInput/>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="column right">
-                <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>
-                <form method="post" action="/logout">
-                    <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
-                    <sec:csrfInput/>
-                </form>
-                <!-- ... -->
+        </div>
+    </nav>
+</header>
+<!-- HeaderEND -->
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <!-- Admin panel on the left-->
+            <div class="column is-3 has-background-primary">
+                <aside class="menu is-hidden-mobile">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <ul class="menu-list">
+                        RUNDY
+                        <li><a href="/admin/rounds">Przeglądaj</a></li>
+                        <li><a href="/admin/rounds/add">Dodaj</a></li>
+                        GRUPY
+                        <li><b>Przeglądaj</b></li>
+                        <li><a href="/admin/groups/add">Dodaj</a></li>
+                        MECZE
+                        <li><a href="/admin/matches">Przeglądaj</a></li>
+                        <li><a href="/admin/matches/add">Dodaj</a></li>
+                        ZAWODNICY
+                        <li><a href="/admin/singlesplayers">Przeglądaj</a></li>
+                        UŻYTKOWNICY
+                        <li><a href="/admin/users">Przeglądaj</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <!-- Admin panel on the leftEND-->
+            <!-- Rounds section info -->
+            <div class="column is-9">
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Przeglądanie grup w lidze
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+                <!-- Rounds section info -->
+                <!-- Groups table -->
+                <div class="column">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Wszystkie grupy
+                            </p>
+                        </header>
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <tbody>
+                                    <tr>
+                                        <td>Lp.</td>
+                                        <td>ID grupy</td>
+                                        <td>Nazwa grupy</td>
+                                        <td>ID rundy</td>
+                                        <td>Nazwa rundy</td>
+                                        <td>Akcje</td>
+                                    </tr>
+                                    <c:forEach items="${allgroups}" var="group" varStatus="stat">
+                                        <tr>
+                                            <td>${stat.count}</td>
+                                            <td>${group.id}</td>
+                                            <td>${group.name}</td>
+                                            <td>${group.round.id}</td>
+                                            <td>${group.round.name}</td>
+                                            <td>
+                                                <c:url value="/admin/groups/delete" var="deleteURL">
+                                                    <c:param name="id" value="${group.id}"/>
+                                                </c:url>
+                                                <c:url value="/admin/groups/edit" var="updateURL">
+                                                    <c:param name="id" value="${group.id}"/>
+                                                </c:url>
+                                                <a href="${deleteURL}">Usuń</a>
+                                                <a href="${updateURL}">Edytuj</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Groups tableEND -->
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Informacje dotyczące grup:
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <tr>
+                                    <ul>
+                                        <li>Info-1</li>
+                                        <li>Info-2</li>
+                                        <li>Info-3</li>
+                                    </ul>
+                                </tr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- /. hero-head-->
-    <!-- .hero-body-->
-    <header class="hero-body">
-        <div class="column center">
-            <table class="table">
-                <tr>
-                    <td>Lp.</td>
-                    <td>ID grupy</td>
-                    <td>Nazwa grupy</td>
-                    <td>ID rundy</td>
-                    <td>Nazwa rundy</td>
-                    <td>Akcje</td>
-                </tr>
-                <c:forEach items="${allgroups}" var="group" varStatus="stat">
-                    <tr>
-                        <td>${stat.count}</td>
-                        <td>${group.id}</td>
-                        <td>${group.name}</td>
-                        <td>${group.round.id}</td>
-                        <td>${group.round.name}</td>
-                        <td>
-                            <c:url value="/admin/groups/delete" var="deleteURL">
-                                <c:param name="id" value="${group.id}"/>
-                            </c:url>
-                            <c:url value="/admin/groups/edit" var="updateURL">
-                                <c:param name="id" value="${group.id}"/>
-                            </c:url>
-                            <a href="${deleteURL}">Usuń</a>
-                            <a href="${updateURL}">Edytuj</a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-    </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
 </body>
 </html>
