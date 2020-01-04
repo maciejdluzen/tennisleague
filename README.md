@@ -15,7 +15,7 @@ Frontend: HTML, CSS, Bootstrap, Bulma, JavaScript
 
 **Current Status**
 
-In progress. Approximately 60% of work has been done to date (19th Dec 2019)
+In progress. Approximately 70% of work has been done to date (4th January 2020)
 
 **Project completion timeline**
 
