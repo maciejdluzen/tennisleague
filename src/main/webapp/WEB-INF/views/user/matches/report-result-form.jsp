@@ -60,7 +60,6 @@
                         <form:errors path="dateOfGame"/>
                     </div>
                 </div>
-
                 <div class="field">
                     <label class="label">Nazwisko zawodnika: ${match.playerOneLastName}. Liczba wygranych setów:</label>
                     <div class="control">
@@ -70,7 +69,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="field">
                     <label class="label">Nazwisko zawodnika: ${match.playerTwoLastName}. Liczba wygranych setów:</label>
                     <div class="control">

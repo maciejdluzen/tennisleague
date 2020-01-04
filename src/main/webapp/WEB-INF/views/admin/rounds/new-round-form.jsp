@@ -105,6 +105,7 @@
                         </div>
                     </div>
                     <div class="field">
+                        <label class="label">Runda aktywna</label>
                         <form:checkbox path="current"/>
                     </div>
                     <div class="field is-grouped">
@@ -124,20 +125,5 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-<form:form method="post" modelAttribute="newRound">
-
-    <p>Data rozpoczęcia: </p>
-    <p>Data zakończenia </p>
-    <p>Środek rundy: </p>
-    <p>Data zakończenia zapisów: </p>
-    <p>Runda aktywna: </p>
-    <p><input type="submit" value="Utwórz rundę"></p>
-</form:form>
 </body>
 </html>
