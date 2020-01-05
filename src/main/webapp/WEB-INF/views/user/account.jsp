@@ -164,7 +164,14 @@
                         <div class="card events-card">
                             <header class="card-header">
                                 <p class="card-header-title">
-                                    Ranking Twojej grupy: ${user.singlesPlayer.group.name}
+                                    <c:choose>
+                                        <c:when test="${user.singlesPlayer.group != null}">
+                                            Ranking Twojej grupy: ${user.singlesPlayer.group.name}
+                                        </c:when>
+                                        <c:otherwise>
+                                            Nie jesteś wpisany jeszcze do żadnej grupy.
+                                        </c:otherwise>
+                                    </c:choose>
                                 </p>
                             </header>
                             <div class="card-table">
@@ -174,9 +181,16 @@
                                         <tr>
                                             <td>
                                                 <ol>
-                                                    <c:forEach items="${ranking.playersDescription}" var="playerDescription">
-                                                        <li>${playerDescription}</li>
-                                                    </c:forEach>
+                                                    <c:choose>
+                                                        <c:when test="${user.singlesPlayer.group != null}">
+                                                            <c:forEach items="${ranking.playersDescription}" var="playerDescription">
+                                                                <li>${playerDescription}</li>
+                                                            </c:forEach>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <li>Nie jesteś wpisany jeszcze do żadnej grupy.</li>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </ol>
                                             </td>
                                         </tr>
@@ -202,9 +216,16 @@
                                         <tr>
                                             <td>
                                                 <ol>
-                                                    <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
-                                                        <li>${matchDescription}</li>
-                                                    </c:forEach>
+                                                    <c:choose>
+                                                        <c:when test="${ranking != null}">
+                                                            <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
+                                                                <li>${matchDescription}</li>
+                                                            </c:forEach>
+                                                            <c:otherwise>
+                                                                <li>Nie jesteś zapisany do żadnej grupy</li>
+                                                            </c:otherwise>
+                                                        </c:when>
+                                                    </c:choose>
                                                 </ol>
                                             </td>
                                         </tr>
@@ -214,7 +235,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- All gorup matchesEND-->
+                    <!-- All group matchesEND-->
                 </div>
             </div>
         </div>

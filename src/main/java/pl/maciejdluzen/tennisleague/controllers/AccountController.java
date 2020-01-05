@@ -18,6 +18,7 @@ import pl.maciejdluzen.tennisleague.services.RankingService;
 import pl.maciejdluzen.tennisleague.services.UserService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Null;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -40,9 +41,13 @@ public class AccountController {
     @ModelAttribute("ranking")
     public RankingByGroupsDTO groupRanking(Principal principal) {
         String username = principal.getName();
-        User user = userService.findUserByUsername(username);
-        RankingByGroupsDTO ranking = rankingService.getGroupRanking(user.getSinglesPlayer().getGroup().getId());
-        return ranking;
+        try {
+            User user = userService.findUserByUsername(username);
+            RankingByGroupsDTO ranking = rankingService.getGroupRanking(user.getSinglesPlayer().getGroup().getId());
+            return ranking;
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 
     @ModelAttribute("allrounds")
@@ -161,8 +166,6 @@ public class AccountController {
         return "redirect:/user";
     }
 
-    // Przeniesione z UserMatchesController 20Dec
-
     @ModelAttribute("sets")
     public List<Integer> sets() {
         Integer[] sets = new Integer[]{0,1,2};
@@ -174,12 +177,6 @@ public class AccountController {
         List<Match> userMatches = userService.findAllByUserUsername();
         return userMatches;
     }
-
-//    @GetMapping
-//    public String prepareUserMatchesPage(Model model, Principal principal) {
-//        model.addAttribute("username", principal.getName());
-//        return "user/matches/playermatches";
-//    }
 
     @GetMapping("/matches/reportresult")
     public String prepareReportMatchResultForm(Long id, Model model) {
@@ -218,5 +215,4 @@ public class AccountController {
         userService.editUserProfile(singlesPlayerEditDTO);
         return "redirect:/user";
     }
-
 }
