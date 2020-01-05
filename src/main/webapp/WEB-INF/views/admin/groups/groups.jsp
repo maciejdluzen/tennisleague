@@ -82,7 +82,7 @@
                 </aside>
             </div>
             <!-- Admin panel on the leftEND-->
-            <!-- Rounds section info -->
+            <!-- Groups section info -->
             <div class="column is-9">
                 <section class="hero is-info welcome">
                     <div class="hero-body">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </section>
-                <!-- Rounds section info -->
+                <!-- Groups section info -->
                 <!-- Groups table -->
                 <div class="column">
                     <div class="card events-card">
