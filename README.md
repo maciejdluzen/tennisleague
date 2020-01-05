@@ -48,7 +48,7 @@ If a user wants to join a league, he/she has to register by filling the form wit
 There are two user roles used in the app: USER and ADMIN. The former is a tennis player willing to play in the league, the latter is a person responsible for the league management.
 The rights of each user role are set out below.
 
-![mainpage_image](./public_html/readme_images/index_view.png)
+![mainpage_image](/public_html/readme_images/index_view.png)
 
 **User**
 
