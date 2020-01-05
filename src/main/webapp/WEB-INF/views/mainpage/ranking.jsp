@@ -18,18 +18,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" type="text/css" href="public_html/styles/style1.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <style>
-        .hero.is-fullheight {
-            background: url(public_html/images/tenis4.jpeg) center / cover;
-        }
-
-        @media (max-width: 1024px) {.hero {background: url(public_html/images/tenis4.jpeg) center / cover;}}
-    </style>
 </head>
 <body>
 <!-- Header -->
-<section class="hero is-fullheight">
-
 <header>
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main-navigation">
         <div class="navbar-brand">
@@ -157,8 +148,6 @@
             </div>
         </div>
     </div>
-</section>
-
 </section>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"

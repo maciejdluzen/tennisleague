@@ -28,10 +28,10 @@
 </head>
 <style>
     .hero {
-        background: url(public_html/images/tenis2.jpeg) center / cover;
+        background: url(public_html/images/tenis4.jpeg) center / cover;
     }
 
-    @media (max-width: 1024px) {.hero {background: url(public_html/images/tenis2.jpeg) center / cover;}}
+    @media (max-width: 1024px) {.hero {background: url(public_html/images/tenis4.jpeg) center / cover;}}
 </style>
 
 <body>

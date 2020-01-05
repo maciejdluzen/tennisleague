@@ -49,12 +49,12 @@ public class AdminRoundsController {
     public String processNewRoundForm(@ModelAttribute("newRound") @Valid NewRoundCreationDTO newRound,
                                       BindingResult result) {
         if (result.hasErrors()) {
-            log.info("Nieprawidłowe dane rundy: " + newRound);
+
             return "admin/rounds/new-round-form";
         }
-        log.info("Dane rundy do zapisu: " + newRound);
+
         adminService.addNewRound(newRound);
-        return "redirect:/";
+        return "redirect:/admin/rounds";
     }
 
     @GetMapping("/delete")
