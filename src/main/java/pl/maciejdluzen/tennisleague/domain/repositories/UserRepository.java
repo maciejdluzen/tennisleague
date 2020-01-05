@@ -27,14 +27,54 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "(SELECT id FROM users WHERE username = 'admin',2);", nativeQuery = true)
     void makeAdminAdmin();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users(username, email, password, active) VALUES\n" +
+            "('rogerfederer', 'roger@gmail.com', '{noop}roger', true);", nativeQuery = true)
+    void createUser1();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users(username, email, password, active) VALUES\n" +
+            "('rafaelnadal', 'rafael@gmail.com', '{noop}rafael', true);", nativeQuery = true)
+    void createUser2();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users(username, email, password, active) VALUES\n" +
+            "('lukaszkubot', 'lukasz@gmail.com', '{noop}lukasz', true);", nativeQuery = true)
+    void createUser3();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users(username, email, password, active) VALUES\n" +
+            "('aradwanska', 'agnieszka@gmail.com', '{noop}agnieszka', true);", nativeQuery = true)
+    void createUser4();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users_roles(user_id, roles_id) VALUES\n" +
+            "(SELECT id FROM users WHERE username = 'rogerfederer',1);", nativeQuery = true)
+    void setRoleToUser1();
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users_roles(user_id, roles_id) VALUES\n" +
+            "(SELECT id FROM users WHERE username = 'rafaelnadal',1);", nativeQuery = true)
+    void setRoleToUser2();
+
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users_roles(user_id, roles_id) VALUES\n" +
+            "(SELECT id FROM users WHERE username = 'lukaszkubot',1);", nativeQuery = true)
+    void setRoleToUser3();
+
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO users_roles(user_id, roles_id) VALUES\n" +
+            "(SELECT id FROM users WHERE username = 'aradwanska',1);", nativeQuery = true)
+    void setRoleToUser4();
 
     //*******************************************//
     //*******************************************//
-
-
 }
