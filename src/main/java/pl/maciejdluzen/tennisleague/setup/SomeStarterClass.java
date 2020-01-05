@@ -6,10 +6,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Role;
-import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.RoleRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
-import pl.maciejdluzen.tennisleague.domain.repositories.UserRepository;
+import pl.maciejdluzen.tennisleague.domain.repositories.*;
 
 @Component @Profile("heroku")
 public class SomeStarterClass implements ApplicationRunner {
@@ -18,12 +15,16 @@ public class SomeStarterClass implements ApplicationRunner {
     private final UserRepository userRepository;
     private final RoundRepository roundRepository;
     private final GroupRepository groupRepository;
+    private final SinglesPlayerRepository singlesPlayerRepository;
+    private final MatchRepository matchRepository;
 
-    public SomeStarterClass(RoleRepository roleRepository, UserRepository userRepository, RoundRepository roundRepository, GroupRepository groupRepository) {
+    public SomeStarterClass(RoleRepository roleRepository, UserRepository userRepository, RoundRepository roundRepository, GroupRepository groupRepository, SinglesPlayerRepository singlesPlayerRepository, MatchRepository matchRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.roundRepository = roundRepository;
         this.groupRepository = groupRepository;
+        this.singlesPlayerRepository = singlesPlayerRepository;
+        this.matchRepository = matchRepository;
     }
 
     @Override @Transactional
@@ -65,6 +66,15 @@ public class SomeStarterClass implements ApplicationRunner {
         groupRepository.createGroup1();
         groupRepository.createGroup2();
 
+        // Create 4 players, assign to the round and group
 
+        singlesPlayerRepository.createPlayer1();
+        singlesPlayerRepository.createPlayer2();
+        singlesPlayerRepository.createPlayer3();
+        singlesPlayerRepository.createPlayer4();
+
+        // Create match between players in one group
+
+        matchRepository.createMatch1();
     }
 }

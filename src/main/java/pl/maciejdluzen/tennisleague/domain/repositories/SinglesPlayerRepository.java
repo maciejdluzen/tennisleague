@@ -44,7 +44,7 @@ public interface SinglesPlayerRepository extends JpaRepository<SinglesPlayer, Lo
     @Query(value = "INSERT INTO singles_players(active, first_name, last_name, phone_number, ntrp, group_id, round_id, user_id, matches_won, matches_lost, sets_won, total_points) VALUES\n" +
             "(true, 'Agnieszka', 'Radwanska', '670556480', 5.5, 2, 2, 5, 0, 0, 0, 0);", nativeQuery = true)
     void createPlayer4();
-    
+
     //*******************************************//
     //*******************************************//
 }
