@@ -2,6 +2,9 @@ package pl.maciejdluzen.tennisleague.domain.repositories;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Group;
 import pl.maciejdluzen.tennisleague.domain.entities.SinglesPlayer;
 
@@ -20,4 +23,25 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
         List<Group> findAllWithMatchesBy();
 
         List<Group> findAllByRoundId(Long id);
+
+
+        //******************************************//
+        //**SQL QUERIES ONLY FOR HEROKU DEPLOYMENT**//
+        //******************************************//
+
+        @Transactional
+        @Modifying
+        @Query(value = "INSERT INTO groups(name, round_id) VALUES\n" +
+        "('Grupa 1', 2);", nativeQuery = true)
+        void createGroup1();
+
+        @Transactional
+        @Modifying
+        @Query(value = "INSERT INTO groups(name, round_id) VALUES\n" +
+                "('Grupa 2', 2);", nativeQuery = true)
+        void createGroup2();
+
+        //*******************************************//
+        //*******************************************//
+
 }

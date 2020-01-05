@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import pl.maciejdluzen.tennisleague.domain.entities.Role;
+import pl.maciejdluzen.tennisleague.domain.repositories.GroupRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.RoleRepository;
+import pl.maciejdluzen.tennisleague.domain.repositories.RoundRepository;
 import pl.maciejdluzen.tennisleague.domain.repositories.UserRepository;
 
 @Component @Profile("heroku")
@@ -14,10 +16,14 @@ public class SomeStarterClass implements ApplicationRunner {
 
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
+    private final RoundRepository roundRepository;
+    private final GroupRepository groupRepository;
 
-    public SomeStarterClass(RoleRepository roleRepository, UserRepository userRepository) {
+    public SomeStarterClass(RoleRepository roleRepository, UserRepository userRepository, RoundRepository roundRepository, GroupRepository groupRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
+        this.roundRepository = roundRepository;
+        this.groupRepository = groupRepository;
     }
 
     @Override @Transactional
@@ -47,5 +53,18 @@ public class SomeStarterClass implements ApplicationRunner {
 
         userRepository.createUser4();
         userRepository.setRoleToUser4();
+
+        // Create 3 rounds (previous, current and future)
+
+        roundRepository.createRound1();
+        roundRepository.createRound2();
+        roundRepository.createRound3();
+
+        // Create 2 groups in the current round
+
+        groupRepository.createGroup1();
+        groupRepository.createGroup2();
+
+
     }
 }
