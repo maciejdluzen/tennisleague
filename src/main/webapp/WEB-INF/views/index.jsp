@@ -76,7 +76,7 @@
         <div class="is-overlay has-text-centered single-spaced" style="top: 250px;">
 
             <h1 class="subtitle is-2 has-text-black has-text-weight-bold">NOWA AMATORSKA LIGA TENISOWA WE WROCŁAWIU</h1></br>
-            <h2 class="title is-4">DOŁĄCZ JUŻ DZIŚ! NOWA RUNDA STARTUJE OD KWIETNIA 2020!</h2>
+            <h2 class="title is-4">DOŁĄCZ JUŻ DZIŚ I ZAPISZ SIĘ DO NOWEJ RUNDY!</h2>
         </div>
         <div class="column center">
             <sec:authorize access="!isAuthenticated()">
