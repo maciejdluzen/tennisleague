@@ -156,6 +156,7 @@
                                     <ul>
                                         <li>Zawodnik jest aktywny (<i class="fas fa-check"></i>), gdy uzupełnił swój profil (ale niekoniecznie dopisał się do rundy)</li>
                                         <li>Zawodnik jest nieaktywny (<i class="fas fa-minus"></i>), gdy w trakcie trwania rundy postanowił się z niej wycofać. Usunięcie takiego zawodnika może nastąpić dopiero po zakończeniu rundy</li>
+                                        <li>Przed wykonaniem operacji usunięcia zawodnika, należy usunąć wszystkie jego mecze!</li>
                                     </ul>
                                 </tr>
                             </div>

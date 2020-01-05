@@ -27,11 +27,14 @@
             <div class="navbar-item is-size-3 has-text-grey-bold">
                 <p>WROCŁAWSKA LIGA TENISOWA</p>
             </div>
+        </div>
             <div class="navbar-menu">
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="navbar-item button" href="/"><strong>Strona główna</strong></a>
+                            <form>
+                                <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
+                            </form>
                             <form method="post" action="/logout">
                                 <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
                                 <sec:csrfInput/>
@@ -40,7 +43,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </nav>
 </header>
 <!-- HeaderEND -->

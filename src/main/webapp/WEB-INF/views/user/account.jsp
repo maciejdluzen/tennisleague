@@ -169,7 +169,7 @@
                                             Ranking Twojej grupy: ${user.singlesPlayer.group.name}
                                         </c:when>
                                         <c:otherwise>
-                                            Nie jesteś wpisany jeszcze do żadnej grupy.
+                                            Nie jesteś jeszcze zapisany do żadnej grupy
                                         </c:otherwise>
                                     </c:choose>
                                 </p>
@@ -180,7 +180,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <ol>
+                                                <ul>
                                                     <c:choose>
                                                         <c:when test="${user.singlesPlayer.group != null}">
                                                             <c:forEach items="${ranking.playersDescription}" var="playerDescription">
@@ -191,7 +191,7 @@
                                                             <li></li>
                                                         </c:otherwise>
                                                     </c:choose>
-                                                </ol>
+                                                </ul>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -215,7 +215,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <ol>
+                                                <ul>
                                                     <c:choose>
                                                         <c:when test="${ranking != null}">
                                                             <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
@@ -223,10 +223,10 @@
                                                             </c:forEach>
                                                         </c:when>
                                                             <c:otherwise>
-                                                                <li>Nie jesteś zapisany do żadnej grupy</li>
+                                                                <li>Nie jesteś jeszcze zapisany do żadnej grupy</li>
                                                             </c:otherwise>
                                                     </c:choose>
-                                                </ol>
+                                                </ul>
                                             </td>
                                         </tr>
                                         </tbody>

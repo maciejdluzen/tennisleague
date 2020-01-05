@@ -88,7 +88,7 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title">
-                                Przeglądanie meczy w obecnej rundzie
+                                Przeglądanie meczów w obecnej rundzie
                             </h1>
                         </div>
                     </div>
@@ -151,15 +151,13 @@
                         <div class="card events-card">
                             <header class="card-header">
                                 <p class="card-header-title">
-                                    Informacje dotyczące meczy:
+                                    Informacje dotyczące meczów:
                                 </p>
                             </header>
                             <div class="card-table">
                                 <tr>
                                     <ul>
-                                        <li>Info-1</li>
-                                        <li>Info-2</li>
-                                        <li>Info-3</li>
+                                        <li>Zadaniem administratora jest ustawienie meczów każdy z każdym dla wszystkich grup.</li>
                                     </ul>
                                 </tr>
                             </div>

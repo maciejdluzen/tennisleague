@@ -151,9 +151,7 @@
                             <div class="card-table">
                                 <tr>
                                     <ul>
-                                        <li>Info-1</li>
-                                        <li>Info-2</li>
-                                        <li>Info-3</li>
+                                        <li>Jedna grupa powinna składać się z około 7-8 zawodników.</li>
                                     </ul>
                                 </tr>
                             </div>
