@@ -2,7 +2,10 @@
 Tennis league website for amateur players in Wroclaw area. 
 
 The Web App has been deployed to Heroku cloud and is available for viewing and testing under the following url: https://wroclawskaligatenisowa.herokuapp.com
-Please familiarize yourself with the app functionalities and proposed testing plan prior to entering the website.
+
+Unfortunately, the app is not the fastest due to having a basic, free heroku plan and it takes a while to load the page properly. Please get a brew and bear with it ;)
+
+Please familiarize yourself with the app functionalities and proposed testing plan.
 
 ## Introduction
 
@@ -45,11 +48,13 @@ If a user wants to join a league, he/she has to register by filling the form wit
 There are two user roles used in the app: USER and ADMIN. The former is a tennis player willing to play in the league, the latter is a person responsible for the league management.
 The rights of each user role are set out below.
 
+![mainpage_image](./public_html/readme_images/index_view.png)
+
 **User**
 
 The user after logging in is automatically redirected to the main page (index.html). The user account can be accessed now by clicking "MOJE KONTO" ("MY ACCOUNT") in the top right corner.
 
-The user can see his/her matches (due and already played), ranking of the group he/she is playing in and all matches in the group that have been played to date.
+Logged user can see his/her matches (due and already played), ranking of the group he/she is playing in and all matches in the group that have been played to date.
 Once the match has been played the result has to be reported (only by one of the players), by clicking "DODAJ WYNIK" ("REPORT RESULT"). Once the result has been reported, the button will be disabled.
 
 On the left side there is a panel with the following functionalities:
@@ -57,7 +62,56 @@ On the left side there is a panel with the following functionalities:
 * "ZAPIS DO RUNDY: Name of the round" - user can join the upcoming round (the registration closes 2 days prior to start date),
 * "WYCOFAJ SIE Z RUNDY" - user can withdraw from the round during its duration by clicking that button,
 * "USUN KONTO" - user can delete his/her account if he/she doesn't wish to play in the league anymore **NOT YET AVAILABLE**,
-* "ZGŁOS PROBLEM" - user can contact administrator with issues such as bugs on the website, problems iwth other player etc.,
+* "ZGŁOS PROBLEM" - user can contact administrator with issues such as bugs on the website, problems iwth other player etc. **NOT YET AVAILABLE**,
 
+**Admin**
 
+The admin after logging in is automatically redirected to the main page (index.html). The account can be accessed now by clicking "KONTO ADMINA" ("ADMIN ACCOUNT") in the top right corner.
+
+**IMPORTANT** Sometimes, JSON error may occur when the admin wants to enter "KONTO ADMINA" (it happens only on a remote server, it doesn't occur on localhost). I'm working hard to address the issue. The good news is that it doesn't influence the accessibility. You just need to remove /error from the url address and you'll be there ;)
+
+On the left side there is a panel with the following functionalities:
+* RUNDY
+    - Przegladaj - admin can view all rounds (past, current and future), edit or delete them
+    - Dodaj - adding a new round
+* GRUPY
+    - Przegladaj - admin can view all groups in the current round, edit or delete them
+    - Dodaj - adding a new group
+* MECZE 
+    - Przegladaj - admin can view all matches in the current round, edit or delete them
+    - Dodaj - adding a new match, admin has to prepare all matches before starting the round (each player against each player by group)
+* ZAWODNICY
+    - Przegladaj - admin can view all players (including their results), edit or delete them
+* UZYTKOWNICY
+    - Przegladaj - admin can view all registered users, deactivate their accounts or delete them
+
+**Order of activities**
+
+This subsections describes the order of activities during one round to better understand the app functionalities:
+1. Users register their accounts
+2. Admin creates new round
+3. Users provide more information about them (UZUPELNIJ PROFIL)
+4. Users sign up for the round before registration closing date (they become singles players now)
+5. Admin divides players into groups, by their skills level (NTRP)
+6. Admin creates all matches (each player against each player by group)
+7. Players play the matches and report the results through their accounts (only one player has to report a result).
+They can get 1 point for each won set and 2 bounus points for playing 3 matches before round mid-date
+8. The player with the greatest number of points in each group wins ;)
+
+## Testing
+
+There are 4 user accounts and 1 admin account already created. The login details are as follows:
+
+ROLE / USERNAME / PASSWORD
+
+1. ADMIN / admin / admin
+2. USER / rogerfederer / roger
+3. USER / rafaelnadal / rafael
+4. USER / lukaszkubot / lukasz
+5. USER / aradwanska / agnieszka
+
+Users 2 and 3 are assigned to the Group 1. Their match has been set up, however one of them need to report a result.
+User 4 and 5 are assigned to the Group. Their match has not been created. Admin needs to do that (Match between Agnieszka Radwanska and Lukasz Kubot).
+
+If you wish to add more players to the current round - you have to change the round starting date (the registration still will again be open for players).
 
