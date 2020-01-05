@@ -1,11 +1,13 @@
 # tennisleague
 Tennis league website for amateur players in Wroclaw area. 
 
-The Web App has been deployed to Heroku cloud and is available for viewing and testing under the following url: https://wroclawskaligatenisowa.herokuapp.com
+The Web App has been deployed to Heroku cloud and is available for viewing and testing under the following url: 
 
-Unfortunately, the app is not the fastest due to having a basic, free heroku plan and it takes a while to load the page properly. Please get a brew and bear with it ;)
+https://wroclawskaligatenisowa.herokuapp.com
 
-Please familiarize yourself with the app functionalities and proposed testing plan.
+Unfortunately, the app is not the fastest due to having a basic, free heroku plan and it takes a while to load the page properly. Please bear with it ;)
+
+Please familiarize yourself with the app functionalities.
 
 ## Introduction
 
@@ -34,6 +36,16 @@ Planned for completion by the end of January 2020.
 
 ## Plans of the future
 
+**Short term goals**
+1. Improve the backend validation of the forms (especially registration and login!), introduce frontend validation
+2. Employ Ajax to avoid frequent webpage reloading 
+
+**Long term goals**
+1. Make some activities more automated (eg. remove the necessity to create all matches by admin)
+2. Tweak the webpage frontend and introduce more javascript to add some dynamics
+3. User has to confirm their email address after registration (click the link in email)
+4. 
+
 ## Scope of functionalities
 
 The main page (index.html) allows a potential user to:
@@ -48,7 +60,9 @@ If a user wants to join a league, he/she has to register by filling the form wit
 There are two user roles used in the app: USER and ADMIN. The former is a tennis player willing to play in the league, the latter is a person responsible for the league management.
 The rights of each user role are set out below.
 
-![mainpage_image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/index_view.png)
+![Main Page Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/index_view.png)
+
+![Ranking Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/ranking_view.png)
 
 **User**
 
@@ -64,11 +78,15 @@ On the left side there is a panel with the following functionalities:
 * "USUN KONTO" - user can delete his/her account if he/she doesn't wish to play in the league anymore **NOT YET AVAILABLE**,
 * "ZGŁOS PROBLEM" - user can contact administrator with issues such as bugs on the website, problems iwth other player etc. **NOT YET AVAILABLE**,
 
+![User Panel Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/user_panel_view.png)
+
 **Admin**
 
 The admin after logging in is automatically redirected to the main page (index.html). The account can be accessed now by clicking "KONTO ADMINA" ("ADMIN ACCOUNT") in the top right corner.
 
 **IMPORTANT** Sometimes, JSON error may occur when the admin wants to enter "KONTO ADMINA" (it happens only on a remote server, it doesn't occur on localhost). I'm working hard to address the issue. The good news is that it doesn't influence the accessibility. You just need to remove /error from the url address and you'll be there ;)
+
+![JSON Error Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/jsonerror.png)
 
 On the left side there is a panel with the following functionalities:
 * RUNDY
@@ -84,6 +102,12 @@ On the left side there is a panel with the following functionalities:
     - Przegladaj - admin can view all players (including their results), edit or delete them
 * UZYTKOWNICY
     - Przegladaj - admin can view all registered users, deactivate their accounts or delete them
+
+![Admin Rounds View Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/admin_rounds_view.png)
+
+![Admin Registered Users View Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/admin_registered_users.png)
+
+![Admin Players Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/admin_players_view.png)
 
 **Order of activities**
 
