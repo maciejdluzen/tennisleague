@@ -48,7 +48,7 @@ If a user wants to join a league, he/she has to register by filling the form wit
 There are two user roles used in the app: USER and ADMIN. The former is a tennis player willing to play in the league, the latter is a person responsible for the league management.
 The rights of each user role are set out below.
 
-![mainpage_image](/public_html/readme_images/index_view.png)
+![mainpage_image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/index_view.png)
 
 **User**
 
@@ -113,5 +113,5 @@ ROLE / USERNAME / PASSWORD
 Users 2 and 3 are assigned to the Group 1. Their match has been set up, however one of them need to report a result.
 User 4 and 5 are assigned to the Group. Their match has not been created. Admin needs to do that (Match between Agnieszka Radwanska and Lukasz Kubot).
 
-If you wish to add more players to the current round - you have to change the round starting date (the registration still will again be open for players).
+If you wish to add more players to the current round - you have to change the round starting date (the registration will again be open for players).
 
