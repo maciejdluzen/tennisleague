@@ -33,9 +33,19 @@ Planned for completion by the end of January 2020.
 
 ## Scope of functionalities
 
-The main page (index.html) allow a potential user to:
-* Read a description of the league: Click "O LIDZE" ("ABOUT THE LEAGUE"), 
-* Check the ranking of a current round: Click "WYNIKI" ("RESULTS") - it shows groups with singles players ordered by number of points (ascending). It also contains the list of matches in each group, which has been played to date.
-* 
+The main page (index.html) allows a potential user to:
+* Read a description of the league: Click "O LIDZE" ("ABOUT THE LEAGUE") **NOT YET AVAILABLE**, 
+* Check the ranking of a current round: Click "WYNIKI" ("RESULTS") - it shows groups with singles players ordered by number of points (ascending). It also contains the list of matches in each group, which have been played to date.
+* Find out more about the rules of the league: Click "ZASADY" ("RULES") **NOT YET AVAILABLE**,
+* Enter a registration page: Click "REJESTRACJA" ("REGISTRATION"),
+* Enter a login page: Click "ZALOGUJ" ("LOG IN"").
+
+If a user wants to join a league, he/she has to register by filling the form with following information: username, email, password (and retype) + accept terms and conditions (not yet available).
+
+There are two user roles used in the app: USER and ADMIN. The former is a tennis player willing to play in the league, the latter is a person responsible for the league management.
+The rights of each user role are set out below.
+
+
+
 
 
