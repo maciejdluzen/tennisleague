@@ -154,8 +154,8 @@
                             <div class="card-table">
                                 <tr>
                                     <ul>
-                                        <li>Zawodnik jest aktywny (<i class="fas fa-check"></i>), gdy zapisał się do rundy</li>
-                                        <li>Zawodnik jest nieaktywny (<i class="fas fa-minus"></i>), gdy jeszcze nie zapisał się do rundy lub wycofał się z niej w trakcie trwania</li>
+                                        <li>Zawodnik jest aktywny (<i class="fas fa-check"></i>), gdy uzupełnił swój profil (ale niekoniecznie dopisał się do rundy)</li>
+                                        <li>Zawodnik jest nieaktywny (<i class="fas fa-minus"></i>), gdy w trakcie trwania rundy postanowił się z niej wycofać. Usunięcie takiego zawodnika może nastąpić dopiero po zakończeniu rundy</li>
                                     </ul>
                                 </tr>
                             </div>
@@ -166,83 +166,5 @@
         </div>
     </div>
 </section>
-
-<%--<section class="hero is-fullheight">--%>
-<%--    <!--.hero-head-->--%>
-<%--    <div class="hero-head">--%>
-<%--        <div class="columns is-mobile is-marginless heading has-text-weight-bold">--%>
-<%--            <div class="column left">--%>
-<%--                <p class="navbar-item is-size-3 has-text-grey-light">ZARZĄDZANIE ZAWODNIKAMI</p>--%>
-<%--                <!-- ... -->--%>
-<%--            </div>--%>
-<%--            <div class="column center desktop">--%>
-<%--                <a class="navbar-item has-text-black is-size-5" href="/">JAKIŚ LINK</a>--%>
-<%--                <!-- ... -->--%>
-<%--            </div>--%>
-<%--            <div class="column right">--%>
-<%--                <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>--%>
-<%--                <form method="post" action="/logout">--%>
-<%--                    <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>--%>
-<%--                    <sec:csrfInput/>--%>
-<%--                </form>--%>
-<%--                <!-- ... -->--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <!-- /. hero-head-->--%>
-<%--    <!-- .hero-body-->--%>
-<%--    <header class="hero-body">--%>
-<%--        <div class="column center">--%>
-<%--            <table class="table">--%>
-<%--                <tr>--%>
-<%--                    <td>Lp.</td>--%>
-<%--                    <td>ID zawodnika</td>--%>
-<%--                    <td>Imię</td>--%>
-<%--                    <td>Nazwisko</td>--%>
-<%--                    <td>NTRP</td>--%>
-<%--                    <td>Numer telefonu</td>--%>
-<%--                    <td>Wygrane mecze</td>--%>
-<%--                    <td>Przegrane mecze</td>--%>
-<%--                    <td>Wygrane sety</td>--%>
-<%--                    <td>Liczba punktów</td>--%>
-<%--                    <td>Runda</td>--%>
-<%--                    <td>Grupa</td>--%>
-<%--                    <td>ID użytkownika</td>--%>
-<%--                    <td>Aktywny</td>--%>
-<%--                </tr>--%>
-<%--                <c:forEach items="${allsinglesplayers}" var="player" varStatus="stat">--%>
-<%--                    <tr>--%>
-<%--                        <td>${stat.count}</td>--%>
-<%--                        <td>${player.id}</td>--%>
-<%--                        <td>${player.firstName}</td>--%>
-<%--                        <td>${player.lastName}</td>--%>
-<%--                        <td>${player.ntrp}</td>--%>
-<%--                        <td>${player.phoneNumber}</td>--%>
-<%--                        <td>${player.totalMatchesWon}</td>--%>
-<%--                        <td>${player.totalMatchesLost}</td>--%>
-<%--                        <td>${player.totalSetsWon}</td>--%>
-<%--                        <td>${player.totalPoints}</td>--%>
-<%--                        <td>${player.round.name}</td>--%>
-<%--                        <td>${player.group.name}</td>--%>
-<%--                        <td>${player.user.id}</td>--%>
-<%--                        <td>${player.active}</td>--%>
-<%--                        <td>--%>
-<%--                            <c:url value="/admin/singlesplayers/delete" var="deleteURL">--%>
-<%--                                <c:param name="id" value="${player.id}"/>--%>
-<%--                            </c:url>--%>
-<%--                            <c:url value="/admin/singlesplayers/edit" var="updateURL">--%>
-<%--                                <c:param name="id" value="${player.id}"/>--%>
-<%--                            </c:url>--%>
-<%--                            <a href="${deleteURL}">Usuń</a>--%>
-<%--                            <a href="${updateURL}">Edytuj/Dopisz do grupy</a>--%>
-<%--                        </td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--            </table>--%>
-<%--        </div>--%>
-<%--    </header>--%>
-<%--</section>--%>
-
-
 </body>
 </html>

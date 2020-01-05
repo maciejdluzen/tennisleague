@@ -90,8 +90,7 @@
                                 Witaj Administratorze!
                             </h1>
                             <h2 class="subtitle">
-                                Obecnie rozgrywana runda to:
-                                Start: Środek: Koniec:
+
                             </h2>
                         </div>
                     </div>

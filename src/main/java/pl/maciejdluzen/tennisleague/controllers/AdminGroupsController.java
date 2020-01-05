@@ -58,7 +58,7 @@ public class AdminGroupsController {
             return "admin/groups/new-group-form";
         }
         adminService.addNewGroup(newGroup);
-        return "redirect:/";
+        return "redirect:/admin/groups";
     }
 
     @GetMapping("/delete")
