@@ -188,7 +188,7 @@
                                                             </c:forEach>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <li>Nie jesteś wpisany jeszcze do żadnej grupy.</li>
+                                                            <li></li>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </ol>
@@ -221,10 +221,10 @@
                                                             <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
                                                                 <li>${matchDescription}</li>
                                                             </c:forEach>
+                                                        </c:when>
                                                             <c:otherwise>
                                                                 <li>Nie jesteś zapisany do żadnej grupy</li>
                                                             </c:otherwise>
-                                                        </c:when>
                                                     </c:choose>
                                                 </ol>
                                             </td>

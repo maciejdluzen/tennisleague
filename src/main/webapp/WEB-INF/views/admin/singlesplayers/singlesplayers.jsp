@@ -141,6 +141,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- Singles players tableEND -->
+                <!-- Additional information-->
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Informacje dotyczące zawodników:
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <tr>
+                                    <ul>
+                                        <li>Zawodnik jest aktywny (<i class="fas fa-check"></i>), gdy zapisał się do rundy</li>
+                                        <li>Zawodnik jest nieaktywny (<i class="fas fa-minus"></i>), gdy jeszcze nie zapisał się do rundy lub wycofał się z niej w trakcie trwania</li>
+                                    </ul>
+                                </tr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
