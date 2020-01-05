@@ -49,7 +49,6 @@ public class AccountController {
             return null;
         }
     }
-
     @ModelAttribute("allrounds")
     public List<Round> allRounds() {
         return joinRoundService.findAllRounds();
