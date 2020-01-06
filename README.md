@@ -1,5 +1,5 @@
 # tennisleague
-Tennis league website for amateur players in Wroclaw area. 
+Tennis league website for amateur players from Wroclaw. 
 
 The Web App has been deployed to Heroku cloud and is available for viewing and testing under the following url: 
 
@@ -7,7 +7,7 @@ https://wroclawskaligatenisowa.herokuapp.com
 
 Unfortunately, the app is not the fastest due to having a basic, free heroku plan and it takes a while to load the page properly. Please bear with it ;)
 
-Please familiarize yourself with the app functionalities.
+Please familiarize yourself with the app functionalities. There are 5 accounts login details provided in the bottom section.
 
 ## Introduction
 
@@ -34,7 +34,7 @@ The app has been deployed to heroku cloud on the 5th of January 2020.
 
 Planned for completion by the end of January 2020.
 
-## Plans of the future
+## Plans for the future
 
 **Short term goals**
 1. Improve the backend validation of the forms (especially registration and login!), introduce frontend validation
@@ -44,14 +44,14 @@ Planned for completion by the end of January 2020.
 1. Make some activities more automated (eg. remove the necessity to create all matches by admin)
 2. Tweak the webpage frontend and introduce more javascript to add some dynamics
 3. User has to confirm their email address after registration (click the link in email)
-4. 
+ 
 
 ## Scope of functionalities
 
 The main page (index.html) allows a potential user to:
-* Read a description of the league: Click "O LIDZE" ("ABOUT THE LEAGUE") **NOT YET AVAILABLE**, 
+* Read a description of the league: Click "O LIDZE" ("ABOUT THE LEAGUE") NOT YET AVAILABLE, 
 * Check the ranking of a current round: Click "WYNIKI" ("RESULTS") - it shows groups with singles players ordered by number of points (ascending). It also contains the list of matches in each group, which have been played to date.
-* Find out more about the rules of the league: Click "ZASADY" ("RULES") **NOT YET AVAILABLE**,
+* Find out more about the rules of the league: Click "ZASADY" ("RULES") NOT YET AVAILABLE,
 * Enter a registration page: Click "REJESTRACJA" ("REGISTRATION"),
 * Enter a login page: Click "ZALOGUJ" ("LOG IN"").
 
@@ -66,7 +66,7 @@ The rights of each user role are set out below.
 
 **User**
 
-The user after logging in is automatically redirected to the main page (index.html). The user account can be accessed now by clicking "MOJE KONTO" ("MY ACCOUNT") in the top right corner.
+The user after logging in is automatically redirected to the main page (index.html). The user account can now be accessed by clicking "MOJE KONTO" ("MY ACCOUNT") in the top right corner.
 
 Logged user can see his/her matches (due and already played), ranking of the group he/she is playing in and all matches in the group that have been played to date.
 Once the match has been played the result has to be reported (only by one of the players), by clicking "DODAJ WYNIK" ("REPORT RESULT"). Once the result has been reported, the button will be disabled.
@@ -75,8 +75,8 @@ On the left side there is a panel with the following functionalities:
 * "UZUPEŁNIJ PROFIL" - user has to provide additional information (first name, last name, telephone number, ntrp level) before joining the round. After doing that, the button changes to "EDYTUJ PROFIL" ("EDIT PROFILE"),
 * "ZAPIS DO RUNDY: Name of the round" - user can join the upcoming round (the registration closes 2 days prior to start date),
 * "WYCOFAJ SIE Z RUNDY" - user can withdraw from the round during its duration by clicking that button,
-* "USUN KONTO" - user can delete his/her account if he/she doesn't wish to play in the league anymore **NOT YET AVAILABLE**,
-* "ZGŁOS PROBLEM" - user can contact administrator with issues such as bugs on the website, problems iwth other player etc. **NOT YET AVAILABLE**,
+* "USUN KONTO" - user can delete his/her account if he/she doesn't wish to play in the league anymore NOT YET AVAILABLE,
+* "ZGŁOS PROBLEM" - user can contact administrator with issues such as bugs on the website, problems iwth other player etc. NOT YET AVAILABLE,
 
 ![User Panel Image](https://github.com/maciejdluzen/tennisleague/tree/master/src/main/resources/static/public_html/readme_images/user_panel_view.png)
 
@@ -111,9 +111,9 @@ On the left side there is a panel with the following functionalities:
 
 **Order of activities**
 
-This subsections describes the order of activities during one round to better understand the app functionalities:
+This subsection describes the order of activities during one round to better understand the app functionalities:
 1. Users register their accounts
-2. Admin creates new round
+2. Admin creates a new round
 3. Users provide more information about them (UZUPELNIJ PROFIL)
 4. Users sign up for the round before registration closing date (they become singles players now)
 5. Admin divides players into groups, by their skills level (NTRP)
