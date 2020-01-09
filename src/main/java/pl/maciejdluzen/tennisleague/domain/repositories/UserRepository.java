@@ -10,6 +10,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User getByUsername(String username);
 
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
+
 
     //******************************************//
     //**SQL QUERIES ONLY FOR HEROKU DEPLOYMENT**//
