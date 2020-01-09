@@ -1,6 +1,7 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.maciejdluzen.tennisleague.dtos.RegistrationDataDTO;
 import pl.maciejdluzen.tennisleague.services.RegistrationService;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Path;
 import javax.validation.Valid;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @Controller
 @RequestMapping("/register")
@@ -35,8 +40,21 @@ public class RegistrationController {
         if (results.hasErrors()) {
             return "register/form";
         }
+        try {
+            registrationService.register(registrationData);
+        } catch (ConstraintViolationException cve) {
+            for (ConstraintViolation<?> violation : cve.getConstraintViolations()) {
+                String field = null;
+                for (Path.Node node : violation.getPropertyPath()) {
+                    field = node.getName();
+                }
+                results.rejectValue(field, violation.getConstraintDescriptor().getAnnotation().annotationType().getSimpleName() + ".registrationData." + field);
+            }
+            return "register/form";
+        } catch (DataIntegrityViolationException dive) {
 
-        registrationService.register(registrationData);
+            return "register/form";
+        }
         return "redirect:/";
     }
 }
