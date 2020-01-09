@@ -51,9 +51,6 @@ public class RegistrationController {
                 results.rejectValue(field, violation.getConstraintDescriptor().getAnnotation().annotationType().getSimpleName() + ".registrationData." + field);
             }
             return "register/form";
-        } catch (DataIntegrityViolationException dive) {
-
-            return "register/form";
         }
         return "redirect:/";
     }

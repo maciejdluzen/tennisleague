@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import pl.maciejdluzen.tennisleague.services.ValidationService;
 import pl.maciejdluzen.tennisleague.validation.constraints.UniqueUsername;
 
+import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.ConstraintViolation;
 
@@ -14,14 +15,14 @@ import javax.validation.ConstraintViolation;
 @Scope("prototype")
 @Slf4j
 @RequiredArgsConstructor
-public class UniqueUsernameValidatorForString implements ConstraintViolation<UniqueUsername, String> {
+public class UniqueUsernameValidatorForString implements ConstraintValidator<UniqueUsername, String> {
 
     private final ValidationService validationService;
 
     public void initialize(UniqueUsername constraint) {
 
     }
-    
+
     public boolean isValid(String value, ConstraintValidatorContext context) {
         log.debug("Validating unique username: {}", value);
         boolean unique = validationService.isUniqueUsername(value);
