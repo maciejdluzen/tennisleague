@@ -64,51 +64,51 @@
         <div class="column center">
             <form:form method="post" modelAttribute="registrationData">
                 <div class="field">
-                    <form:label path="username" cssClass="label">Username</form:label>
+                    <form:label path="username" cssClass="label">Nazwa użytkownika</form:label>
                     <div class="control has-icons-left">
-                        <form:input path="username" cssClass="input" required="true"/>
+                        <form:input path="username" cssClass="input" placeholder="Nazwa użytkownika" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-                        <p class="help">Set your username</p>
+                        <p class="help">Podaj nazwę użytkownika</p>
                     </div>
                 </div>
                 <div class="field">
-                    <form:label path="email" cssClass="label">Email</form:label>
+                    <form:label path="email" cssClass="label">Adres e-mail</form:label>
                     <div class="control has-icons-left">
-                        <form:input path="email" cssClass="input" required="true"/>
+                        <form:input path="email" cssClass="input" placeholder="Adres e-mail" required="true"/>
                         <span class="icon is-small is-left"><i
                                 class="fas fa-envelope"></i></span>
-                        <p class="help">Set your email</p>
+                        <p class="help">Podaj adres email</p>
                     </div>
                 </div>
                 <div class="field">
-                    <form:label path="password" cssClass="label">Password</form:label>
+                    <form:label path="password" cssClass="label">Hasło</form:label>
                     <div class="control has-icons-left">
-                        <form:password path="password" cssClass="input" required="true"/>
+                        <form:password path="password" cssClass="input" placeholder="Hasło" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                        <p class="help">Set your password</p>
+                        <p class="help">Podaj hasło</p>
                     </div>
                 </div>
                 <div class="field">
-                    <form:label path="rePassword" cssClass="label">Retype Password</form:label>
+                    <form:label path="rePassword" cssClass="label">Powtórz hasło</form:label>
                     <div class="control has-icons-left">
-                        <form:password path="rePassword" cssClass="input" required="true"/>
+                        <form:password path="rePassword" cssClass="input" placeholder="Powtórz hasło" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                        <p class="help">Set your password again</p>
+                        <p class="help">Powtórz hasło</p>
                     </div>
                 </div>
                 <div class="field">
                     <form:label path="termsAcceptance"
                                 cssClass="checkbox">
                         <form:checkbox path="termsAcceptance"
-                                       required="true"/> Accept terms</form:label>
+                                       required="true"/> Akceptuję warunki korzystania z portalu</form:label>
                 </div>
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-success is-link" type="submit">Register
+                        <button class="button is-success is-link" type="submit">Zarejestruj
                         </button>
                     </div>
                     <div class="control">
-                        <button class="button is-text" type="reset">Reset</button>
+                        <button class="button is-text" type="reset">Wyczyść</button>
                     </div>
                 </div>
                 <form:errors path="*"/>
