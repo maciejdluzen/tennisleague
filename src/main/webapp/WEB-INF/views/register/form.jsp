@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -68,7 +69,7 @@
                     <div class="control has-icons-left">
                         <form:input path="username" cssClass="input" placeholder="Nazwa użytkownika" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
-                        <p class="help">Podaj nazwę użytkownika</p>
+                        <form:errors path="username" element="p" cssClass="help is-danger"/>
                     </div>
                 </div>
                 <div class="field">
@@ -77,7 +78,7 @@
                         <form:input path="email" cssClass="input" placeholder="Adres e-mail" required="true"/>
                         <span class="icon is-small is-left"><i
                                 class="fas fa-envelope"></i></span>
-                        <p class="help">Podaj adres email</p>
+                        <form:errors path="email" element="p" cssClass="help is-danger"/>
                     </div>
                 </div>
                 <div class="field">
@@ -85,7 +86,7 @@
                     <div class="control has-icons-left">
                         <form:password path="password" cssClass="input" placeholder="Hasło" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                        <p class="help">Podaj hasło</p>
+                        <form:errors path="password" element="p" cssClass="help is-danger"/>
                     </div>
                 </div>
                 <div class="field">
@@ -93,7 +94,7 @@
                     <div class="control has-icons-left">
                         <form:password path="rePassword" cssClass="input" placeholder="Powtórz hasło" required="true"/>
                         <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                        <p class="help">Powtórz hasło</p>
+                        <form:errors path="rePassword" element="p" cssClass="help is-danger"/>
                     </div>
                 </div>
                 <div class="field">
@@ -101,6 +102,7 @@
                                 cssClass="checkbox">
                         <form:checkbox path="termsAcceptance"
                                        required="true"/> Akceptuję warunki korzystania z portalu</form:label>
+                    <form:errors path="termsAcceptance" element="p" cssClass="help is-danger"/>
                 </div>
                 <div class="field is-grouped">
                     <div class="control">
@@ -111,7 +113,7 @@
                         <button class="button is-text" type="reset">Wyczyść</button>
                     </div>
                 </div>
-                <form:errors path="*"/>
+                <sec:csrfInput/>
             </form:form>
         </div>
     </header>
