@@ -1,4 +1,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -55,13 +57,17 @@
         <div class="column center">
             <form method="post" action="/login">
                 <div class="field">
+                    <c:if test="${param['error'] != null}">
+                        <p class="help is-danger has-background-grey-light is-size-5">
+                            <s:message code="pages.login.form.login-error"/>
+                        </p>
+                    </c:if>
                     <label class="label" for="username">Username</label>
                     <div class="control has-icons-left">
                         <input type="text" id="username" name="username" required class="input"/>
                         <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
-                            </span>
-                        <p class="help">Your username</p>
+                        </span>
                     </div>
                 </div>
                 <div class="field">
@@ -71,7 +77,7 @@
                         <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
-                        <p class="help">Your password</p>
+
                     </div>
                 </div>
                 <div class="field">
