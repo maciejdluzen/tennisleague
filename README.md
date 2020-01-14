@@ -27,12 +27,18 @@ Main focus has been put on building backend functionalities, however a bit of ti
 
 ## Current Status
 
-In progress. Approximately 80% of work has been done to date (5th January 2020).
-The app has been deployed to heroku cloud on the 5th of January 2020.
+In progress. Approximately 80% of work has been done to date (14th January 2020).
+Version 2 of the app has been deployed to heroku cloud on the 14th of January 2020.
 
 **Project completion timeline**
 
 Planned for completion by the end of January 2020.
+
+**Cloud deployment history**
+Date / Version / Comment
+
+5.01.2020 / ver.1 / First deployment to the cloud
+14.01.2020 / ver.2 / Improved registration & login forms validation
 
 ## Plans for the future
 
