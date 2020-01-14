@@ -38,6 +38,7 @@ Planned for completion by the end of January 2020.
 Date / Version / Comment
 
 5.01.2020 / ver.1 / First deployment to the cloud
+
 14.01.2020 / ver.2 / Improved registration & login forms validation
 
 ## Plans for the future
