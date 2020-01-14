@@ -24,14 +24,4 @@ public class SamePasswordValidatorForRegistrationDTO implements ConstraintValida
             return valid;
         }
     }
-
-
-
-
-
-
-
-
-
-
 }
