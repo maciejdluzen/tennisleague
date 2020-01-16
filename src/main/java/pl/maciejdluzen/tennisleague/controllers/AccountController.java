@@ -226,6 +226,6 @@ public class AccountController {
     @PostMapping("/deleteaccount")
     public String processDeleteAccountConfirmation(@ModelAttribute User user) {
         userService.deleteAccount(user.getId());
-        return "redirect:/";
+        return "redirect:/user";
     }
 }

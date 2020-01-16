@@ -29,9 +29,9 @@
                         <p>Potwierdzenie usunięcia konta użytkownika</p>
                     </div>
                     <div class="message-body has-text-centered">
-                        Bardzo nam przykro, że postanawiasz opuścić Wrocławską Ligę Tenisową<i class="far fa-frown"></i>
-                        Jeśli kiedykolwiek chciałbyś ponownie zagrać w Lidze, to serdecznie zapraszamy!
-                        Po potwierdzeniu usunięcia konta, zostaniesz wylogowany i automatycznie przeniesiony na stronę główną.
+                        Bardzo nam przykro, że postanawiasz opuścić Wrocławską Ligę Tenisową<i class="far fa-frown"></i><br/>
+                        Jeśli kiedykolwiek chciałbyś ponownie zagrać w Lidze, to serdecznie zapraszamy!<br/>
+                        Konto zostanie usunięte po potwierdzeniu oraz Twoim wylogowaniu z konta
                     </div>
                 </article>
                 <form method="get" action="/user">
