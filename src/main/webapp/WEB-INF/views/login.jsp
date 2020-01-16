@@ -55,6 +55,8 @@
     <!-- .hero-body-->
     <header class="hero-body">
         <div class="column center">
+            <div class="box has-background-grey-lighter">
+                <h2 class="subtitle is-3">Logowanie</h2>
             <form method="post" action="/login">
                 <div class="field">
                     <c:if test="${param['error'] != null}">
@@ -86,6 +88,7 @@
                 </div>
                 <sec:csrfInput/>
             </form>
+            </div>
         </div>
     </header>
 </section>

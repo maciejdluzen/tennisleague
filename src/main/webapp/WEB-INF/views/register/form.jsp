@@ -63,6 +63,8 @@
     <!-- .hero-body-->
     <header class="hero-body">
         <div class="column center">
+            <div class="box has-background-grey-lighter">
+                <h2 class="subtitle is-3">Rejestracja</h2>
             <form:form method="post" modelAttribute="registrationData">
                 <div class="field">
                     <form:label path="username" cssClass="label">Nazwa użytkownika</form:label>
@@ -115,16 +117,10 @@
                 </div>
                 <sec:csrfInput/>
             </form:form>
+            </div>
         </div>
     </header>
 </section>
 <!--/.hero -->
-
-
-
-
-
-
-
 </body>
 </html>
