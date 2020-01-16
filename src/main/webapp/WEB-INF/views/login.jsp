@@ -46,8 +46,6 @@
             </div>
             <div class="column right">
                 <a class="navbar-item desktop has-text-black is-size-5" href="/register">REJESTRACJA</a>
-                <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
-                <!-- ... -->
             </div>
         </div>
     </div>
@@ -86,6 +84,7 @@
                         <button class="button is-success is-link" type="submit">Zaloguj</button>
                     </div>
                 </div>
+                <p>Nie masz jeszcze konta? <a class="is-link" href="/register">Zarejestruj się</a></p>
                 <sec:csrfInput/>
             </form>
             </div>

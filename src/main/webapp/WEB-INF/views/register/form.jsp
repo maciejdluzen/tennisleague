@@ -53,7 +53,6 @@
                 <!-- ... -->
             </div>
             <div class="column right">
-                <a class="navbar-item desktop has-text-black is-size-5" href="/register">REJESTRACJA</a>
                 <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
                 <!-- ... -->
             </div>
@@ -103,7 +102,7 @@
                     <form:label path="termsAcceptance"
                                 cssClass="checkbox">
                         <form:checkbox path="termsAcceptance"
-                                       required="true"/> Akceptuję warunki korzystania z portalu</form:label>
+                                       required="true"/> Akceptuję <a class="is-link" href="/terms">warunki</a> korzystania z portalu</form:label>
                     <form:errors path="termsAcceptance" element="p" cssClass="help is-danger has-background-grey-light is-size-5"/>
                 </div>
                 <div class="field is-grouped">

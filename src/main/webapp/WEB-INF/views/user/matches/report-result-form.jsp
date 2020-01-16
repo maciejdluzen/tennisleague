@@ -51,6 +51,7 @@
                         <strong>Nie ma możliwości edycji wyników!</strong>
                     </div>
                 </article>
+                <div class="box has-background-grey-lighter">
             <form:form method="post" modelAttribute="match">
                 <form:hidden path="id"/>
                 <div class="field">
@@ -61,8 +62,9 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Nazwisko zawodnika: ${match.playerOneLastName}. Liczba wygranych setów:</label>
+                    <label class="label">Nazwisko zawodnika: ${match.playerOneLastName}</label>
                     <div class="control">
+                        <label class="label">Liczba wygranych setów:</label>
                         <div class="select">
                             <form:select path="playerOneSets" items="${sets}" required="true"/>
                             <form:errors path="playerOneSets"/>
@@ -70,8 +72,9 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Nazwisko zawodnika: ${match.playerTwoLastName}. Liczba wygranych setów:</label>
+                    <label class="label">Nazwisko zawodnika: ${match.playerTwoLastName}</label>
                     <div class="control">
+                        <label class="label">Liczba wygranych setów:</label>
                         <div class="select">
                             <form:select path="playerTwoSets" items="${sets}" required="true"/>
                             <form:errors path="playerTwoSets"/>
@@ -90,6 +93,8 @@
 
                 <sec:csrfInput/>
             </form:form>
+                </div>
+
             </div>
 
             <div class="column is-4">
