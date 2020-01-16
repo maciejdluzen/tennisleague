@@ -1,5 +1,6 @@
 package pl.maciejdluzen.tennisleague.services.impl;
 
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import lombok.extern.slf4j.Slf4j;
 import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
@@ -83,6 +84,16 @@ public class DefaultUserService implements UserService {
         singlesPlayerWithdrawalDTO.setActive(false);
         SinglesPlayer singlesPlayer = mapper.map(singlesPlayerWithdrawalDTO, SinglesPlayer.class);
         singlesPlayerRepository.save(singlesPlayer);
+    }
+
+    @Override
+    public void deleteAccount(Long id) {
+        SinglesPlayer singlesPlayer = singlesPlayerRepository.findByUserId(id);
+        if (singlesPlayer != null) {
+            singlesPlayer.setActive(false);
+        }
+        User user = userRepository.getOne(id);
+        user.setActive(false);
     }
 
     @Override

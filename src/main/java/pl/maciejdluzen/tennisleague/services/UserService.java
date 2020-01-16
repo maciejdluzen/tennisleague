@@ -33,4 +33,6 @@ public interface UserService {
 
     void reportSinglesMatchResult(ReportSingleMatchResultDTO singleMatchResultDTO);
 
+   void deleteAccount(Long id);
+
 }

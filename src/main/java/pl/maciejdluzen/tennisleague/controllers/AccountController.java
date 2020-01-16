@@ -214,4 +214,12 @@ public class AccountController {
         userService.editUserProfile(singlesPlayerEditDTO);
         return "redirect:/user";
     }
+
+    @GetMapping("/deleteaccount")
+    public String prepareDeleteAccountConfirmation() {
+        return "/user/delete-account-confirmation";
+    }
+
+
+
 }
