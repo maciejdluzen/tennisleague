@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -33,16 +34,27 @@
                         Po potwierdzeniu usunięcia konta, zostaniesz wylogowany i automatycznie przeniesiony na stronę główną.
                     </div>
                 </article>
-                <form method="post">
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <input class = button is-link type="submit" value="Potwierdzam">
-                        </div>
-                        <div class="control">
-                            <a class="button is-link" href="/user">Jednak chcę grać dalej!</a>
-                        </div>
-                    </div>
+                <form method="get" action="/user">
+                    <input class="button is-link is-light" type="submit" value="Jednak chcę grać dalej!">
                 </form>
+
+                <form method="post" action="/user/deleteaccount">
+                    <input type="hidden" name="id" value="${user.id}">
+                    <input class="button is-link" type="submit" value="Potwierdzam">
+                    <sec:csrfInput/>
+                </form>
+
+<%--                <form method="post" action="/user/deleteaccount">--%>
+<%--                    <div class="field is-grouped">--%>
+<%--                        <div class="control">--%>
+<%--                            <input class = button is-link type="submit" value="Potwierdzam">--%>
+<%--                        </div>--%>
+<%--                        <div class="control">--%>
+<%--                            <a class="button is-link" href="/user">Jednak chcę grać dalej!</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </form>--%>
+
             </div>
         </div>
         <div class="columns">

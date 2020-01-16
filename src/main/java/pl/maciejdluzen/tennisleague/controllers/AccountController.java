@@ -216,10 +216,16 @@ public class AccountController {
     }
 
     @GetMapping("/deleteaccount")
-    public String prepareDeleteAccountConfirmation() {
+    public String prepareDeleteAccountConfirmation(Model model, Principal principal) {
+        String username = principal.getName();
+        User user = userService.findUserByUsername(username);
+        model.addAttribute("user", user);
         return "/user/delete-account-confirmation";
     }
 
-
-
+    @PostMapping("/deleteaccount")
+    public String processDeleteAccountConfirmation(@ModelAttribute User user) {
+        userService.deleteAccount(user.getId());
+        return "redirect:/";
+    }
 }
