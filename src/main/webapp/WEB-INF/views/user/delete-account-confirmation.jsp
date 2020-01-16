@@ -28,17 +28,21 @@
                         <p>Potwierdzenie usunięcia konta użytkownika</p>
                     </div>
                     <div class="message-body has-text-centered">
-                        Powtwierdź chęć wycofania z obecnej rundy.
+                        Bardzo nam przykro, że postanawiasz opuścić Wrocławską Ligę Tenisową<i class="far fa-frown"></i>
+                        Jeśli kiedykolwiek chciałbyś ponownie zagrać w Lidze, to serdecznie zapraszamy!
+                        Po potwierdzeniu usunięcia konta, zostaniesz wylogowany i automatycznie przeniesiony na stronę główną.
                     </div>
                 </article>
-                <div class="field is-grouped">
-                    <div class="control">
-                        <input class = button is-link type="submit" value="Potwierdzam">
+                <form method="post">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <input class = button is-link type="submit" value="Potwierdzam">
+                        </div>
+                        <div class="control">
+                            <a class="button is-link" href="/user">Jednak chcę grać dalej!</a>
+                        </div>
                     </div>
-                    <div class="control">
-                        <a class="button is-link" href="/user">Powrót</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="columns">
