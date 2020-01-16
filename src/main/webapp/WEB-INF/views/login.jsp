@@ -62,7 +62,7 @@
                             <s:message code="pages.login.form.login-error"/>
                         </p>
                     </c:if>
-                    <label class="label" for="username">Username</label>
+                    <label class="label" for="username">Nazwa użytkownika</label>
                     <div class="control has-icons-left">
                         <input type="text" id="username" name="username" required class="input"/>
                         <span class="icon is-small is-left">
@@ -71,18 +71,17 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label" for="password">Password</label>
+                    <label class="label" for="password">Hasło</label>
                     <div class="control has-icons-left">
                         <input type="password" id="password" name="password" required class="input"/>
                         <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
-
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <button class="button is-success is-link" type="submit">Login</button>
+                        <button class="button is-success is-link" type="submit">Zaloguj</button>
                     </div>
                 </div>
                 <sec:csrfInput/>

@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Konto użytkownika</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -180,7 +180,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <ul>
+                                                <ol>
                                                     <c:choose>
                                                         <c:when test="${user.singlesPlayer.group != null}">
                                                             <c:forEach items="${ranking.playersDescription}" var="playerDescription">
@@ -191,7 +191,7 @@
                                                             <li></li>
                                                         </c:otherwise>
                                                     </c:choose>
-                                                </ul>
+                                                </ol>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -215,7 +215,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <ul>
+                                                <ol>
                                                     <c:choose>
                                                         <c:when test="${ranking != null}">
                                                             <c:forEach items="${ranking.matchesDescription}" var="matchDescription">
@@ -226,7 +226,7 @@
                                                                 <li>Nie jesteś jeszcze zapisany do żadnej grupy</li>
                                                             </c:otherwise>
                                                     </c:choose>
-                                                </ul>
+                                                </ol>
                                             </td>
                                         </tr>
                                         </tbody>

@@ -35,10 +35,12 @@
                             <form>
                                 <a class="navbar-item button" href="/" style="margin-right: 1em;"><strong>Strona główna</strong></a>
                             </form>
-                            <form method="post" action="/logout">
-                                <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
-                                <sec:csrfInput/>
-                            </form>
+                            <sec:authorize access="isAuthenticated()">
+                                <form method="post" action="/logout">
+                                    <button class="button is-primary" type="submit"><strong>Wyloguj</strong></button>
+                                    <sec:csrfInput/>
+                                </form>
+                            </sec:authorize>
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,7 @@
                         <a class="navbar-item desktop has-text-black is-size-5" href="/admin">KONTO ADMINA</a>
                     </sec:authorize>
                     <form method="post" action="/logout">
-                        <button class="navbar-item desktop has-text-black is-size-5" type="submit">WYLOGUJ</button>
+                        <input class="button has-text-black is-size-5" type="submit" value="WYLOGUJ"/>
                         <sec:csrfInput/>
                     </form>
                 </sec:authorize>
