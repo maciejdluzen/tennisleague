@@ -77,6 +77,8 @@
                         <li><a href="/admin/singlesplayers">Przeglądaj</a></li>
                         UŻYTKOWNICY
                         <li><a href="/admin/users">Przeglądaj</a></li>
+                        TREŚCI NA STRONIE
+                        <li><a href="/admin/rules">Zasady ligi tenisowej</a></li>
                     </ul>
                 </aside>
             </div>

@@ -33,7 +33,7 @@
     <label>Opis</label>
     <form:textarea path="description"/>
     <form:errors path="description"/>
-    
+    <input type="submit" value="Dodaj">
 </form:form>
 </body>
 </html>
