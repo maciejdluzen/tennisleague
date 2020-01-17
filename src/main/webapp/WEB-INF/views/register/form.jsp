@@ -53,6 +53,7 @@
                 <!-- ... -->
             </div>
             <div class="column right">
+                <a class="navbar-item desktop has-text-black is-size-5" href="/">STRONA GŁÓWNA</a>
                 <a class="navbar-item desktop has-text-black is-size-5" href="/login">ZALOGUJ</a>
                 <!-- ... -->
             </div>
