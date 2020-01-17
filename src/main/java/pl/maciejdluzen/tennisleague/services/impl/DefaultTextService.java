@@ -9,6 +9,8 @@ import pl.maciejdluzen.tennisleague.domain.repositories.RulesRepository;
 import pl.maciejdluzen.tennisleague.dtos.RuleDTO;
 import pl.maciejdluzen.tennisleague.services.TextService;
 
+import java.util.List;
+
 @Service
 @Transactional @Slf4j
 public class DefaultTextService implements TextService {
@@ -17,6 +19,11 @@ public class DefaultTextService implements TextService {
 
     public DefaultTextService(RulesRepository rulesRepository) {
         this.rulesRepository = rulesRepository;
+    }
+
+    @Override
+    public List<Rule> findAllRules() {
+        return rulesRepository.findAll();
     }
 
     @Override
