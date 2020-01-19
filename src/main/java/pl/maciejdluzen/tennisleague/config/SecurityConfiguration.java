@@ -48,6 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/ranking").permitAll()
+                .antMatchers("/leaguerules").permitAll()
                 .antMatchers("/logout").authenticated()
                 .antMatchers("/user", "/user/**").hasRole("USER")   // ta metoda dokleja ROLE_ z przodu - na bazie mamy ROLE_USER!
                 .antMatchers("/admin", "/admin/**").hasRole("ADMIN")

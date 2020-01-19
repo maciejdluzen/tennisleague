@@ -46,7 +46,7 @@
             <div class="column center desktop">
                 <p class="navbar-item has-text-black is-size-5">O LIDZE</p>
                 <a class="navbar-item has-text-black is-size-5" href="/ranking">WYNIKI</a>
-                <p class="navbar-item has-text-black is-size-5" href="/rules">ZASADY</p>
+                <a class="navbar-item has-text-black is-size-5" href="/leaguerules">ZASADY</a>
                 <!-- ... -->
             </div>
             <div class="column right">
