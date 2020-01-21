@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: maciej
@@ -13,5 +14,12 @@
 </head>
 <body>
 
+<table>
+    <tr>
+        <c:forEach items="${allrules}" var="rule">
+            <ul>${rule.number} ${rule.description}</ul>
+        </c:forEach>
+    </tr>
+</table>
 </body>
 </html>
