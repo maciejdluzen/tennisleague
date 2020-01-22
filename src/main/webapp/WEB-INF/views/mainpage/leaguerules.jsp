@@ -55,27 +55,31 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1 class="title has-text-centered">
-                                WROCŁAWSKA LIGA TENISOWA - Zasady Ligi
+                            <br/>
+                                Zasady Ligi Tenisowej
                             </h1>
+                            <h2>
+
+                            </h2>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
+        <div class="columns">
+            <div class="column is-4 is-offset-2">
+                <c:forEach items="${allrules}" var="rule">
+                    <ul class="is-size-4">${rule.number} ${rule.description}</ul>
+                </c:forEach>
+            </div>
+        </div>
     </div>
 </section>
 
-
-<table>
-    <tr>
-        <c:forEach items="${allrules}" var="rule">
-            <ul>${rule.number} ${rule.description}</ul>
-        </c:forEach>
-    </tr>
-</table>
-
-
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="public_html/scripts/script.js"></script>
 
 </body>
 </html>
