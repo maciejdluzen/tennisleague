@@ -1,31 +1,30 @@
 package pl.maciejdluzen.tennisleague.controllers;
 
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.maciejdluzen.tennisleague.domain.entities.VerificationToken;
 import pl.maciejdluzen.tennisleague.dtos.RegistrationDataDTO;
 import pl.maciejdluzen.tennisleague.services.RegistrationService;
+import pl.maciejdluzen.tennisleague.services.VerificationTokenService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Path;
 import javax.validation.Valid;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
 
     private final RegistrationService registrationService;
+    private final VerificationTokenService verificationTokenService;
 
-    public RegistrationController(RegistrationService registrationService) {
+    public RegistrationController(RegistrationService registrationService, VerificationTokenService verificationTokenService) {
         this.registrationService = registrationService;
+        this.verificationTokenService = verificationTokenService;
     }
 
     @GetMapping
@@ -53,5 +52,17 @@ public class RegistrationController {
             return "register/form";
         }
         return "login";
+    }
+
+    @GetMapping("/confirmation")
+    public String processConfirmRegistration(@RequestParam("token") String token) {
+        VerificationToken verificationToken = verificationTokenService.findByToken(token);
+
+        if(verificationToken != null) {
+            registrationService.makeUserStatusActive(verificationToken.getUser().getId());
+        } else {
+            return "register/failed-activation";
+        }
+        return "register/complete-activation";
     }
 }

@@ -53,4 +53,12 @@ public class DefaultRegistrationService implements RegistrationService {
         userRepository.save(user);
         verificationTokenRepository.save(verificationToken);
     }
+
+    @Override
+    public void makeUserStatusActive(Long id) {
+        User user = userRepository.getOne(id);
+        user.setActive(Boolean.TRUE);
+        userRepository.save(user);
+    }
+
 }

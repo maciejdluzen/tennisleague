@@ -8,13 +8,6 @@ public interface RegistrationService {
 
     void register(@Valid RegistrationDataDTO registrationData);
 
-
-
-
-
-
-
-
-
+    void makeUserStatusActive(Long id);
 
 }
